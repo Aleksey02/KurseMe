@@ -1,0 +1,31 @@
+.footer{
+    background: white;
+    padding: 26px 4% 55px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    row-gap: 20px;
+    column-gap: 80px;
+    &__item{
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &:first-child{
+            width: 450px;
+        }
+    }
+    &__logo{
+        width: 158.25px;
+        height: 28.84px;
+    }
+    &__text{
+        font-size: 18px;
+        font-family: 'TTFirsNeue-Regular';       
+    }
+    &__title{
+        padding-bottom: 10px;
+        font-size: 18px;
+        font-family: 'TTFirsNeue-Medium';        
+    }
+}
