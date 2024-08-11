@@ -1,0 +1,38 @@
+.item{
+    width: 80%;
+    min-height: 250px;
+    display: flex;
+    background-color: #EDEDED;
+    border-radius: 30px; 
+    padding: 7px;   
+    justify-content: space-between;
+    &__img{
+        min-width: 250px;
+        height: 236px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 30px;
+    }
+    &__desc{
+        padding: 30px 30px 30px 23px;
+        font-family: 'TTFirsNeue-Light';
+        font-size: 25px;
+    }
+    &__btn{
+        display: inline-block;
+        align-self: flex-end;
+        background-color: black;
+        padding: 20px 80px;
+        color: white;
+        border-radius: 5px;
+        font-family: 'TTFirsNeue-Regular';
+        font-size: 18px;
+        border: none;
+        transition: 0.25s;
+        margin: 10px 24px;
+        margin-left: auto;
+
+    }
+}
