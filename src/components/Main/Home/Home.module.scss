@@ -15,3 +15,11 @@
         gap: 120px;
     }
 }
+@media (max-width: 870px) {
+    .home{
+        &__box{
+            flex-direction: column;
+            gap: 35px;
+        }
+    }
+}
