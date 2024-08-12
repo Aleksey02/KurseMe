@@ -2,6 +2,7 @@ import classes from './Main.module.scss'
 import Home from "./Home/Home"
 import {Route, Routes} from 'react-router-dom'
 import School from './School/School'
+import Subjects from './Subjects/Subjects'
 
 function Main(){
     return (
@@ -9,6 +10,7 @@ function Main(){
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/11' element={<School />} />
+                <Route path='/11/subjects' element={<Subjects />} />
                 <Route path='/9' element={<School />} />
             </Routes>
         </main>
