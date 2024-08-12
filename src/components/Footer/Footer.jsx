@@ -1,5 +1,6 @@
 import classes from './Footer.module.scss'
 import logo from '../../assets/images/Footer/logo.svg'
+import { NavLink } from 'react-router-dom'
 
 function Footer(){
     return (
@@ -12,8 +13,8 @@ function Footer(){
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>Обучение</h4>
-                <a className={classes.footer__text}>ЕГЭ</a>
-                <a className={classes.footer__text}>ОГЭ</a>
+                <NavLink to={"/11"} className={classes.footer__text}>ЕГЭ</NavLink>
+                <NavLink to={"/9"} className={classes.footer__text}>ОГЭ</NavLink>
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>О нас</h4>

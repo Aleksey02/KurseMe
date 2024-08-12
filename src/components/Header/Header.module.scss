@@ -94,8 +94,14 @@
         z-index: 5;
         height: 55px;
         transition: 0.3s;
+        &__link{
+            display: none;
+        }
         &.active{
             width: 100%;
+            & .menu__link{
+                display: block;
+            }
         }
         &__link{
             font-family: 'TTFirsNeue-Light';

@@ -2,21 +2,22 @@ import { useState } from 'react'
 import logo from '../../assets/images/Header/logo.svg'
 import miniLogo from '../../assets/images/Header/mini_logo.svg'
 import classes from './Header.module.scss'
+import { NavLink } from 'react-router-dom';
 
 function Header(){
     const [isBurgerActive, setIsBurgerActive] = useState(false);
     return (
         <header className={classes.header}>
-            <a href="/" className={classes.header__logo}>
+            <NavLink to="/" className={classes.header__logo}>
                 <img src={logo} alt="logo" className={classes.header__logo + ' ' + classes.header__logo_long}/>
                 <img src={miniLogo} alt="logo" className={classes.header__logo + ' ' + classes.header__logo_mini}/>
-            </a>
+            </NavLink>
             <ul className={classes.header__list}>
                 <li className={classes.header__item}>
-                    <a href="/" className={classes.header__link}>ЕГЭ</a>
+                    <NavLink to="/11" className={classes.header__link}>ЕГЭ</NavLink>
                 </li>
                 <li className={classes.header__item}>
-                    <a href="/" className={classes.header__link}>ОГЭ</a>
+                    <NavLink to="/9" className={classes.header__link}>ОГЭ</NavLink>
                 </li>
                 <li className={classes.header__item}>
                     <a href="/" className={classes.header__link}>Помощь</a>
@@ -29,9 +30,9 @@ function Header(){
                 <span className={classes.burger__line}></span>
             </button>
             <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
-                <a href="/" className={classes.menu__link}>ЕГЭ</a>
-                <a href="/" className={classes.menu__link}>ОГЭ</a>
-                <a href="/" className={classes.menu__link}>Помощь</a>
+                <NavLink to="/11" className={classes.menu__link}>ЕГЭ</NavLink>
+                <NavLink to="/9" className={classes.menu__link}>ОГЭ</NavLink>
+                <NavLink to="/" className={classes.menu__link}>Помощь</NavLink>
             </div>
         </header>
     )

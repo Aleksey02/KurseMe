@@ -33,6 +33,39 @@
         transition: 0.25s;
         margin: 10px 24px;
         margin-left: auto;
+        cursor: pointer;
 
+    }
+}
+@media (max-width: 1260px) {
+    .item{
+        width: 90%;
+    }
+}
+@media (max-width: 980px) {
+    .item{
+        flex-direction: column;
+        &__img{
+            height: 200px;
+        }
+        &__desc{
+            text-align: center;
+        }
+        &__btn{
+            margin-right: auto;
+            padding: 15px 50px;
+        }
+    }
+}
+@media (max-width: 540px) {
+    .item{
+        
+        &__desc{
+            font-size: 16px;
+        }
+        &__btn{
+            margin-right: auto;
+            padding: 15px 50px;
+        }
     }
 }
