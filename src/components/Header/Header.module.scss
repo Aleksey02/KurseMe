@@ -57,6 +57,9 @@
         background-color: black;
         padding: 4px 8px;
         border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
         &.active{
             & .burger__line{
                 &:nth-child(1){
