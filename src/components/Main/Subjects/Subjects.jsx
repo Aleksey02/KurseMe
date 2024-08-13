@@ -1,14 +1,15 @@
 import classes from './Subjects.module.scss'
 import Item from './Item/Item'
+import { useParams } from 'react-router-dom'
 
 function Subjects({data}){
-    const school = data.schools.find(item=>item.name==window.location.pathname.split('/').reverse()[0])
-    
+    const { school } = useParams()
+    const subjects = data.schools.find(item=>item.name==school).subjects
     return (
         <div className={classes.subjects}>
             <h2 className={classes.subjects__title}>Предметы</h2>
             <div className={classes.subjects__box}>
-                {school.subjects.map(item=><Item info={item}/>)}
+                {subjects.map(item=><Item info={item}/>)}
                 
             </div>
         </div>

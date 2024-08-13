@@ -1,4 +1,5 @@
 import classes from './Item.module.scss'
+import { NavLink } from 'react-router-dom'
 import russianLang from '../../../../assets/images/Subjects/russianLang.svg'
 import mathProfile from '../../../../assets/images/Subjects/mathProfile.svg'
 import mathBase from '../../../../assets/images/Subjects/mathBase.svg'
@@ -39,7 +40,7 @@ function Item({info}){
                     <p className={classes.item__kurs}>{info.countCusr}</p>
                     <p className={classes.item__cost}>от {info.cost}₽/мес</p>
                 </div>
-                <button className={classes.item__btn}>Выбрать</button>
+                <NavLink to={window.location.href + '/' + info.name} className={classes.item__btn}>Выбрать</NavLink>
             </div>
         </div>
     )
