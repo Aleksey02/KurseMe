@@ -3,13 +3,13 @@ import {BrowserRouter} from 'react-router-dom'
 import Main from "./components/Main/Main"
 import Footer from "./components/Footer/Footer"
 
-function App() {
+function App({data}) {
 
   return (
     <BrowserRouter>
       <div className="app">
         <Header/>
-        <Main/>
+        <Main data={data}/>
         <Footer/>
       </div>
       

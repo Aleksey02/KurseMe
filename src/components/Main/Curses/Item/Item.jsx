@@ -1,6 +1,9 @@
 import classes from './Item.module.scss'
+import Popup from './Popup/Popup'
+import { useState } from 'react'
 
 function Item(){
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     return (
         <div className={classes.item}>
             <div className={classes.item__box}>
@@ -40,8 +43,9 @@ function Item(){
             </div>
             <div className={classes.item__cost}>
                 <p className={classes.item__price}><span>Цена:</span> 349₽/мес</p>
-                <button className={classes.item__btn}>Купить</button>
+                <button className={classes.item__btn} onClick={()=> setIsPopupOpen(true)}>Купить</button>
             </div>
+            {isPopupOpen && <Popup setIsPopupOpen={setIsPopupOpen}/>}
         </div>
     )
 }

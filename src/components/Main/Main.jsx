@@ -5,15 +5,16 @@ import School from './School/School'
 import Subjects from './Subjects/Subjects'
 import Curses from './Curses/Curses'
 
-function Main(){
+function Main({data}){
     return (
         <main className={classes.main}>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/11' element={<School />} />
-                <Route path='/11/subjects' element={<Subjects />} />
+                <Route path='/11' element={<School data={data['11']} />} />
+                <Route path='/11/*' element={<Subjects data={data['11']} />} />
                 <Route path='/11/subjects/curses' element={<Curses />} />
-                <Route path='/9' element={<School />} />
+                <Route path='/9' element={<School data={data['9']} />} />
+                <Route path='/9/*' element={<Subjects data={data['9']} />} />
             </Routes>
         </main>
     )
