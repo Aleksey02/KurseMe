@@ -1,5 +1,4 @@
 import classes from './Item.module.scss'
-import { NavLink } from 'react-router-dom'
 import russianLang from '../../../../assets/images/Subjects/russianLang.svg'
 import mathProfile from '../../../../assets/images/Subjects/mathProfile.svg'
 import mathBase from '../../../../assets/images/Subjects/mathBase.svg'
@@ -12,6 +11,8 @@ import biology from '../../../../assets/images/Subjects/biology.svg'
 import chemistry from '../../../../assets/images/Subjects/chemistry.svg'
 import informatics from '../../../../assets/images/Subjects/informatics.svg'
 import math from '../../../../assets/images/Subjects/math.svg'
+import Popup from './Popup/Popup'
+import { useState } from 'react'
 
 const img = {
     russianLang, 
@@ -30,7 +31,7 @@ const img = {
 
 
 function Item({info}){
-    console.log(info);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     
     return(
         <div className={classes.item}>
@@ -40,8 +41,9 @@ function Item({info}){
                     <p className={classes.item__kurs}>{info.countCusr}</p>
                     <p className={classes.item__cost}>от {info.cost}₽/мес</p>
                 </div>
-                <NavLink to={window.location.href + '/' + info.name} className={classes.item__btn}>Выбрать</NavLink>
+                <button className={classes.item__btn} onClick={()=>setIsPopupOpen(true)}>Выбрать</button>
             </div>
+            {isPopupOpen && <Popup setIsPopupOpen={setIsPopupOpen}/>}
         </div>
     )
 }

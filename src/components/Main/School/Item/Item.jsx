@@ -25,7 +25,7 @@ function Item({info}){
             <div className={classes.item__img}>
                 <img src={img[info.name]} alt={`${info.title} logo`}  />
             </div> 
-            <p className={classes.item__desc}><b>{info.title}</b> - ${info.desc}</p>
+            <p className={classes.item__desc}><b>{info.title}</b> - {info.desc}</p>
             <NavLink to={window.location.pathname + '/' + info.name} className={classes.item__btn}>Выбрать</NavLink>
         </div>
     )
