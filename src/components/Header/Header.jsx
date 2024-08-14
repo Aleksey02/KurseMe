@@ -18,7 +18,7 @@ function Header(){
                     <NavLink to="/9" className={classes.header__link}>ОГЭ</NavLink>
                 </li>
                 <li className={classes.header__item}>
-                    <NavLink href="/" className={classes.header__link}>Помощь</NavLink>
+                    <NavLink href="/" className={classes.header__link}>Бесплатные Курсы</NavLink>
                 </li>
             </ul>
             <button className={classes.header__btn}>Войти</button>
@@ -30,7 +30,7 @@ function Header(){
             <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
                 <NavLink to="/11" className={classes.menu__link}>ЕГЭ</NavLink>
                 <NavLink to="/9" className={classes.menu__link}>ОГЭ</NavLink>
-                <NavLink to="/" className={classes.menu__link}>Помощь</NavLink>
+                <NavLink to="/" className={classes.menu__link}>Бесплатные Курсы</NavLink>
             </div>
         </header>
     )
