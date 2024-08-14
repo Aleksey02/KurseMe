@@ -1,0 +1,37 @@
+.item{
+    display: flex;
+    flex-direction: column;
+    &__up{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(197, 195, 195, 0.623);
+        cursor: pointer;
+        &.active{
+            border-bottom: 1px solid #fcc63b;
+        }
+        &:hover{
+            .item__question,
+            svg{
+                color: #fcc63b;
+            }
+        }
+        & svg{
+            display: block;
+        }
+    }
+    &__question{
+        font-family: "TTFirsNeue-Light";
+        white-space: normal;
+        font-size: 24px;
+        color: black;
+        transition: 0.1s;
+    }
+    &__answer{
+        font-family: "TTFirsNeue-Light";
+        color: gray;
+        font-size: 20px;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(197, 195, 195, 0.623);
+    }
+}
