@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import logo from '../../assets/images/Header/logo.svg'
-import miniLogo from '../../assets/images/Header/mini_logo.svg'
 import classes from './Header.module.scss'
 import { NavLink } from 'react-router-dom';
 
@@ -9,8 +8,7 @@ function Header(){
     return (
         <header className={classes.header}>
             <NavLink to="/" className={classes.header__logo}>
-                <img src={logo} alt="logo" className={classes.header__logo + ' ' + classes.header__logo_long}/>
-                <img src={miniLogo} alt="logo" className={classes.header__logo + ' ' + classes.header__logo_mini}/>
+                <img src={logo} alt="logo" className={classes.header__logo}/>
             </NavLink>
             <ul className={classes.header__list}>
                 <li className={classes.header__item}>
@@ -20,7 +18,7 @@ function Header(){
                     <NavLink to="/9" className={classes.header__link}>ОГЭ</NavLink>
                 </li>
                 <li className={classes.header__item}>
-                    <a href="/" className={classes.header__link}>Помощь</a>
+                    <NavLink href="/" className={classes.header__link}>Помощь</NavLink>
                 </li>
             </ul>
             <button className={classes.header__btn}>Войти</button>

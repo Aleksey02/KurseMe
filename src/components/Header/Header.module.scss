@@ -6,13 +6,8 @@
     background: #FFFFFF;
     position: relative;
     &__logo{
-        &_long{
-            width: 228px;
-            height: 40px;
-        }
-        &_mini{
-            display: none;
-        }
+        width: 228px;
+        height: 40px;
     }
     &__list{
         display: flex;
@@ -116,14 +111,9 @@
 @media (max-width: 450px) {
     .header{
         &__logo{
-            &_long{
-                display: none;
-            }
-            &_mini{
-                display: block;
-                width: 60px;
-                height: 40px;
-            }
+            width: 160px;
+            height: unset;
+            display: block;
         }
     }
 }

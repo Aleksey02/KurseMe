@@ -3,7 +3,6 @@ import Home from "./Home/Home"
 import {Route, Routes} from 'react-router-dom'
 import School from './School/School'
 import Subjects from './Subjects/Subjects'
-import Curses from './Curses/Curses'
 
 function Main({data}){
     return (
