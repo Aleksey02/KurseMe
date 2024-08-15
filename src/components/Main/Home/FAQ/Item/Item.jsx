@@ -46,8 +46,11 @@ function Item({info}){
                 </svg>}
             </div>
             <div className={classes.item__bottom}>
-            {isAnswerOpen &&<p className={classes.item__answer}>{info.answer}</p>}
-            {isAnswerOpen && info.img && <img className={classes.item__img} src={images[info.img]} alt="review photo"/>}
+            {isAnswerOpen &&<p className={classes.item__answer}>
+                {info.answer}
+                {isAnswerOpen && info.img && <img className={classes.item__img} src={images[info.img]} alt="review photo"/>}
+                
+                </p>}
             </div>
         </div>
     )
