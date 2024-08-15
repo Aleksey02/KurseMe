@@ -6,7 +6,7 @@ function School({data}){
         <div className={classes.school}>
             <h2 className={classes.school__title}>Онлайн-школы</h2>
             <div className={classes.school__box}>
-                {data.schools.map(item=><Item info={item} />)}
+                {data.schools.map((item, index)=><Item info={item} key={index} />)}
             </div>
         </div>
     )

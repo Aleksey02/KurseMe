@@ -18,8 +18,6 @@ const img = {
 }
 
 function Item({info}){
-    console.log(info);
-    
     return (
         <div className={classes.item}>
             <div className={classes.item__img}>

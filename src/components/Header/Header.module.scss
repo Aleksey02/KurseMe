@@ -39,6 +39,13 @@
 .menu{
     display: none;
 }
+@media (max-width: 960px) {
+    .header{
+        &__list{
+            gap: 20px;
+        }
+    }
+}
 @media (max-width: 770px) {
     .header{
         padding: 22px 34px;
@@ -94,17 +101,16 @@
         transition: 0.3s;
         &__link{
             display: none;
+            font-family: 'TTFirsNeue-Light';
+            font-size: 18px;
+            color: white;
+            white-space: nowrap;
         }
         &.active{
             width: 100%;
             & .menu__link{
                 display: block;
             }
-        }
-        &__link{
-            font-family: 'TTFirsNeue-Light';
-            font-size: 18px;
-            color: white;
         }
     }
 }

@@ -9,7 +9,7 @@ function Subjects({data}){
         <div className={classes.subjects}>
             <h2 className={classes.subjects__title}>Предметы</h2>
             <div className={classes.subjects__box}>
-                {subjects.map(item=><Item info={item}/>)}
+                {subjects.map((item, index)=><Item info={item} key={index} />)}
                 
             </div>
         </div>

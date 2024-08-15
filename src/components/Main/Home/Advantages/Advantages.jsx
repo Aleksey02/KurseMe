@@ -7,7 +7,7 @@ function Advantages({data}){
         <div className={classes.advantages}>
             <h2 className={classes.advantages__title}>Преимущества</h2>
             <div className={classes.advantages__box}>
-                {data.map(item=><Point info={item}/>)}
+                {data.map((item, index)=><Point info={item} key={index}/>)}
             </div>
         </div>
     )
