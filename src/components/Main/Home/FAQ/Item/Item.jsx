@@ -1,12 +1,17 @@
 import classes from './Item.module.scss'
 import { useState } from 'react'
+import img1 from '../../../../../assets/images/Home/FAQ/review.jpg'
 
-function Item(){
+const images = {
+    img1: img1
+}
+
+function Item({info}){
     const [isAnswerOpen, setIsAnswerOpen] = useState(false)
     return (
         <div className={classes.item}>
             <div className={classes.item__up + ' ' + (isAnswerOpen?classes.active: '')}  onClick={()=>setIsAnswerOpen(prev=>!prev)}>
-                <p className={classes.item__question}>Зачем вы сливаете курсы? Какая вам выгода помогать?</p>
+                <p className={classes.item__question}>{info.question}</p>
                 {!isAnswerOpen && <svg fill="currentColor" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     viewBox="0 0 512 512" xml:space="preserve">
                 <g>
@@ -41,7 +46,8 @@ function Item(){
                 </svg>}
             </div>
             <div className={classes.item__bottom}>
-            {isAnswerOpen &&<p className={classes.item__answer}>Мы помогаем тысячам выпускников, а так же зарабатываем с этого деньги.</p>}
+            {isAnswerOpen &&<p className={classes.item__answer}>{info.answer}</p>}
+            {isAnswerOpen && info.img && <img className={classes.item__img} src={images[info.img]} alt="review photo"/>}
             </div>
         </div>
     )

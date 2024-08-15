@@ -19,11 +19,12 @@
         background-color: #fcc63b;
         color: white;
         border-radius: 50%;
-        width: 40px;
+        width: 25px;
         height: 25px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
     }
     &__ok{
         background-color: #fcc63b;
@@ -43,13 +44,6 @@
     }
 }
 
-@media (max-width: 1230px) {
-    .point{
-        &::before{
-            height: 20px;
-        }
-    }
-}
 @media (max-width: 870px) {
     .point{
         width: 80%;
@@ -57,25 +51,11 @@
         &::after{
             display: none;
         }
-        &::before{
-            height: 20px;
-            width: 24px;
-        }
-    }
-}
-@media (max-width: 490px) {
-    .point{
-        &::before{
-            height: 20px;
-            width: 24px;
-        }
     }
 }
 @media (max-width: 380px) {
     .point{
         &::before{
-            height: 24px;
-            width: 36px;
             font-size: 14px;
         }
     }
