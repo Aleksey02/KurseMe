@@ -31,7 +31,7 @@ function Header(){
                 <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
                     <NavLink to="/11" className={classes.menu__link}>ЕГЭ</NavLink>
                     <NavLink to="/9" className={classes.menu__link}>ОГЭ</NavLink>
-                    <NavLink to="/" className={classes.menu__link}>Бесплатные Курсы</NavLink>
+                    <a className={classes.menu__link} href='https://egeball.space/'>Бесплатные Курсы</a>
                 </div>
             </div>
         </header>
