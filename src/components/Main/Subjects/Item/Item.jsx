@@ -38,8 +38,8 @@ function Item({info}){
             <div className={classes.item__wrapper}>
                 <img src={img[info.name]} alt="" />
                 <div className={classes.item__box}>
-                    <p className={classes.item__kurs}>{info.countCusr}</p>
-                    <p className={classes.item__cost}>от {info.cost}₽/мес</p>
+                    {/* <p className={classes.item__kurs}>{info.countCusr}</p> */}
+                    <p className={classes.item__cost}>от 400₽/мес</p>
                 </div>
                 <button className={classes.item__btn} onClick={()=>setIsPopupOpen(true)}>Выбрать</button>
             </div>

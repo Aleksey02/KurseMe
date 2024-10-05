@@ -18,13 +18,13 @@ function Footer(){
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>О нас</h4>
-                <a href='https://t.me/egeball_admin' target='_blank' className={classes.footer__text}>Поддержка</a>
+                <a href='https://t.me/egeball_support_bot' target='_blank' className={classes.footer__text}>Поддержка</a>
                 <a href='https://t.me/egeball_feedbacks' target='_blank' className={classes.footer__text}>Отзывы</a>
             </div>
             <div className={classes.footer__item}>
-                <h4 className={classes.footer__title}>Связаться с нами</h4>
+                <h4 className={classes.footer__title}>Мы в телеграме</h4>
                 <a href='https://t.me/+gvKsfyZMms5kMGEy' className={classes.footer__text}>Наш Telegram канал</a>
-                <a href='https://t.me/egeball_admin' className={classes.footer__text}>Менеджер</a>
+                <a href='https://t.me/egeball_club' className={classes.footer__text}>Наш Telegram чат</a>
             </div>
         </footer>
     )

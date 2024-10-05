@@ -125,40 +125,40 @@ export default {
                     },
                 ]
             },
-            {
-                name: 'vebium',
-                title: 'Вебиум',
-                desc: 'онлайн-школа,где понимают, поможет разобраться в предмете и добиться успеха на ЕГЭ и ОГЭ',
-                subjects: [
-                    {
-                        name: 'biology',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                    {
-                        name: 'chemistry',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                ]
-            },
-            {
-                name: 'smartup',
-                title: 'SmutUp',
-                desc: 'с нуля до нужного результата в комфортной атмосфере',
-                subjects: [
-                    {
-                        name: 'socialScience',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                    {
-                        name: 'history',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                ]
-            },
+            // {
+            //     name: 'vebium',
+            //     title: 'Вебиум',
+            //     desc: 'онлайн-школа,где понимают, поможет разобраться в предмете и добиться успеха на ЕГЭ и ОГЭ',
+            //     subjects: [
+            //         {
+            //             name: 'biology',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //         {
+            //             name: 'chemistry',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //     ]
+            // },
+            // {
+            //     name: 'smartup',
+            //     title: 'SmutUp',
+            //     desc: 'с нуля до нужного результата в комфортной атмосфере',
+            //     subjects: [
+            //         {
+            //             name: 'socialScience',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //         {
+            //             name: 'history',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //     ]
+            // },
             {
                 name:  'egeland',
                 title: 'Egeland',
@@ -181,34 +181,45 @@ export default {
                     },
                 ]
             },
+            // {
+            //     name: 'sotka',
+            //     title: 'Сотка',
+            //     desc: 'подготовка к ЕГЭ/ОГЭ с любого уровня на нужный балл',
+            //     subjects: [
+            //         {
+            //             name: 'russianLang',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //         {
+            //             name: 'socialScience',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //         {
+            //             name: 'englishLang',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //         {
+            //             name: 'biology',
+            //             countCusr: '1 курс',
+            //             cost: '399'
+            //         },
+            //     ]
+            // },
             {
-                name: 'sotka',
-                title: 'Сотка',
-                desc: 'подготовка к ЕГЭ/ОГЭ с любого уровня на нужный балл',
+                name:  'shkolkovo',
+                title: 'Школково',
+                desc: 'единственный слив курса, который вы найдете',
                 subjects: [
                     {
-                        name: 'russianLang',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                    {
-                        name: 'socialScience',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                    {
-                        name: 'englishLang',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
-                    {
-                        name: 'biology',
+                        name: 'mathProfile',
                         countCusr: '1 курс',
                         cost: '399'
                     },
                 ]
-            },
-            
+            }
         ]
     },
     '9': {
@@ -228,11 +239,11 @@ export default {
                         countCusr: '1 курс',
                         cost: '399'
                     },
-                    {
-                        name: 'socialScience',
-                        countCusr: '1 курс',
-                        cost: '399'
-                    },
+                    // {
+                    //     name: 'socialScience',
+                    //     countCusr: '1 курс',
+                    //     cost: '399'
+                    // },
                 ]
             },
             {
@@ -291,7 +302,7 @@ export default {
         },
         {
             question: 'Можно купить у вас прошлый учебный год?',
-            answer: 'Мы не продаем прошлый учебный год и покупать вам его не рекомендуем. Обычно мы сливаем его бесплатно, жмите «бесплатные курсы» чтобы получить полезные сливы за 0 рублей.'
+            answer: 'Мы не продаем прошлый учебный год и покупать вам его не рекомендуем. Обычно мы сливаем его бесплатно, жмите «Форум» чтобы получить полезные сливы за 0 рублей.'
         },
         {
             question: 'Как купить курс боте или пополнить профиль?',

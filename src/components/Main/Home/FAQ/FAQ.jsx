@@ -5,24 +5,20 @@ import { useEffect } from 'react'
 function FAQ({data}){
     useEffect(() => {
         const anchor = window.location.hash;
-        
         if (anchor) {
-          
-          const element = document.querySelector(anchor);
-          console.log(element);
-    
-          if (element) {
-            const headerOffset = 104; 
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.screenY - headerOffset;
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
-          }
+            const element = document.querySelector(anchor);
+            if (element) {
+                const headerOffset = 104; 
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.screenY - headerOffset;
+                
+                window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+                });
+            }
         }
-      }, []);
+    }, []);
     return (
         <div className={classes.faq} id="faq">
             <h2 className={classes.faq__title}>FAQ</h2>

@@ -6,6 +6,7 @@ import vebium from '../../../../assets/images/School/vebium.svg'
 import smartup from '../../../../assets/images/School/smartup.svg'
 import egeland from '../../../../assets/images/School/egeland.svg'
 import sotka from '../../../../assets/images/School/sotka.svg'
+import shkolkovo from '../../../../assets/images/School/shkolkovo.png'
 
 
 const img = {
@@ -14,7 +15,8 @@ const img = {
     'vebium': vebium,
     'smartup': smartup,
     'egeland': egeland,
-    'sotka': sotka
+    'sotka': sotka,
+    'shkolkovo': shkolkovo
 }
 
 function Item({info}){
