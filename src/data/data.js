@@ -211,7 +211,7 @@ export default {
             {
                 name:  'shkolkovo',
                 title: 'Школково',
-                desc: 'единственный слив курса, который вы найдете',
+                desc: 'единственный слив курса, который вы найдете в интернете',
                 subjects: [
                     {
                         name: 'mathProfile',
