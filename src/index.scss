@@ -17,6 +17,35 @@ html, body{
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: relative;
+  &__circle{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 5;
+    width: 60px;
+    height: 60px;
+    & img{
+      width: 100%;
+    }
+  }
+  
+}
+@media (max-width: 1000px) {
+  .app__circle{
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+  }
+}
+@media (max-width: 500px) {
+  .app__circle{
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
 }
 #root{
   height: 100%;

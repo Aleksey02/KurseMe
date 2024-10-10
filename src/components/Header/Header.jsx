@@ -19,10 +19,10 @@ function Header(){
                         <NavLink to="/9" className={classes.header__link}>ОГЭ</NavLink>
                     </li>
                     <li className={classes.header__item}>
-                        <a className={classes.header__link} href='https://egeball.forum/'>Бесплатные Курсы</a>
+                        <a className={classes.header__link} href='https://egeball.forum/' target='_blank'>Бесплатные Курсы</a>
                     </li>
                 </ul>
-                <a className={classes.header__btn} href='https://egeball.forum/'>Форум</a>
+                <a className={classes.header__btn} href='https://egeball.forum/' target='_blank'>Форум</a>
                 <button className={classes.burger + ' ' + (isBurgerActive ? classes.active : '')} onClick={()=>setIsBurgerActive(prev=>!prev)}>
                     <span className={classes.burger__line}></span>
                     <span className={classes.burger__line}></span>
@@ -31,7 +31,7 @@ function Header(){
                 <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
                     <NavLink to="/11" className={classes.menu__link}>ЕГЭ</NavLink>
                     <NavLink to="/9" className={classes.menu__link}>ОГЭ</NavLink>
-                    <a className={classes.menu__link} href='https://egeball.forum/'>Бесплатные Курсы</a>
+                    <a className={classes.menu__link} href='https://egeball.forum/' target='_blank'>Бесплатные Курсы</a>
                 </div>
             </div>
         </header>
