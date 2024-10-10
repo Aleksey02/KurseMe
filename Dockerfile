@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port Vite uses (default is 5173 for development)
-EXPOSE 5173
+
 
 # Command to run your Vite project
 CMD ["npm", "run", "preview"]
