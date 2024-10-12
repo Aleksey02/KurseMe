@@ -12,7 +12,7 @@ function App({data}) {
         <Header/>
         <Main data={data}/>
         <Footer/>
-        <a href="https://t.me/egeball13_bot" className="app__circle" target="_blank">
+        <a href="https://t.me/egeball14_bot" className="app__circle" target="_blank">
           <img src="logo_tg.png" alt="logo telegram" />
         </a>
         {/* <Surface /> */}

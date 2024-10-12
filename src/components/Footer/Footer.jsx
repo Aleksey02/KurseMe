@@ -24,7 +24,7 @@ function Footer(){
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>Мы в телеграме</h4>
                 <a href='https://t.me/+gvKsfyZMms5kMGEy' className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
-                <a href='https://t.me/+BZGyZwEt4EU4NzJi' className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
+                <a href='https://t.me/+82Ab5EM2Y581YTYy' className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
             </div>
         </footer>
     )
