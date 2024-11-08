@@ -1,8 +1,11 @@
 import Item from './Item/Item'
 import classes from './FAQ.module.scss'
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 function FAQ({data}){
+    const link = useLocation().pathname === '/' ? "https://t.me/egeball15_bot" : "https://t.me/egeball15_bot?start=6186465800"
+
     useEffect(() => {
         const anchor = window.location.hash;
         if (anchor) {
@@ -25,7 +28,7 @@ function FAQ({data}){
             <div className={classes.faq__box}>
                 {data.map((item, index)=><Item info={item} key={index}/>)}
             </div>
-            <a href="https://t.me/egeball15_bot" target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
+            <a href={link} target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
         </div>
     )
 }

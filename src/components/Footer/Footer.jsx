@@ -1,8 +1,10 @@
 import classes from './Footer.module.scss'
 import logo from '../../assets/images/Footer/logo.svg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 function Footer(){
+    const location = useLocation().pathname.includes('ref') ? '/ref/' : '/';
+
     return (
         <footer className={classes.footer}>
             <div className={classes.footer__item}>
@@ -13,8 +15,8 @@ function Footer(){
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>Обучение</h4>
-                <NavLink to={"/11"} className={classes.footer__text}>ЕГЭ</NavLink>
-                <NavLink to={"/9"} className={classes.footer__text}>ОГЭ</NavLink>
+                <NavLink to={location + '11'} className={classes.footer__text}>ЕГЭ</NavLink>
+                <NavLink to={location + '9'} className={classes.footer__text}>ОГЭ</NavLink>
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>О нас</h4>
