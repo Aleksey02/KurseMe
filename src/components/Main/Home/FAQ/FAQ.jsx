@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 function FAQ({data}){
-    const link = useLocation().pathname === '/' ? "https://t.me/egeball15_bot" : "https://t.me/egeball15_bot?start=6186465800"
+    const link = useLocation().pathname === '/' ? "https://t.me/egeball20_bot" : "https://t.me/egeball20_bot?start=6186465800"
 
     useEffect(() => {
         const anchor = window.location.hash;

@@ -21,11 +21,11 @@ function Footer(){
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>О нас</h4>
                 <a href='https://t.me/egeball_support_bot' target='_blank' className={classes.footer__text}>Поддержка</a>
-                <a href='https://t.me/+yTrsG96XZ4szMjY6' target='_blank' className={classes.footer__text}>Отзывы</a>
+                <a href='https://t.me/egeball_feed' target='_blank' className={classes.footer__text}>Отзывы</a>
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>Мы в телеграме</h4>
-                <a href='https://t.me/+jQiub1HPNzU4Mzhi' className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
+                <a href='https://t.me/+E6coA8QsBGgzYTM6' className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
                 <a href='https://t.me/+R3o7lVXE2YcwZjli' className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
             </div>
         </footer>

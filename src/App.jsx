@@ -2,10 +2,10 @@ import Header from "./components/Header/Header"
 import {BrowserRouter} from 'react-router-dom'
 import Main from "./components/Main/Main"
 import Footer from "./components/Footer/Footer"
-import Surface from "./components/Surface/Surface"
+//import Surface from "./components/Surface/Surface"
 
 function App({data}) {
-  const link = window.location.pathname.includes('ref') ? "https://t.me/egeball15_bot?start=6186465800" : "https://t.me/egeball15_bot";
+  const link = window.location.pathname.includes('ref') ? "https://t.me/egeball20_bot?start=6186465800" : "https://t.me/egeball20_bot";
   
   return (
     <BrowserRouter>

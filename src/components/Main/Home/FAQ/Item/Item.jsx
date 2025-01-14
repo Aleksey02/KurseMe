@@ -47,7 +47,7 @@ function Item({info}){
             <div className={classes.item__bottom}>
             {isAnswerOpen &&<p className={classes.item__answer}>
                 {info.answer}
-                {info.link && <a className={classes.item__link} href={info.link} target="_blank">https://t.me/MO_EGE/2107</a>}
+                {info.link && <a className={classes.item__link} href={info.link} target="_blank">{info.link}</a>}
                 {info.img && <img className={classes.item__img} src={images[info.img]} alt="review photo"/>}
                 
                 </p>}
