@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "aos": "^2.3.4",
+=======
+    "axios": "^1.7.9",
+>>>>>>> 58b2fe2 (feat: Add pages admin to front and made part backend)
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0",
