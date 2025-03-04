@@ -8,48 +8,79 @@ function SchoolAdmin(){
 	const { classAdmin } = useParams();
 	const navigate = useNavigate();
 	const [schools, setSchools] = useState([]);
+	const [currentSchool, setCurrentSchool] = useState(null);
 	const [isPopupOpen, setIsPopupOpen] = useState(false);
+	const [isChangeMode, setIsChangeMode] = useState(false);
 
 	const titleRef = useRef('');
 	const descRef = useRef('');
 	const imageRef = useRef('');
 
-	const addSchool = async e => {
+	const addSchool = async (e, id) => {
 		e.preventDefault();
 		const name = titleRef.current.value;
 		const desc = descRef.current.value;
 		const image = imageRef.current.files[0];
-		console.log(image);
-		
+
 		if(name && desc && image){
 			const formData = new FormData();
 			formData.append('name', name);
-			formData.append('desc', desc);
-			formData.append('image', image);
-			formData.append('gradeId', classAdmin);
-			
+			formData.append('description', desc);
+			formData.append('imageUrl', image);
+			formData.append('grade', classAdmin);
 			
 			try {
-				const response = await axios.post(`http://localhost:3000/schools`, formData, {
-				  headers: { 'Content-Type': 'multipart/form-data' },
-				});
-				console.log('Школа добавлена:', response.data);
-			  } catch (error) {
+				if(isChangeMode){
+					await axios.patch(`http://localhost:3000/api/schools/${id}`, formData, {
+						headers: { 'Content-Type': 'multipart/form-data' },
+					});
+				}else{
+					await axios.post(`http://localhost:3000/api/schools`, formData, {
+						headers: { 'Content-Type': 'multipart/form-data' },
+					});
+				}
+			} catch (error) {
 				console.error('Ошибка при создании школы:', error);
-			  }
+		}
+
+		window.location.reload();
 		}
 		
+	}
+
+	const deleteSchool = async (id, e) => {
+		e.preventDefault();
+		axios.delete(`http://localhost:3000/api/schools/${id}`);
+		window.location.reload();
 	}
 
 	const closePopup = e => {
 		e.preventDefault();
 		setIsPopupOpen(false);
+		setIsChangeMode(false);
 	}
+	const changeSchool = async (id, e) => {
+		e.preventDefault();
+		axios.get(`http://localhost:3000/api/schools/school/${id}`)
+			.then(response => {
+				console.log(response.data);
+				const {name, description, imageUrl} = response.data;
+				setCurrentSchool(response.data)
+				titleRef.current.value = name;
+				descRef.current.value = description;
 
+				setIsChangeMode(true);
+				setIsPopupOpen(true);
+				
+			})
+			.catch(error => console.error(error));
+
+	}
 	useEffect(() => {
-		axios.get(`http://localhost:3000/grades/${classAdmin}/schools`)
+		const response = axios.get(`http://localhost:3000/api/schools/${classAdmin}`)
 			.then(response => setSchools(response.data))
 			.catch(error => console.error(error));
+
 		}, []);
 	
 	return (
@@ -60,14 +91,15 @@ function SchoolAdmin(){
 				<button className='admin__add' onClick={() => setIsPopupOpen(true)}>Добавить</button>
 			</div>
 			<div className='admin__box'>
+				{schools.length === 0 && <p>Нет школ</p>}
 				{schools.map(school=><NavLink to={`/admin/classes/${classAdmin}/${school.id}`} className='admin__school admin__item' key={school.id}>
 					<div className='admin__school-title'>
-						<img src={umskul} alt="" />
-						<span>{school.title}</span>
+						<img src={`http://localhost:3000/${school.imageUrl}`} alt="" />
+						<span>{school.name}</span>
 					</div>
 					<div>
-					<button>Изменить</button>
-					<button>Удалить</button>
+					<button onClick={(e) => changeSchool(school.id, e)}>Изменить</button>
+					<button onClick={(e) => deleteSchool(school.id, e)}>Удалить</button>
 					</div>
 				</NavLink>)}
 				
@@ -75,18 +107,19 @@ function SchoolAdmin(){
 
 			<div className="admin-popup-add" style={{display: isPopupOpen ? 'flex' : 'none'}}>
 				<div className="admin-popup-add__background">
-					<h3 className="admin-popup-add__title">Добавить школу</h3>
+					<h3 className="admin-popup-add__title">{isChangeMode ? 'Изменить' : 'Добавить'} школу</h3>
 					<form className="admin-popup-add__form">
 						<input type="text" placeholder='Название школы' name='title' ref={titleRef} />
 						<textarea type="" placeholder='Описание школы' name='desc' ref={descRef} />
 						<div className="admin-popup-add__form-image">
 							<label htmlFor="img">Картинка школы</label>
+							{isChangeMode && <img src={`http://localhost:3000/${schools[0].imageUrl}`} alt="" className='admin-popup-add__form-image-change'/>}
 							<input type="file" placeholder='Картинка школы' name='img' ref={imageRef} />
 						</div>
 
 						<div className="admin-popup-add__btns">
 							<button className="admin-popup-add__btn" onClick={closePopup}>Отмена</button>
-							<button className="admin-popup-add__btn" onClick={addSchool}>Добавить</button>
+							<button className="admin-popup-add__btn" onClick={(e) => addSchool(e, currentSchool?.id)}>Добавить</button>
 						</div>
 					</form>
 
