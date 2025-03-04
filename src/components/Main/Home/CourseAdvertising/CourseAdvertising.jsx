@@ -1,5 +1,4 @@
 import classes from './CourseAdvertising.module.scss'
-import advertImg from '../../../../assets/images/Home/CourseAdvertising/banner.png'
 
 function CourseAdvertising() {
 	return <div className={classes.courseAdvertising}>

@@ -7,9 +7,9 @@
 		justify-content: space-between;
 		max-width: 1140px;
 		height: 569px;
-		background-image: url('../../../../assets//images/Home/CourseAdvertising/banner.png');
-		background-position: right -22px bottom;
-		background-size: 50%;
+		background-image: url('../../../../assets//images/Home/CourseAdvertising/advert_image.png');
+		background-position: right -40px bottom;
+		background-size: 64%;
 		background-repeat: no-repeat;
 		margin: 0 auto;
 		background-color: white;
@@ -19,14 +19,14 @@
 		@media (max-width: 1230px) {
 			max-width: 800px;
 			height: 430px;
-			background-position: right -42px bottom;
-			background-size: 56%;		
+			background-position: right -58px bottom;
+			background-size: 60%;		
 		}
 		@media (max-width: 870px) {
 			width: 90%;
 			height: 380px;
-			background-position: right -42px bottom;
-			background-size: 50%;		
+			background-position: right -50px bottom;
+			background-size: 400px;		
 		}
 		@media (max-width: 750px) {
 			justify-content: center;
@@ -43,6 +43,10 @@
 		gap: 32px;
 		align-items: flex-start;
 		max-width: 460px;
+		@media (max-width: 1230px) {
+			max-width: 390px;
+			gap: 18px;
+		}
 		@media (max-width: 870px) {
 			gap: 16px;
 			max-width: 360px;
@@ -79,6 +83,9 @@
 		font-weight: 300;
 		color: black;
 		letter-spacing: 0.02em;
+		@media (max-width: 1230px) {
+			font-size: 30px;
+		}
 		@media (max-width: 870px) {
 			font-size: 28px;
 			line-height: normal;
