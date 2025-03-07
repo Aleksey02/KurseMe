@@ -3,6 +3,8 @@ import CourseAdvertising from './CourseAdvertising/CourseAdvertising'
 import FAQ from './FAQ/FAQ'
 import classes from './Home.module.scss'
 import Item from './Item/Item'
+import Reviews from './Reviews/Reviews'
+import Universities from './Universities/Universities'
 
 function Home({advantages, faq}){
     return (
@@ -13,6 +15,8 @@ function Home({advantages, faq}){
                 <Item numberClass={11} text={'ЕГЭ 11 класс'}/>
                 <Item numberClass={9} text={'ОГЭ 9 класс'}/>
             </div>
+            <Universities />
+            <Reviews />
             <Advantages data={advantages} />
             <FAQ data={faq}/>
         </div>
