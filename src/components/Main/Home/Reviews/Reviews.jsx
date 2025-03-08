@@ -8,7 +8,7 @@ import review6 from '../../../../assets/images/Home/Reviews/reviews6.png';
 
 function Reviews() {
 	return <div className={classes.reviews} data-aos="zoom-in-up">
-		<h2 className={classes.reviews__title}>Отзывы</h2>
+		<h2 className={classes.reviews__title}>Отзывы:</h2>
 		<div className={classes.reviews__box}>
 			<img className={classes.reviews__img} src={review1} />
 			<img className={classes.reviews__img} src={review2} />
