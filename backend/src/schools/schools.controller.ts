@@ -58,7 +58,10 @@ export class SchoolsController {
       })
     }))
   update(@Param('id') id: string, @Body() updateSchoolDto: UpdateSchoolDto, @UploadedFile() image?: Express.Multer.File) {
-    return this.schoolsService.update(+id, updateSchoolDto);
+    return this.schoolsService.update(+id, {
+      ...updateSchoolDto,
+      imageUrl: image?.filename
+    });
   }
 
   @Delete(':id')

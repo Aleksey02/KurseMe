@@ -22,7 +22,7 @@ function SchoolAdmin(){
 		const desc = descRef.current.value;
 		const image = imageRef.current.files[0];
 
-		if(name && desc && image){
+		if(name && desc && image || isChangeMode){
 			const formData = new FormData();
 			formData.append('name', name);
 			formData.append('description', desc);
@@ -42,7 +42,6 @@ function SchoolAdmin(){
 			} catch (error) {
 				console.error('Ошибка при создании школы:', error);
 		}
-
 		window.location.reload();
 		}
 		
@@ -58,17 +57,20 @@ function SchoolAdmin(){
 		e.preventDefault();
 		setIsPopupOpen(false);
 		setIsChangeMode(false);
+		setCurrentSchool(null);
+		titleRef.current.value = '';
+		descRef.current.value = '';
+		imageRef.current.value = '';
 	}
 	const changeSchool = async (id, e) => {
 		e.preventDefault();
 		axios.get(`http://localhost:3000/api/schools/school/${id}`)
 			.then(response => {
-				console.log(response.data);
-				const {name, description, imageUrl} = response.data;
+				const {name, description} = response.data;
 				setCurrentSchool(response.data)
 				titleRef.current.value = name;
 				descRef.current.value = description;
-
+				
 				setIsChangeMode(true);
 				setIsPopupOpen(true);
 				
@@ -76,11 +78,24 @@ function SchoolAdmin(){
 			.catch(error => console.error(error));
 
 	}
+	const handleImageChange = event => {
+		const file = event.target.files[0];
+		if (file) {
+		const reader = new FileReader();
+		reader.onloadend = () => {
+			setCurrentSchool({
+				...currentSchool,
+				imageUrl: reader.result
+			});
+			
+		};
+		reader.readAsDataURL(file);
+		}
+	}
 	useEffect(() => {
 		const response = axios.get(`http://localhost:3000/api/schools/${classAdmin}`)
 			.then(response => setSchools(response.data))
 			.catch(error => console.error(error));
-
 		}, []);
 	
 	return (
@@ -113,13 +128,15 @@ function SchoolAdmin(){
 						<textarea type="" placeholder='Описание школы' name='desc' ref={descRef} />
 						<div className="admin-popup-add__form-image">
 							<label htmlFor="img">Картинка школы</label>
-							{isChangeMode && <img src={`http://localhost:3000/${schools[0].imageUrl}`} alt="" className='admin-popup-add__form-image-change'/>}
-							<input type="file" placeholder='Картинка школы' name='img' ref={imageRef} />
+							{isChangeMode && <img src={`${imageRef.current.value ? currentSchool.imageUrl: `http://localhost:3000/${currentSchool.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
+							<input type="file" placeholder='Картинка школы' name='img' ref={imageRef} onChange={handleImageChange} />
 						</div>
 
 						<div className="admin-popup-add__btns">
 							<button className="admin-popup-add__btn" onClick={closePopup}>Отмена</button>
-							<button className="admin-popup-add__btn" onClick={(e) => addSchool(e, currentSchool?.id)}>Добавить</button>
+							<button className="admin-popup-add__btn" onClick={(e) => addSchool(e, currentSchool?.id)}>
+								{isChangeMode ? 'Изменить' : 'Добавить'}
+							</button>
 						</div>
 					</form>
 

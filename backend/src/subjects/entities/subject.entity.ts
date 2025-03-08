@@ -17,6 +17,4 @@ export class Subject {
 
 	@ManyToOne(()=> School, school => school.subjects)
 	school: School
-
-
 }

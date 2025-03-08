@@ -1,26 +1,62 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { CreateSubjectDto } from './dto/create-subject.dto';
 import { UpdateSubjectDto } from './dto/update-subject.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Subject } from './entities/subject.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class SubjectsService {
-  create(createSubjectDto: CreateSubjectDto) {
-    return 'This action adds a new subject';
+    constructor(
+      @InjectRepository(Subject)
+      private readonly subjectRepository: Repository<Subject>,
+    ) {}
+
+  async create(createSubjectDto: CreateSubjectDto) {
+    try {
+      const newSubject = this.subjectRepository.create(createSubjectDto);
+      const savedSubject = await this.subjectRepository.save(newSubject);
+
+      return savedSubject;
+    } catch (error) {
+      console.error('Error creating subject:', error);
+      throw new InternalServerErrorException('Failed to create subject');
+    }
   }
 
   findAll() {
     return `This action returns all subjects`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} subject`;
+  findBySchool(idSchool: number) {
+    return this.subjectRepository.find({
+      where: {school: {id: idSchool}}
+    });
   }
 
-  update(id: number, updateSubjectDto: UpdateSubjectDto) {
-    return `This action updates a #${id} subject`;
+  findOne(id: number) {
+    return this.subjectRepository.findOneBy({ id });
+  }
+
+  async update(id: number, updateSubjectDto: UpdateSubjectDto) {
+    try {
+      console.log('DTO:', updateSubjectDto);
+      await this.subjectRepository.update(id, updateSubjectDto);
+      const updatedSubject = await this.subjectRepository.findOne({ where: { id } });
+  
+      if (!updatedSubject) {
+        throw new NotFoundException(`Subject with ID ${id} not found`);
+      }
+  
+      console.log('Updated Subject:', updatedSubject);
+      return updatedSubject;
+    } catch (error) {
+      console.error('Error updating subject:', error);
+      throw new InternalServerErrorException('Failed to update subject');
+    }
   }
 
   remove(id: number) {
-    return `This action removes a #${id} subject`;
+    this.subjectRepository.delete(id);
   }
 }
