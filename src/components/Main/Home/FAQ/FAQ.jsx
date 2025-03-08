@@ -23,7 +23,7 @@ function FAQ({data}){
         }
     }, []);
     return (
-        <div className={classes.faq} id="faq">
+        <div className={classes.faq} id="faq" data-aos="zoom-in-up">
             <h2 className={classes.faq__title}>FAQ</h2>
             <div className={classes.faq__box}>
                 {data.map((item, index)=><Item info={item} key={index}/>)}

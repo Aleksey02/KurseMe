@@ -7,7 +7,7 @@ import universe5 from '../../../../assets/images/Home/Universities/universe_5.pn
 import universe6 from '../../../../assets/images/Home/Universities/universe_6.png'
 
 function Universities() {
-	return <div className={classes.universities}>
+	return <div className={classes.universities} data-aos="zoom-in-up">
 		<h2 className={classes.universities__title}>Наши клиенты учатся в этих вузах:</h2>
 		<div className={classes.universities__box}>
 				<img className={classes.universities__img} src={universe1} alt="" />

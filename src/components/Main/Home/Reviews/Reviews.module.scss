@@ -1,5 +1,5 @@
 .reviews{
-	padding-top: 40px;
+	padding-top: 100px;
 	&__title{
 		text-align: center;
 		font-family: "TTFirsNeue-Medium";
@@ -28,5 +28,13 @@
 		@media (max-width: 600px) {
 			width: 300px;
 		}
+	}
+	&__aboutus{
+		text-align: center;
+		font-family: "TTFirsNeue-Light";
+		white-space: normal;
+		font-size: 20px;
+		color: black;
+		padding: 10px 10px 0;
 	}
 }
