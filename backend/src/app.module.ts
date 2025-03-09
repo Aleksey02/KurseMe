@@ -4,6 +4,7 @@ import { SubjectsModule } from './subjects/subjects.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
+import { UserModule } from './user/user.module';
 
 
 @Module({
@@ -26,6 +27,7 @@ import { MulterModule } from '@nestjs/platform-express';
       inject: [ConfigService],
     }),
     MulterModule.register({ dest: './uploads' }),
+    UserModule,
   ],
 })
 export class AppModule {}

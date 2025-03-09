@@ -7,6 +7,7 @@ import Admin from '../../pages/Admin/Admin'
 import Classes from '../../pages/Admin/Classes'
 import SchoolAdmin from '../../pages/Admin/SchoolAdmin'
 import SubjectAdmin from '../../pages/Admin/SubjectAdmin'
+import Auth from '../../pages/Auth/Auth'
 
 function Main({data}){
     return (
@@ -26,6 +27,7 @@ function Main({data}){
                 <Route path='/admin/classes' element={<Classes />} />
                 <Route path='/admin/classes/:classAdmin' element={<SchoolAdmin />} />
                 <Route path='/admin/classes/:classAdmin/:schoolId' element={<SubjectAdmin />} />
+                <Route path='/auth' element={<Auth />} />
             </Routes>
         </main>
     )
