@@ -36,9 +36,19 @@
         border: none;   
         outline: none;     
         cursor: pointer;
+        margin-left: 15px;
     }
-    
-
+    &__buttons{
+        display: none;
+        align-items: center;
+        gap: 15px;
+    }
+    &__profile{
+        border: none;
+        background-color: transparent;
+        width: 34px;
+        height: 34px;
+    }
 }
 .burger{
     display: none;
@@ -62,6 +72,9 @@
         &__list,
         &__btn{
             display: none;
+        }
+        &__buttons{
+            display: flex;
         }
     }
     .burger{

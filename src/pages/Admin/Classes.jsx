@@ -1,7 +1,14 @@
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
 
-function Classes(){
+function Classes({isAuth}){
 	const navigate = useNavigate();
+	
+	useEffect(() => {
+		const admin = isAuth?.isAdmin;
+		if(!admin) navigate('/');
+		
+	}, []);
 
 	return (
 		<div className='admin'>
