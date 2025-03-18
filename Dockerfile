@@ -1,32 +1,47 @@
-# Stage 1: Build the application
-FROM node:18-alpine AS build
+# --- Сборка фронтенда ---
+FROM node:18-alpine AS frontend
 
-# Set the working directory
-WORKDIR /app
+WORKDIR /app/frontend
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
+# Копируем файлы package.json и устанавливаем зависимости
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the rest of the application code
+# Копируем весь код фронтенда и собираем его
 COPY . .
-
-# Build the app for production
 RUN npm run build
 
-# Stage 2: Serve the app using Nginx
-FROM nginx:alpine
+# --- Сборка бэкенда ---
+FROM node:18-alpine AS backend
 
-# Copy the built files from the previous stage
-COPY --from=build /app/dist /usr/share/nginx/html
+WORKDIR /app/backend
 
-# Copy the custom Nginx configuration file
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Копируем файлы package.json и устанавливаем зависимости
+COPY backend/package.json backend/package-lock.json ./
+RUN npm install
 
-# Expose the default Nginx port
-EXPOSE 80
+# Копируем остальной код бэкенда
+COPY backend ./
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Собираем NestJS
+RUN npm run build
+
+# --- Финальный контейнер ---
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Копируем бэкенд
+COPY --from=backend /app/backend /app/backend
+
+# Копируем фронтенд в папку, чтобы бэкенд мог его раздавать
+COPY --from=frontend /app/frontend/dist /app/backend/public
+
+# Устанавливаем переменные среды
+ENV PORT=5000
+
+# Открываем порт
+EXPOSE 5000
+
+# Запускаем бэкенд
+CMD ["node", "backend/dist/main.js"]
