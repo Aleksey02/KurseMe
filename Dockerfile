@@ -1,5 +1,5 @@
 # --- Сборка фронтенда ---
-FROM node:18-alpine AS frontend
+FROM node:20-alpine AS frontend
 
 WORKDIR /app/frontend
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # --- Сборка бэкенда ---
-FROM node:18-alpine AS backend
+FROM node:20-alpine AS backend
 
 WORKDIR /app/backend
 
@@ -27,7 +27,7 @@ COPY backend ./
 RUN npm run build
 
 # --- Финальный контейнер ---
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
