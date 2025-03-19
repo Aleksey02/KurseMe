@@ -21,7 +21,7 @@ function SchoolAdmin(){
 		const name = titleRef.current.value;
 		const desc = descRef.current.value;
 		const image = imageRef.current.files[0];
-
+//egeball-backendcompose-38b872
 		if(name && desc && image || isChangeMode){
 			const formData = new FormData();
 			formData.append('name', name);
