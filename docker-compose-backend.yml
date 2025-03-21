@@ -10,8 +10,8 @@ services:
     env_file:
       - .env
     networks:
-      - dokploy-network
+      - my_network
 
 networks:
-  dokploy-network:
+  my_network:
     external: true
