@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'
 
-
+//egeball-backendcompose-3bd6ad адрес
 function Admin({isAuth}){
 	const navigate = useNavigate();
 	useEffect(() => {
