@@ -20,7 +20,7 @@ const img = {
 }
 
 function Item({info}){
-    const imageUrl = info.imageUrl ? `http://localhost:3000/${info.imageUrl}` : img[info.name];
+    const imageUrl = info.imageUrl ? `https://egeball.com/${info.imageUrl}` : img[info.name];
     const title = info.imageUrl ? info.name : info.title;
     const description = info.imageUrl ? info.description : info.desc;
     const link = info.imageUrl ? info.id : info.name;

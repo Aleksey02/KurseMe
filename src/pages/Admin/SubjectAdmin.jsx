@@ -17,11 +17,11 @@ function SubjectAdmin(){
 	const imageRef = useRef('');
 
 	useEffect(() => {
-		axios.get(`http://localhost:3000/api/subjects/${schoolId}`)
+		axios.get(`https://egeball.com/api/api/subjects/${schoolId}`)
 			.then(response => setSubjects(response.data))
 			.catch(error => console.error(error));
 
-		axios.get(`http://localhost:3000/api/schools/school/${schoolId}`)
+		axios.get(`https://egeball.com/api/api/schools/school/${schoolId}`)
 			.then(response => setCurrentSchool(response.data))
 			.catch(error => console.error(error));
 		}, []);
@@ -45,11 +45,11 @@ function SubjectAdmin(){
 			
 			try {
 				if(isChangeMode){
-					await axios.patch(`http://localhost:3000/api/subjects/${id}`, formData, {
+					await axios.patch(`https://egeball.com/api/api/subjects/${id}`, formData, {
 						headers: { 'Content-Type': 'multipart/form-data' },
 					});
 				}else{
-					await axios.post(`http://localhost:3000/api/subjects`, formData, {
+					await axios.post(`https://egeball.com/api/api/subjects`, formData, {
 						headers: { 'Content-Type': 'multipart/form-data' },
 					});
 				}
@@ -63,7 +63,7 @@ function SubjectAdmin(){
 
 	const deleteSubject = async (id, e) => {
 		e.preventDefault();
-		axios.delete(`http://localhost:3000/api/subjects/${id}`);
+		axios.delete(`https://egeball.com/api/api/subjects/${id}`);
 		window.location.reload();
 	}
 
@@ -78,7 +78,7 @@ function SubjectAdmin(){
 	}
 	const changeSubject = async (id, e) => {
 		e.preventDefault();
-		axios.get(`http://localhost:3000/api/subjects/${schoolId}/${id}`)
+		axios.get(`https://egeball.com/api/api/subjects/${schoolId}/${id}`)
 			.then(response => {
 				const {name, cost} = response.data;
 				setCurrentSubject(response.data)
@@ -119,7 +119,7 @@ function SubjectAdmin(){
 				{subjects.length === 0 && <p>Нет предметов</p>}
 				{subjects.map(subject=><div className='admin__school admin__item' key={subject.id}>
 									<div className='admin__school-title admin__school-title--subject'>
-										<img src={`http://localhost:3000/${subject.imageUrl}`} alt="" />
+										<img src={`https://egeball.com/${subject.imageUrl}`} alt="" />
 										<span>{subject.name}</span>
 										<span>{subject.cost}</span>
 									</div>
@@ -137,7 +137,7 @@ function SubjectAdmin(){
 						<input type="number" placeholder='Стоимость предмета' name='cost' ref={costRef} min={0} />
 						<div className="admin-popup-add__form-image">
 							<label htmlFor="img">Картинка предмета</label>
-							{isChangeMode && <img src={`${imageRef.current.value ? currentSubject.imageUrl: `http://localhost:3000/${currentSubject.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
+							{isChangeMode && <img src={`${imageRef.current.value ? currentSubject.imageUrl: `https://egeball.com/${currentSubject.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
 							<input type="file" placeholder='Картинка предмета' name='img' ref={imageRef} onChange={handleImageChange} />
 						</div>
 

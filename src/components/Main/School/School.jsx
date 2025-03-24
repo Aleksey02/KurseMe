@@ -6,7 +6,7 @@ import axios from 'axios'
 function School({data}){
     const [schools, setSchools] = useState([]);
     useEffect(() => {
-        const schools = axios.get('http://localhost:3000/api/schools')
+        const schools = axios.get('https://egeball.com/api/api/schools')
             .then(response => setSchools(response.data))
             .catch(error => console.error(error));
     }, []);

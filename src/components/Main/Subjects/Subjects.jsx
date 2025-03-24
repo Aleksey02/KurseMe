@@ -11,7 +11,7 @@ function Subjects({data}){
         if(isNaN(school)){
             setSubjects(data.schools.find(item=>item.name==school).subjects);
         } else {
-            axios.get(`http://localhost:3000/api/subjects/${school}`)
+            axios.get(`https://egeball.com/api/api/subjects/${school}`)
                 .then(response => setSubjects(response.data))
                 .catch(error => console.error(error));
         }

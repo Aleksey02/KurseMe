@@ -31,11 +31,11 @@ function SchoolAdmin(){
 			
 			try {
 				if(isChangeMode){
-					await axios.patch(`http://localhost:3000/api/schools/${id}`, formData, {
+					await axios.patch(`https://egeball.com/api/api/schools/${id}`, formData, {
 						headers: { 'Content-Type': 'multipart/form-data' },
 					});
 				}else{
-					await axios.post(`http://localhost:3000/api/schools`, formData, {
+					await axios.post(`https://egeball.com/api/api/schools`, formData, {
 						headers: { 'Content-Type': 'multipart/form-data' },
 					});
 				}
@@ -49,7 +49,7 @@ function SchoolAdmin(){
 
 	const deleteSchool = async (id, e) => {
 		e.preventDefault();
-		axios.delete(`http://localhost:3000/api/schools/${id}`);
+		axios.delete(`https://egeball.com/api/api/schools/${id}`);
 		window.location.reload();
 	}
 
@@ -64,7 +64,7 @@ function SchoolAdmin(){
 	}
 	const changeSchool = async (id, e) => {
 		e.preventDefault();
-		axios.get(`http://localhost:3000/api/schools/school/${id}`)
+		axios.get(`https://egeball.com/api/api/schools/school/${id}`)
 			.then(response => {
 				const {name, description} = response.data;
 				setCurrentSchool(response.data)
@@ -93,7 +93,7 @@ function SchoolAdmin(){
 		}
 	}
 	useEffect(() => {
-		const response = axios.get(`http://localhost:3000/api/schools/${classAdmin}`)
+		const response = axios.get(`https://egeball.com/api/api/schools/${classAdmin}`)
 			.then(response => setSchools(response.data))
 			.catch(error => console.error(error));
 		}, []);
@@ -109,7 +109,7 @@ function SchoolAdmin(){
 				{schools.length === 0 && <p>Нет школ</p>}
 				{schools.map(school=><NavLink to={`/admin/classes/${classAdmin}/${school.id}`} className='admin__school admin__item' key={school.id}>
 					<div className='admin__school-title'>
-						<img src={`http://localhost:3000/${school.imageUrl}`} alt="" />
+						<img src={`https://egeball.com/${school.imageUrl}`} alt="" />
 						<span>{school.name}</span>
 					</div>
 					<div>
@@ -128,7 +128,7 @@ function SchoolAdmin(){
 						<textarea type="" placeholder='Описание школы' name='desc' ref={descRef} />
 						<div className="admin-popup-add__form-image">
 							<label htmlFor="img">Картинка школы</label>
-							{isChangeMode && <img src={`${imageRef.current.value ? currentSchool.imageUrl: `http://localhost:3000/${currentSchool.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
+							{isChangeMode && <img src={`${imageRef.current.value ? currentSchool.imageUrl: `https://egeball.com/${currentSchool.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
 							<input type="file" placeholder='Картинка школы' name='img' ref={imageRef} onChange={handleImageChange} />
 						</div>
 

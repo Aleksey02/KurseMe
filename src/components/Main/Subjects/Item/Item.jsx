@@ -32,7 +32,7 @@ const img = {
 
 function Item({info}){
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const imageUrl = info.imageUrl ? `http://localhost:3000/${info.imageUrl}` : img[info.name];
+    const imageUrl = info.imageUrl ? `https://egeball.com/${info.imageUrl}` : img[info.name];
     const cost = info.imageUrl ? info.cost : '400';
     return(
         <div className={classes.item}>
