@@ -4,6 +4,8 @@ import { UpdateSubjectDto } from './dto/update-subject.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Subject } from './entities/subject.entity';
 import { Repository } from 'typeorm';
+import { join } from 'path';
+import { unlink } from 'fs/promises';
 
 @Injectable()
 export class SubjectsService {
@@ -57,6 +59,29 @@ export class SubjectsService {
   }
 
   remove(id: number) {
+    this.deleteImg(id);
     this.subjectRepository.delete(id);
+  }
+
+  async deleteImagesForSchool(idSchool: number) {
+    const subjects = await this.subjectRepository.find({ where: { school: { id: idSchool } } });
+    subjects.forEach(async (subject) => {
+      this.deleteImg(subject.id);
+    })
+  }
+
+  async deleteImg(id: number) {
+    const subject = await this.subjectRepository.findOne({ where: { id } });
+
+    if (subject && subject.imageUrl) {
+      const filePath = join(__dirname, '..', '..', 'uploads', subject.imageUrl);
+  
+      try {
+        await unlink(filePath); // Удаляем файл
+        console.log(`Фото ${subject.imageUrl} удалено`);
+      } catch (err) {
+        console.error(`Ошибка при удалении файла: ${err.message}`);
+      }
+    }
   }
 }

@@ -18,7 +18,7 @@ export class School {
 	@Column()
 	grade: number
 
-	@OneToMany(()=> Subject, subject => subject.school, {onDelete: 'CASCADE'})
+	@OneToMany(()=> Subject, subject => subject.school)
 	subjects: Subject[]
 
 

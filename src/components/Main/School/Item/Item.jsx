@@ -20,13 +20,17 @@ const img = {
 }
 
 function Item({info}){
+    const imageUrl = info.imageUrl ? `http://localhost:3000/${info.imageUrl}` : img[info.name];
+    const title = info.imageUrl ? info.name : info.title;
+    const description = info.imageUrl ? info.description : info.desc;
+    const link = info.imageUrl ? info.id : info.name;
     return (
         <div className={classes.item}>
             <div className={classes.item__img}>
-                <img src={img[info.name]} alt={`${info.title} logo`}  />
+                <img src={imageUrl} alt={`${title} logo`}  />
             </div> 
-            <p className={classes.item__desc}><b>{info.title}</b> - {info.desc}</p>
-            <NavLink to={window.location.pathname + '/' + info.name} className={classes.item__btn}>Выбрать</NavLink>
+            <p className={classes.item__desc}><b>{title}</b> - {description}</p>
+            <NavLink to={window.location.pathname + '/' + link} className={classes.item__btn}>Выбрать</NavLink>
         </div>
     )
 }

@@ -32,14 +32,15 @@ const img = {
 
 function Item({info}){
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    
+    const imageUrl = info.imageUrl ? `http://localhost:3000/${info.imageUrl}` : img[info.name];
+    const cost = info.imageUrl ? info.cost : '400';
     return(
         <div className={classes.item}>
             <div className={classes.item__wrapper}>
-                <img src={img[info.name]} alt="" />
+                <img src={imageUrl} alt="" />
                 <div className={classes.item__box}>
                     {/* <p className={classes.item__kurs}>{info.countCusr}</p> */}
-                    <p className={classes.item__cost}>от 400₽/мес</p>
+                    <p className={classes.item__cost}>от {cost}₽/мес</p>
                 </div>
                 <button className={classes.item__btn} onClick={()=>setIsPopupOpen(true)}>Выбрать</button>
             </div>

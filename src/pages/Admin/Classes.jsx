@@ -13,7 +13,7 @@ function Classes({isAuth}){
 	return (
 		<div className='admin'>
 			<div className='admin__header'>
-				<button className='admin__back' onClick={() => navigate(-1)}>&lt;-Назад</button>
+				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
 				<h2 className='admin__title'>Классы</h2>
 			</div>
 			<div className='admin__box'>

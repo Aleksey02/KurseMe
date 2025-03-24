@@ -101,9 +101,9 @@ function SchoolAdmin(){
 	return (
 		<div className='admin'>
 			<div className='admin__header'>
-				<button className='admin__back' onClick={() => navigate(-1)}>&lt;-Назад</button>
+				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
 				<h2 className='admin__title'>Школы</h2>
-				<button className='admin__add' onClick={() => setIsPopupOpen(true)}>Добавить</button>
+				<button className='admin__add admin__btn' onClick={() => setIsPopupOpen(true)}>Добавить</button>
 			</div>
 			<div className='admin__box'>
 				{schools.length === 0 && <p>Нет школ</p>}
@@ -113,8 +113,8 @@ function SchoolAdmin(){
 						<span>{school.name}</span>
 					</div>
 					<div>
-					<button onClick={(e) => changeSchool(school.id, e)}>Изменить</button>
-					<button onClick={(e) => deleteSchool(school.id, e)}>Удалить</button>
+					<button className='admin__btn' onClick={(e) => changeSchool(school.id, e)}>Изменить</button>
+					<button className='admin__btn' style={{marginLeft: '10px'}} onClick={(e) => deleteSchool(school.id, e)}>Удалить</button>
 					</div>
 				</NavLink>)}
 				
@@ -133,8 +133,8 @@ function SchoolAdmin(){
 						</div>
 
 						<div className="admin-popup-add__btns">
-							<button className="admin-popup-add__btn" onClick={closePopup}>Отмена</button>
-							<button className="admin-popup-add__btn" onClick={(e) => addSchool(e, currentSchool?.id)}>
+							<button className="admin-popup-add__btn admin__btn" onClick={closePopup}>Отмена</button>
+							<button className="admin-popup-add__btn admin__btn" onClick={(e) => addSchool(e, currentSchool?.id)}>
 								{isChangeMode ? 'Изменить' : 'Добавить'}
 							</button>
 						</div>

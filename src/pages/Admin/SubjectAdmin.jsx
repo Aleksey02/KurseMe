@@ -111,9 +111,9 @@ function SubjectAdmin(){
 	return (
 		<div className='admin'>
 			<div className='admin__header'>
-				<button className='admin__back' onClick={() => navigate(-1)}>&lt;-Назад</button>
+				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
 				<h2 className='admin__title'>Предметы {currentSchool && currentSchool.name}</h2>
-				<button className='admin__add' onClick={() => setIsPopupOpen(true)}>Добавить</button>
+				<button className='admin__add admin__btn' onClick={() => setIsPopupOpen(true)}>Добавить</button>
 			</div>
 			<div className='admin__box'>
 				{subjects.length === 0 && <p>Нет предметов</p>}
@@ -124,8 +124,8 @@ function SubjectAdmin(){
 										<span>{subject.cost}</span>
 									</div>
 									<div>
-										<button onClick={e=>changeSubject(subject.id, e)}>Изменить</button>
-										<button onClick={e=>deleteSubject(subject.id, e)}>Удалить</button>
+										<button className='admin__btn' onClick={e=>changeSubject(subject.id, e)}>Изменить</button>
+										<button className='admin__btn' style={{marginLeft: '10px'}} onClick={e=>deleteSubject(subject.id, e)}>Удалить</button>
 									</div>
 								</div>)}
 			</div>
@@ -142,8 +142,8 @@ function SubjectAdmin(){
 						</div>
 
 						<div className="admin-popup-add__btns">
-							<button className="admin-popup-add__btn" onClick={closePopup}>Отмена</button>
-							<button className="admin-popup-add__btn" onClick={(e) => addSubject(e, currentSubject?.id)}>
+							<button className="admin-popup-add__btn admin__btn" onClick={closePopup}>Отмена</button>
+							<button className="admin-popup-add__btn admin__btn" onClick={(e) => addSubject(e, currentSubject?.id)}>
 								{isChangeMode ? 'Изменить' : 'Добавить'}
 							</button>
 						</div>

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import logo from '../../assets/images/Header/logo.svg'
 import profile from '../../assets/images/Header/profile.svg'
+import adminImg from '../../assets/images/Header/sheriff.png'
 import classes from './Header.module.scss'
 import { NavLink, useLocation } from 'react-router-dom';
 
 function Header({isAuth}){
     const [isBurgerActive, setIsBurgerActive] = useState(false);
     const location = useLocation().pathname.includes('ref') ? '/ref/' : '/';
-
+    
     return (
         <header className={classes.header}>
             <div className={classes.header__box}>
@@ -31,6 +32,9 @@ function Header({isAuth}){
                 <NavLink className={classes.header__btn}  to={isAuth? 'account' : 'auth'}>{isAuth? 'Аккаунт' : 'Войти'}</NavLink>
                 </div>
                 <div className={classes.header__buttons}>
+                    {isAuth.isAdmin && <NavLink className={classes.header__profile}  to={'admin'}>
+                            <img src={adminImg} alt="" />
+                        </NavLink>}
                     <NavLink  to={isAuth? 'account' : 'auth'} className={classes.header__profile}>
                         <img src={profile} className={classes.header__profile} alt="Аккаунт" />
                     </NavLink>

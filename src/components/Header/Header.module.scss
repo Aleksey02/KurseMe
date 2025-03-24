@@ -63,7 +63,7 @@
         }
     }
 }
-@media (max-width: 770px) {
+@media (max-width: 950px) {
     .header{
         &__box{
             padding: 22px 34px;
@@ -144,5 +144,13 @@
             height: unset;
             display: block;
         }
+    }
+}
+@media (max-width: 400px) {
+    .header__box{
+        padding: 22px 14px;
+    }
+    .header__buttons{
+        gap: 8px;
     }
 }

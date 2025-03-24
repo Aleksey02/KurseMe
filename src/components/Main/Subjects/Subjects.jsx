@@ -1,10 +1,22 @@
 import classes from './Subjects.module.scss'
 import Item from './Item/Item'
 import { useParams } from 'react-router-dom'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function Subjects({data}){
-    const { school } = useParams()
-    const subjects = data.schools.find(item=>item.name==school).subjects
+    const [subjects, setSubjects] = useState([]);
+    const { school } = useParams();
+    useEffect(()=>{
+        if(isNaN(school)){
+            setSubjects(data.schools.find(item=>item.name==school).subjects);
+        } else {
+            axios.get(`http://localhost:3000/api/subjects/${school}`)
+                .then(response => setSubjects(response.data))
+                .catch(error => console.error(error));
+        }
+    }, [])
+    
     return (
         <div className={classes.subjects}>
             <h2 className={classes.subjects__title}>Предметы</h2>

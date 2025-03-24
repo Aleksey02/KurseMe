@@ -4,12 +4,16 @@ import { CreateSchoolDto } from './dto/create-school.dto';
 import { UpdateSchoolDto } from './dto/update-school.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { join } from 'path';
+import { unlink } from 'fs/promises';
+import { SubjectsService } from 'src/subjects/subjects.service';
 
 @Injectable()
 export class SchoolsService {
   constructor(
     @InjectRepository(School)
     private readonly schoolsRepository: Repository<School>,
+    private readonly subjectsService: SubjectsService
   ) {}
 
   async create(createSchoolDto: CreateSchoolDto) {
@@ -57,6 +61,23 @@ export class SchoolsService {
   }
 
   remove(id: number) {
+    this.deleteImg(id);
+    this.subjectsService.deleteImagesForSchool(id);
     return this.schoolsRepository.delete(id);
   }
+
+  async deleteImg(id: number) {
+      const school = await this.schoolsRepository.findOne({ where: { id } });
+  
+      if (school && school.imageUrl) {
+        const filePath = join(__dirname, '..', '..', 'uploads', school.imageUrl);
+    
+        try {
+          await unlink(filePath);
+          console.log(`Фото ${school.imageUrl} удалено`);
+        } catch (err) {
+          console.error(`Ошибка при удалении файла: ${err.message}`);
+        }
+      }
+    }
 }

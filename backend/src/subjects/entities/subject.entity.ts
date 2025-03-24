@@ -15,6 +15,6 @@ export class Subject {
 	@Column()
 	cost: number
 
-	@ManyToOne(()=> School, school => school.subjects)
+	@ManyToOne(()=> School, school => school.subjects, { onDelete: 'CASCADE' })
 	school: School
 }
