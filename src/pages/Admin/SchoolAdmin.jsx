@@ -109,7 +109,7 @@ function SchoolAdmin(){
 				{schools.length === 0 && <p>Нет школ</p>}
 				{schools.map(school=><NavLink to={`/admin/classes/${classAdmin}/${school.id}`} className='admin__school admin__item' key={school.id}>
 					<div className='admin__school-title'>
-						<img src={`https://egeball.com/${school.imageUrl}`} alt="" />
+						<img src={`https://egeball.com/api/${school.imageUrl}`} alt="" />
 						<span>{school.name}</span>
 					</div>
 					<div>
@@ -128,7 +128,7 @@ function SchoolAdmin(){
 						<textarea type="" placeholder='Описание школы' name='desc' ref={descRef} />
 						<div className="admin-popup-add__form-image">
 							<label htmlFor="img">Картинка школы</label>
-							{isChangeMode && <img src={`${imageRef.current.value ? currentSchool.imageUrl: `https://egeball.com/${currentSchool.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
+							{isChangeMode && <img src={`${imageRef.current.value ? currentSchool.imageUrl: `https://egeball.com/api/${currentSchool.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
 							<input type="file" placeholder='Картинка школы' name='img' ref={imageRef} onChange={handleImageChange} />
 						</div>
 

@@ -119,7 +119,7 @@ function SubjectAdmin(){
 				{subjects.length === 0 && <p>Нет предметов</p>}
 				{subjects.map(subject=><div className='admin__school admin__item' key={subject.id}>
 									<div className='admin__school-title admin__school-title--subject'>
-										<img src={`https://egeball.com/${subject.imageUrl}`} alt="" />
+										<img src={`https://egeball.com/api/${subject.imageUrl}`} alt="" />
 										<span>{subject.name}</span>
 										<span>{subject.cost}</span>
 									</div>
@@ -137,7 +137,7 @@ function SubjectAdmin(){
 						<input type="number" placeholder='Стоимость предмета' name='cost' ref={costRef} min={0} />
 						<div className="admin-popup-add__form-image">
 							<label htmlFor="img">Картинка предмета</label>
-							{isChangeMode && <img src={`${imageRef.current.value ? currentSubject.imageUrl: `https://egeball.com/${currentSubject.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
+							{isChangeMode && <img src={`${imageRef.current.value ? currentSubject.imageUrl: `https://egeball.com/api/${currentSubject.imageUrl}`}`} alt="" className='admin-popup-add__form-image-change'/>}
 							<input type="file" placeholder='Картинка предмета' name='img' ref={imageRef} onChange={handleImageChange} />
 						</div>
 
