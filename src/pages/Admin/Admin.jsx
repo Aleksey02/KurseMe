@@ -17,7 +17,7 @@ function Admin({isAuth}){
 				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
 				<h2 className='admin__title'>Админ панель</h2>
 			</div>
-			<div className='admin__box'>
+			<div className='admin__box admin__box-full-width'>
 				<NavLink to="/admin/classes" className='admin__item'>Классы</NavLink>
 			</div>
 		</div>
