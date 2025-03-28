@@ -16,7 +16,7 @@ function Classes({isAuth}){
 				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
 				<h2 className='admin__title'>Классы</h2>
 			</div>
-			<div className='admin__box'>
+			<div className='admin__box admin__box-full-width'>
 				<NavLink to="/admin/classes/9" className='admin__item'>9</NavLink>
 				<NavLink to="/admin/classes/11" className='admin__item'>11</NavLink>
 			</div>
