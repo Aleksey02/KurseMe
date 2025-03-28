@@ -112,7 +112,7 @@ function SubjectAdmin(){
 		<div className='admin'>
 			<div className='admin__header'>
 				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
-				<h2 className='admin__title'>Предметы {currentSchool && currentSchool.name}</h2>
+				<h2 className='admin__title'>Предметы <div>{currentSchool && currentSchool.name}</div></h2>
 				<button className='admin__add admin__btn' onClick={() => setIsPopupOpen(true)}>Добавить</button>
 			</div>
 			<div className='admin__box'>

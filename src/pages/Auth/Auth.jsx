@@ -56,7 +56,7 @@ function Auth(props) {
 				</div>
 				<div className={classes.auth__input}>
 					<label htmlFor="password">Пароль</label>
-					<input type="text" id='password' name='password' onChange={(e) => setPassword(e.target.value)}/>
+					<input type={isRegister ? 'text' : 'password'} id='password' name='password' onChange={(e) => setPassword(e.target.value)}/>
 				</div>
 				<button className={classes.auth__forgetPassword} type='button'>Забыл пароль?</button>
 				<button className={classes.auth__btn} type='submit'>{isRegister ? 'Зарегистрироваться' : 'Войти'}</button>
