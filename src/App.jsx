@@ -12,7 +12,7 @@ import { AuthService } from "./services/auth.service"
 
 function App({data}) {
   const [isAuth, setIsAuth] = useState(false);
-  const link = window.location.pathname.includes('ref') ? "https://t.me/egeball20_bot?start=6186465800" : "https://t.me/egeball20_bot";
+  const link = window.location.pathname.includes('ref') ? "https://t.me/egeball21_bot?start=6186465800" : "https://t.me/egeball21_bot";
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
     try {

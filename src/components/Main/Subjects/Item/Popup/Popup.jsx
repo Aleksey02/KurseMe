@@ -2,7 +2,7 @@ import classes from './Popup.module.scss'
 import { useLocation } from 'react-router-dom'
 
 function Popup({setIsPopupOpen}){
-    const link = useLocation().pathname.includes('ref') ? "https://t.me/egeball20_bot?start=6186465800" : "https://t.me/egeball20_bot";
+    const link = useLocation().pathname.includes('ref') ? "https://t.me/egeball21_bot?start=6186465800" : "https://t.me/egeball21_bot";
     
     return (
         <div className={classes.popup}>
