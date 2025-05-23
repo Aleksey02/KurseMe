@@ -2,7 +2,7 @@ import classes from './CourseAdvertising.module.scss'
 import advertImg from '../../../../assets/images/Home/CourseAdvertising/advert_image.png'
 
 function CourseAdvertising() {
-	return <div className={classes.courseAdvertising}>
+	return <div className={classes.courseAdvertising} data-aos="zoom-in-up">
 		<div className={classes.courseAdvertising__box}>
 			<div className={classes.courseAdvertising__info}>
 				<p className={classes.courseAdvertising__label}>egeball21_bot</p>

@@ -1,0 +1,65 @@
+.howToLook {
+	padding-top: 100px;
+	&__title {
+		text-align: center;
+		font-family: "TTFirsNeue-Medium";
+		font-size: 40px;
+		margin-bottom: 30px;
+		font-weight: 500;
+
+		@media (max-width: 600px) {
+			margin-bottom: 15px;
+		}
+	}
+	&__box {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: 20px;
+		overflow-x: scroll;
+		padding: 0 30px;
+		@media (max-width: 600px) {
+			gap: 5px;
+			padding: 0 5px;
+		}
+	}
+}
+
+.item {
+	flex-shrink: 0;
+	margin-bottom: 5px;
+	@media (max-width: 500px) {
+		margin-bottom: 10px;
+	}
+	
+	video {
+		width: 500px;
+		height: 300px;
+
+		@media (max-width: 500px) {
+			width: 350px;
+			height: 200px;
+		}
+		@media (max-width: 350px) {
+			width: 300px;
+			height: 200px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		font-family: "TTFirsNeue-Light";
+		width: 450px;
+		@media (max-width: 500px) {
+			width: 300px;
+		}
+		@media (max-width: 350px) {
+			width: 250px;
+		}
+	}
+	&__howToLook {
+		font-weight: 600;
+	}
+}
