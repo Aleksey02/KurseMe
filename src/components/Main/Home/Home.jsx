@@ -10,11 +10,11 @@ import Universities from './Universities/Universities'
 function Home({advantages, faq}){
     return (
         <div className={classes.home}>
+            <CourseAdvertising/>
             <Advantages data={advantages} />
             <HowToLook />
             <Universities />
             <Reviews />
-            <CourseAdvertising/>
             {/* <div data-aos="zoom-in-up">
                 <h3 className={classes.home__title}>Курсы 2024-2025 учебный год:</h3>
                 <div className={classes.home__box}>
