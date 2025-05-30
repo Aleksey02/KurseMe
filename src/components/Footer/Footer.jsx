@@ -20,7 +20,7 @@ function Footer(){
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>О нас</h4>
-                <a href='https://t.me/egeball_support_bot' target='_blank' className={classes.footer__text}>Поддержка</a>
+                <a href='https://t.me/racketeersss' target='_blank' className={classes.footer__text}>Поддержка</a>
                 <a href='https://t.me/egeball_feed' target='_blank' className={classes.footer__text}>Отзывы</a>
             </div>
             <div className={classes.footer__item}>
