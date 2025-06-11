@@ -13,7 +13,7 @@ const data = [
 
 function Item({data}) {
 	return <div className={classes.item}>
-		<video src={data.src} controls></video>
+		<video src={data.src} controls preload='metadata'></video>
 		<div className={classes.item__info}>
 			<p className={classes.item__howToLook}>{data.title}</p>
 			<p className={classes.item__join}>{data.join} <a href="http://t.me/egeball21_bot">@egeball21_bot</a>{data.joinStatus}</p>
