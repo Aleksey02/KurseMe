@@ -8,8 +8,8 @@ services:
       - "81:81"
     restart: always
     networks:
-      - my_network
+      - dokploy-network
 
 networks:
-  my_network:
+  dokploy-network:
     external: true
