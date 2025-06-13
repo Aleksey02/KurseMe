@@ -1,0 +1,37 @@
+.subjects{
+    &__title{
+        font-family: 'TTFirsNeue-Medium';
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 43px;   
+        font-weight: 300;     
+    }
+    &__box{
+        margin: 0 187px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+        row-gap: 30px;
+        column-gap: 30px;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 43px;
+    }
+}
+@media (max-width: 1200px) {
+    .subjects{
+        &__box{
+            margin: 0 120px;
+        }
+    }
+}
+@media (max-width: 640px) {
+    .subjects{
+        &__title{
+            font-size: 30px;
+        }
+        &__box{
+            margin: 0;
+            gap: 15px;
+        }
+    }
+}

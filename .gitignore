@@ -7,7 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+
+# Build output
 dist
 dist-ssr
 uploads
@@ -23,3 +26,39 @@ uploads
 *.njsproj
 *.sln
 *.sw?
+
+# TypeScript
+*.tsbuildinfo
+
+# Env files
+.env
+.env.*.local
+
+# Jest coverage reports
+coverage
+coverage-*
+
+# React build (frontend)
+frontend/build
+frontend/.env
+frontend/.env.*.local
+
+# NestJS build (backend)
+backend/dist
+backend/coverage
+backend/.env
+backend/.env.*.local
+backend/*.tsbuildinfo
+
+# Optional: if using ESLint or Prettier caches
+frontend/.eslintcache
+backend/.eslintcache
+.prettiercache
+
+# Optional: IDE-specific files per folder
+frontend/.vscode/
+backend/.vscode/
+
+# Optional: OS-specific files
+*.bak
+Thumbs.db

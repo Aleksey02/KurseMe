@@ -1,0 +1,40 @@
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 27px;
+    padding: 27px 20px 27px;
+    &__img{
+        display: block;
+        margin-bottom: 14px;
+    }
+    &__desc{
+        font-family: 'TTFirsNeue-Regular';
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    &__btn{
+        display: inline-block;
+        background-color: transparent;
+        font-family: 'TTFirsNeue-Light';
+        white-space: normal;
+        font-size: 20px;
+        padding: 10px 30px;
+        cursor: pointer;
+        outline: none;
+        border-radius: 7px;
+        border: 1px solid black;
+        color: black;
+        transition: 0.25s;    
+        &:hover{
+            background-color: black;
+            color: white;
+        }    
+    }
+}
+@media (max-width: 870px) {
+    .item{
+        width: 90%;
+    }
+}

@@ -1,0 +1,156 @@
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    background: #FFFFFF;
+    
+    &__box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 32px 55px;
+    }
+    &__logo{
+        width: 228px;
+        height: 40px;
+    }
+    &__list{
+        display: flex;
+        align-items: center;
+        gap: 35px;
+    }
+    &__link{
+        font-family: 'TTFirsNeue-Light';
+        font-size: 18px;
+        color: black;
+    }
+    &__btn{
+        background-color: black;
+        padding: 7px 23px;
+        color: white;
+        border-radius: 5px;
+        font-family: 'TTFirsNeue-Regular';
+        font-size: 18px;
+        border: none;   
+        outline: none;     
+        cursor: pointer;
+        margin-left: 15px;
+    }
+    &__buttons{
+        display: none;
+        align-items: center;
+        gap: 15px;
+    }
+    &__profile{
+        border: none;
+        background-color: transparent;
+        width: 34px;
+        height: 34px;
+    }
+}
+.burger{
+    display: none;
+}
+.menu{
+    display: none;
+}
+@media (max-width: 960px) {
+    .header{
+        &__list{
+            gap: 20px;
+        }
+    }
+}
+@media (max-width: 950px) {
+    .header{
+        &__box{
+            padding: 22px 34px;
+
+        }
+        &__list,
+        &__btn{
+            display: none;
+        }
+        &__buttons{
+            display: flex;
+        }
+    }
+    .burger{
+        display: block;
+        background-color: black;
+        padding: 4px 8px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        &.active{
+            & .burger__line{
+                &:nth-child(1){
+                    transform: translateY(8px) rotate(45deg);
+                }
+                &:nth-child(2){
+                    opacity: 0;
+                }
+                &:nth-child(3){
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+        }
+        &__line{
+            display: block;
+            width: 18px;
+            height: 2px;
+            margin: 5px auto;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+            background-color: white;            
+        }
+    }
+    .menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 0%;
+        background-color: black;
+        padding: 10px 0;
+        z-index: 5;
+        height: 55px;
+        transition: 0.3s;
+        &__link{
+            display: none;
+            font-family: 'TTFirsNeue-Light';
+            font-size: 18px;
+            color: white;
+            white-space: nowrap;
+        }
+        &.active{
+            width: 100%;
+            & .menu__link{
+                display: block;
+            }
+        }
+    }
+}
+@media (max-width: 450px) {
+    .header{
+        &__logo{
+            width: 160px;
+            height: unset;
+            display: block;
+        }
+    }
+}
+@media (max-width: 400px) {
+    .header__box{
+        padding: 22px 14px;
+    }
+    .header__buttons{
+        gap: 8px;
+    }
+}

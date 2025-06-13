@@ -1,0 +1,64 @@
+.footer{
+    background: white;
+    padding: 26px 4% 55px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    row-gap: 20px;
+    column-gap: 80px;
+    flex-wrap: wrap;
+    &__item{
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &:first-child{
+            width: 450px;
+        }
+    }
+    &__logo{
+        width: 158.25px;
+        height: 28.84px;
+    }
+    &__text{
+        font-size: 18px;
+        font-family: 'TTFirsNeue-Regular'; 
+        color: #000000;      
+    }
+    &__title{
+        padding-bottom: 10px;
+        font-size: 18px;
+        font-family: 'TTFirsNeue-Medium';        
+    }
+}
+
+@media (max-width: 1224px) {
+    .footer{
+        &__item{
+            &:first-child{
+                width: 250px;
+            }
+        }
+    }
+}
+@media (max-width: 1006px) {
+    .footer{
+       justify-content: space-between;
+    }
+}
+@media (max-width: 870px) {
+    .footer{
+        flex-direction: column;
+        gap: 0;
+        &__item{
+            width: 100%;
+            padding: 20px 0;
+            border-top: 2px solid #000;
+            &:first-child{
+                width: 100%;
+                border: none;
+                padding-top: 0;
+            }
+        }
+    }
+}

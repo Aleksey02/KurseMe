@@ -1,0 +1,60 @@
+.faq{
+    padding-top: 100px;
+    &__title{
+        text-align: center;
+        font-family: "TTFirsNeue-Medium";
+        font-size: 40px;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+    &__box{
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    &__link{
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        color: white;
+        width: 300px;
+        background-color: #fcc63b;
+        font-family: "TTFirsNeue-Light";
+        font-size: 20px;
+        padding: 10px 30px;
+        cursor: pointer;
+        transition: 0.25s;
+        margin-bottom: 65px;
+        border-radius: 5px;
+        &:hover{
+            background-color: #fca40b;
+        }
+    }
+}
+@media (max-width: 1230px) {
+    .faq{
+        &__box{
+        max-width: 740px;
+        }
+    }
+}
+@media (max-width: 820px) {
+    .faq{
+        &__box{
+        max-width: 500px;
+        }
+    }
+}
+@media (max-width: 570px) {
+    .faq{
+        &__box{
+        max-width: 90%;
+        }
+        &__link{
+            width: 90%;
+        }
+    }
+}
