@@ -9,6 +9,11 @@ services:
     restart: always
     networks:
       - dokploy-network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.frontend-app.rule=Host(egeball.com)
+      - traefik.http.routers.frontend-app.entrypoints=web
+      - traefik.http.services.frontend-app.loadbalancer.server.port=81
 
 networks:
   dokploy-network:
