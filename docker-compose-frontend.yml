@@ -7,9 +7,6 @@ services:
     ports:
       - "81:80"
     restart: always
-    volumes:
-      - ./nginx/cert.pem:/etc/cert.pem
-      - ./nginx/key.pem:/etc/key.pem
     networks:
       - my-network
 
