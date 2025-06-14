@@ -5,7 +5,7 @@ services:
     build: ./frontend
     container_name: frontend
     ports:
-      - "81:81"
+      - "80:81"
     restart: always
     volumes:
       - ./nginx/cert.pem:/etc/cert.pem
