@@ -17,7 +17,7 @@ function Header({isAuth}){
                 </NavLink>
                 <ul className={classes.header__list}>
                     <li className={classes.header__item}>
-                        <NavLink to={location + '404'} className={classes.header__link}>Сотрудничество</NavLink>
+                        <NavLink to={location + 'partnership'} className={classes.header__link}>Сотрудничество</NavLink>
                     </li>
                     {/* <li className={classes.header__item}>
                         <NavLink to={location + '9'} className={classes.header__link}>ОГЭ</NavLink>

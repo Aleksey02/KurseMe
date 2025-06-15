@@ -9,6 +9,7 @@ import SchoolAdmin from '../../pages/Admin/SchoolAdmin'
 import SubjectAdmin from '../../pages/Admin/SubjectAdmin'
 import Auth from '../../pages/Auth/Auth'
 import Account from '../../pages/Account/Account'
+import Partnership from '../../pages/Partnership/Partnership'
 
 function Main({data, isAuth, setIsAuth}) {
     console.log(isAuth);
@@ -32,6 +33,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/admin/classes/:classAdmin/:schoolId' element={<SubjectAdmin />} />
                 <Route path='/auth' element={<Auth setIsAuth={setIsAuth}/>} />
                 <Route path='/account' element={<Account isAuth={isAuth} setIsAuth={setIsAuth} />} />
+                <Route path='/partnership' element={<Partnership />} />
             </Routes>
         </main>
     )

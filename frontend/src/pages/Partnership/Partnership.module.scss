@@ -1,0 +1,17 @@
+.partnership {
+	width: 700px;
+	margin: 0 auto;
+	font-family: "TTFirsNeue-Light";
+    white-space: normal;
+    font-size: 20px;
+    color: black;
+	img {
+		width: 100%;
+	}
+	h3 {
+		cursor: pointer;
+	}
+	&__open_line {
+		margin-bottom: 10px;
+	}
+}
