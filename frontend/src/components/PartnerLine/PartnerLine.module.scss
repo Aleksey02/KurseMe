@@ -1,0 +1,31 @@
+.open_line_top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		img {
+			width: 40px;
+			height: 40px;
+			transition: 0.25s;
+		}
+	}
+}
+.button_active {
+	img {
+		transform: rotate(180deg);
+	}
+}
+.open_line_desc_hide {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 1s linear, opacity 0.3s linear;
+	opacity: 0;
+}
+.open_line_desc {
+	max-height: 1000px;
+	transition: max-height 1s linear, opacity 0.3s linear;
+	opacity: 1;
+}

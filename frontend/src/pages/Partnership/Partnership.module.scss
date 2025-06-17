@@ -8,10 +8,14 @@
 	img {
 		width: 100%;
 	}
-	h3 {
-		cursor: pointer;
-	}
 	&__open_line {
 		margin-bottom: 10px;
+	}
+	h2 {
+		margin-bottom: 30px;
+	}
+	&__bold {
+		font-size: 24px;
+		font-weight: bold;
 	}
 }

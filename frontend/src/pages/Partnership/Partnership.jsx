@@ -1,3 +1,5 @@
+import React from 'react'
+import {NavLink} from 'react-router-dom'
 import classes from './Partnership.module.scss'
 import PartnerLine from '../../components/PartnerLine/PartnerLine'
 import img1 from '../../assets/images/Partnership/partnership_image_1.jpg'
@@ -111,13 +113,14 @@ const openLines = [
 
 function Partnership() {
 	return <div className={classes.partnership}>
+		<h2>Реферальная система | <NavLink to="/">egeball.com</NavLink></h2>
 		<p>Наш проект является одним из первых в тематике сливов курсов ОГЭ/ЕГЭ. С 2020 года мы помогли 10,000+ выпускникам подготовиться к экзаменам почти за бесценок! Становясь нашим партнером, мы гарантируем качественный продукт, быстрые выплаты и повышение ставок.</p>
 		<br />
 		<br />
 		<p>Мы предлагаем разные условия сотрудничества. Выбирай удобный и начинай зарабатывать уже сегодня!</p>
 		<br />
 		<br />
-		<p>1) Создавай короткий видео-контент с упоминанием нашего проекта и получай фиксированную оплату за кол-во просмотров:</p>
+		<p className={classes.partnership__bold}>1) Создавай короткий видео-контент с упоминанием нашего проекта и получай фиксированную оплату за кол-во просмотров:</p>
 		<img src={img1} alt="" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[0].title} desc={openLines[0].desc} />
@@ -126,11 +129,12 @@ function Partnership() {
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[1].title} desc={openLines[1].desc} />
 		</div>
+		<p>!) Помимо фиксированной оплаты, Вы можете прикреплять свою реферальную ссылку и получать +25% с каждого пополнения пользователя, который перешел по Вашей ссылке. </p>
+		<br/>
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[2].title} desc={openLines[2].desc} />
 		</div>
-		<p>!) Помимо фиксированной оплаты, Вы можете прикреплять свою реферальную ссылку и получать +25% с каждого пополнения пользователя, который перешел по Вашей ссылке. </p>
-		<p>2) Рекламируй свою реферальную ссылку и получай до 25% с каждого пополнения. </p>
+		<p className={classes.partnership__bold}>2) Рекламируй свою реферальную ссылку и получай до 25% с каждого пополнения. </p>
 		<img src={img2} alt="" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[3].title} desc={openLines[3].desc} />
@@ -147,7 +151,7 @@ function Partnership() {
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[7].title} desc={openLines[7].desc} />
 		</div>
-		<p>3) Делись своей реферальной ссылкой с небольшим кругом людей и получай эксклюзивные курсы.</p>
+		<p className={classes.partnership__bold}>3) Делись своей реферальной ссылкой с небольшим кругом людей и получай эксклюзивные курсы.</p>
 		<img src={img3} alt="" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[8].title} desc={openLines[8].desc} />
