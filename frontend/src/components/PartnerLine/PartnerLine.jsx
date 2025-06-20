@@ -12,7 +12,7 @@ function PartnerLine({title, desc}) {
 			</button>
 		</div>
 		<br />
-		<p className={isOpen ? classes.open_line_desc : classes.open_line_desc_hide}>{desc}</p>
+		<p className={isOpen ? classes.open_line_desc : classes.open_line_desc_hide} dangerouslySetInnerHTML={{__html: desc}}></p>
 	</>
 }
 export default PartnerLine;
