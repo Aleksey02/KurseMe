@@ -30,7 +30,7 @@ function Header({isAuth}){
                 {/* <a className={classes.header__btn} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Форум</a> */}
                 <div>
                 {isAuth.isAdmin && <NavLink className={classes.header__btn}  to={'admin'}>Админ панель</NavLink>}
-                {isAuth ? <NavLink className={classes.header__btn}  to={'account'}>Аккаунт</NavLink> : <TelegramLogin />}
+                {!isAuth && <TelegramLogin />}
                 <NavLink className={classes.header__btn}  to={isAuth? 'account' : 'auth'}>{isAuth? 'Аккаунт' : 'Войти'}</NavLink>
                 </div>
                 <div className={classes.header__buttons}>
