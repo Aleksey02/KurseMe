@@ -41,7 +41,7 @@ function App({data}) {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header isAuth={isAuth}/>
+        <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Main data={data} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Footer/>
         <a href={link} className="app__circle" target="_blank">

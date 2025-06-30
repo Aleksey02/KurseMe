@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const TelegramLogin = () => {
+const TelegramLogin = ({setIsAuth}) => {
   useEffect(() => {
     // Определяем функцию для Telegram
     window.onTelegramAuth = function (user) {
@@ -14,6 +14,7 @@ const TelegramLogin = () => {
           (user.username ? ', @' + user.username : '') +
           ')'
       );
+      setIsAuth(user);
     };
 
     // Добавляем сам виджет Telegram
