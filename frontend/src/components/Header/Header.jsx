@@ -47,7 +47,7 @@ function Header({isAuth}){
                     </button>
                 </div>
                 <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
-                    <NavLink to={location + '404'} className={classes.menu__link}>Сотрудничество</NavLink>
+                    <NavLink to={location + 'partnership'} className={classes.menu__link}>Сотрудничество</NavLink>
                     {/* <NavLink to={location + '9'} className={classes.menu__link}>ОГЭ</NavLink> */}
                     <a className={classes.menu__link} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Бесплатные Курсы</a>
                 </div>
