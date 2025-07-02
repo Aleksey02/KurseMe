@@ -4,16 +4,6 @@ const TelegramLogin = ({setIsAuth}) => {
   useEffect(() => {
     // Определяем функцию для Telegram
     window.onTelegramAuth = function (user) {
-      alert(
-        'Logged in as ' +
-          user.first_name +
-          ' ' +
-          user.last_name +
-          ' (' +
-          user.id +
-          (user.username ? ', @' + user.username : '') +
-          ')'
-      );
       setIsAuth(user);
     };
 
