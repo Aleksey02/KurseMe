@@ -5,7 +5,7 @@ const TelegramLogin = ({setIsAuth}) => {
     // Определяем функцию для Telegram
     window.onTelegramAuth = function (user) {
       setIsAuth(user);
-      console.log(user);
+      console.log(setIsAuth);
       
     };
 
