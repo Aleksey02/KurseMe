@@ -4,7 +4,6 @@ import profile from '../../assets/images/Header/profile.svg'
 import adminImg from '../../assets/images/Header/sheriff.png'
 import classes from './Header.module.scss'
 import { NavLink, useLocation } from 'react-router-dom';
-import TelegramLogin from '../TelegramLogin/TelegramLogin'
 
 function Header({isAuth, setIsAuth}){
     const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -30,7 +29,6 @@ function Header({isAuth, setIsAuth}){
                 {/* <a className={classes.header__btn} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Форум</a> */}
                 <div>
                 {isAuth.isAdmin && <NavLink className={classes.header__btn}  to={'admin'}>Админ панель</NavLink>}
-                {!isAuth && <TelegramLogin setIsAuth={setIsAuth}/>}
                 <NavLink className={classes.header__btn}  to={isAuth? 'account' : 'auth'}>{isAuth? 'Аккаунт' : 'Войти'}</NavLink>
                 </div>
                 <div className={classes.header__buttons}>
