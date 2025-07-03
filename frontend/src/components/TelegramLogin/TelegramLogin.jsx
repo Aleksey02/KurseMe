@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { setTokenToLocalStorage } from '../../helper/localstorage.helper';
 
 const TelegramLogin = ({ setIsAuth }) => {
   const navigate = useNavigate(); 
@@ -8,14 +10,16 @@ const TelegramLogin = ({ setIsAuth }) => {
     // Сохраняем setIsAuth и navigate в глобальные переменные
     window.__setIsAuth = setIsAuth;
     window.__navigate = navigate;
+    window.__toast = toast;
+    window.__setTokenToLocalStorage = setTokenToLocalStorage;
 
     // Глобальная функция для Telegram Login Widget
     window.onTelegramAuth = function (user) {
       if (typeof window.__setIsAuth === 'function') {
         window.__setIsAuth(user);
-        if (typeof window.__navigate === 'function') {
-          window.__navigate('/'); // ✅ переход на главную
-        }
+        window.__setTokenToLocalStorage?.('token', user.hash);
+        window.__navigate?.('/');
+        window.__toast?.success?.('Вход прошел успешно');
       } else {
         console.warn('⚠️ setIsAuth is not a function');
       }
