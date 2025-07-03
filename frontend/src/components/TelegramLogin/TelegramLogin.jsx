@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const TelegramLogin = ({ setIsAuth }) => {
   useEffect(() => {
@@ -7,9 +8,11 @@ const TelegramLogin = ({ setIsAuth }) => {
 
     // Глобальная функция для Telegram Login Widget
     window.onTelegramAuth = function (user) {
-      console.log('✅ Telegram user:', user);
       if (typeof window.__setIsAuth === 'function') {
+        const navigate = useNavigate();
+        
         window.__setIsAuth(user);
+        navigate('/');
       } else {
         console.warn('⚠️ setIsAuth is not a function');
       }
