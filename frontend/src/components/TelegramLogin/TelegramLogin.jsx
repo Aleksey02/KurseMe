@@ -1,25 +1,42 @@
 import { useEffect } from 'react';
 
-const TelegramLogin = ({setIsAuth}) => {
+const TelegramLogin = ({ setIsAuth }) => {
   useEffect(() => {
-    // Определяем функцию для Telegram
+    // Сохраняем setIsAuth в глобальную переменную
+    window.__setIsAuth = setIsAuth;
+
+    // Глобальная функция для Telegram Login Widget
     window.onTelegramAuth = function (user) {
-      setIsAuth(user);
-      console.log(setIsAuth);
-      
+      console.log('✅ Telegram user:', user);
+      if (typeof window.__setIsAuth === 'function') {
+        window.__setIsAuth(user);
+      } else {
+        console.warn('⚠️ setIsAuth is not a function');
+      }
     };
 
-    // Добавляем сам виджет Telegram
+    // Создаём и настраиваем скрипт Telegram
     const script = document.createElement('script');
     script.src = 'https://telegram.org/js/telegram-widget.js?22';
     script.async = true;
-    script.setAttribute('data-telegram-login', 'egeball21_bot');
+    script.setAttribute('data-telegram-login', 'egeball21_bot'); // Имя бота без @
     script.setAttribute('data-size', 'large');
-    script.setAttribute('data-onauth', 'onTelegramAuth(user)');
+    script.setAttribute('data-userpic', 'true');
     script.setAttribute('data-request-access', 'write');
+    script.setAttribute('data-onauth', 'onTelegramAuth(user)');
 
-    document.getElementById('telegram-login-container')?.appendChild(script);
-  }, []);
+    const container = document.getElementById('telegram-login-container');
+    if (container) {
+      container.innerHTML = ''; // Очищаем, чтобы не вставлять дублирующийся iframe
+      container.appendChild(script);
+    }
+
+    // Очистка
+    return () => {
+      delete window.onTelegramAuth;
+      delete window.__setIsAuth;
+    };
+  }, [setIsAuth]);
 
   return <div id="telegram-login-container"></div>;
 };
