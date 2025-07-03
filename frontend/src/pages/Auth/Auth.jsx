@@ -71,7 +71,7 @@ function Auth(props) {
 			</form>
 		</div> */}
 		<div className={classes.auth__tg}>
-			<TelegramLogin />
+			<TelegramLogin setIsAuth={props.setIsAuth}/>
 		</div>
 	</div>
 }
