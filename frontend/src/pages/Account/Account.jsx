@@ -2,6 +2,7 @@ import { removeTokenFromLocalStorage } from "../../helper/localstorage.helper";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import classes from './Account.module.scss';
+import img from '../../assets/images/Account/profile.png'
 
 function Account({isAuth, setIsAuth}) {
 	const navigate = useNavigate();
@@ -14,9 +15,33 @@ function Account({isAuth, setIsAuth}) {
 
 	return <div className={classes.account}>
 		{isAuth ? <>
-			<h2>Страница аккаунта</h2>
-			<p>Введутся технические работы</p>
-			<button onClick={logout}>Выйти из аккаунта</button>
+			<h2 className={classes.account__title}>Личный кабинет</h2>
+			<div className={classes.account__yourId}>
+				<img src={img} alt="profile image" />
+				<p>Ваш ID: <span>{isAuth.id}</span></p>
+				<button onClick={logout} className={classes.account__btn}>Выйти</button>
+			</div>
+			<h3 className={classes.account__subtitle}>Реферальная система</h3>
+			<div className={classes.account__referals}>
+				<div className={classes.account__referal}>
+					<h4>Ваша реферальная система</h4>
+					<div className={classes.account__box}>
+						<button className={classes.account__btn}>Скопировать</button>
+					</div>
+				</div>
+				<div className={classes.account__referal}>
+					<h4>Кол-во рефералов</h4>
+					<div className={classes.account__box}>
+						<span>0</span>
+					</div>
+				</div>
+				<div className={classes.account__referal}>
+					<h4>Заработано с рефералов</h4>
+					<div className={classes.account__box}>
+						<span>0₽</span>
+					</div>
+				</div>
+			</div>
 		</>: 'Страница не найдена'}
 	</div>
 }
