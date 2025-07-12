@@ -43,6 +43,24 @@
 			margin-right: -18px;
 		}
 	}
+	&__link{
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        color: white;
+        width: 300px;
+        background-color: #fcc63b;
+        font-family: "TTFirsNeue-Light";
+        font-size: 20px;
+        padding: 10px 30px;
+        cursor: pointer;
+        transition: 0.25s;
+        margin-bottom: 65px;
+        border-radius: 5px;
+        &:hover{
+            background-color: #fca40b;
+        }
+    }
 }
 
 .item {

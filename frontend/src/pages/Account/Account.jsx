@@ -6,11 +6,17 @@ import img from '../../assets/images/Account/profile.png'
 
 function Account({isAuth, setIsAuth}) {
 	const navigate = useNavigate();
+
 	const logout = () => {
 		removeTokenFromLocalStorage('token');
 		toast.success('Вы успешно вышли');
 		navigate('/');
 		setIsAuth(false);
+	}
+
+	const copyReferralLink = () => {
+		navigator.clipboard.writeText('https://egeball.com/id' + isAuth.id);
+		toast.success('Скопировано');
 	}
 
 	return <div className={classes.account}>
@@ -26,7 +32,7 @@ function Account({isAuth, setIsAuth}) {
 				<div className={classes.account__referal}>
 					<h4>Ваша реферальная система</h4>
 					<div className={classes.account__box}>
-						<button className={classes.account__btn}>Скопировать</button>
+						<button className={classes.account__btn} onClick={copyReferralLink}>Скопировать</button>
 					</div>
 				</div>
 				<div className={classes.account__referal}>

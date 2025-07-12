@@ -22,9 +22,6 @@ function Header({isAuth, setIsAuth}){
                     {/* <li className={classes.header__item}>
                         <NavLink to={location + '9'} className={classes.header__link}>ОГЭ</NavLink>
                     </li> */}
-                    <li className={classes.header__item}>
-                        <a className={classes.header__link} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Бесплатные Курсы</a>
-                    </li>
                 </ul>
                 {/* <a className={classes.header__btn} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Форум</a> */}
                 <div>
@@ -47,7 +44,6 @@ function Header({isAuth, setIsAuth}){
                 <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
                     <NavLink to={location + 'partnership'} className={classes.menu__link}>Сотрудничество</NavLink>
                     {/* <NavLink to={location + '9'} className={classes.menu__link}>ОГЭ</NavLink> */}
-                    <a className={classes.menu__link} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Бесплатные Курсы</a>
                 </div>
             </div>
         </header>
