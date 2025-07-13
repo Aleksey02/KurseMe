@@ -11,6 +11,8 @@ function Account({isAuth, setIsAuth}) {
 
 	useEffect(() => {
 		const initData = window.Telegram?.WebApp?.initData;
+		console.log(initData, 'initData');
+		
 		const response = axios.get('https://egeball.lol/v1/api/me/', {
 			headers: {
 				'Content-Type': 'application/json',
