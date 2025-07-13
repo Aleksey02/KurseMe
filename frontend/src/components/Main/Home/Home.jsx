@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom'
 import Advantages from './Advantages/Advantages'
 import CourseAdvertising from './CourseAdvertising/CourseAdvertising'
 import FAQ from './FAQ/FAQ'

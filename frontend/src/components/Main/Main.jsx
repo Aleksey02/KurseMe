@@ -18,15 +18,15 @@ function Main({data, isAuth, setIsAuth}) {
         <main className={classes.main}>
             <Routes>
                 <Route path='/' element={<Home advantages={data['advantages']} faq={data['faq']}/>} />
-                <Route path='/ref' element={<Home advantages={data['advantages']} faq={data['faq']}/>} />
+                <Route path='/:id' element={<Home advantages={data['advantages']} faq={data['faq']}/>} />
                 <Route path='/11' element={<School data={data['11']} />} />
-                <Route path='/ref/11' element={<School data={data['11']} />} />
+                <Route path='/:id/11' element={<School data={data['11']} />} />
                 <Route path='/11/:school' element={<Subjects data={data['11']} />} />
-                <Route path='/ref/11/:school' element={<Subjects data={data['11']} />} />
+                <Route path='/:id/11/:school' element={<Subjects data={data['11']} />} />
                 <Route path='/9' element={<School data={data['9']} />} />
-                <Route path='/ref/9' element={<School data={data['9']} />} />
+                <Route path='/:id/9' element={<School data={data['9']} />} />
                 <Route path='/9/:school' element={<Subjects data={data['9']} />} />
-                <Route path='/ref/9/:school' element={<Subjects data={data['9']} />} />
+                <Route path='/:id/9/:school' element={<Subjects data={data['9']} />} />
                 <Route path='/admin' element={<Admin isAuth={isAuth} />} />
                 <Route path='/admin/classes' element={<Classes isAuth={isAuth} />} />
                 <Route path='/admin/classes/:classAdmin' element={<SchoolAdmin />} />
@@ -34,6 +34,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/auth' element={<Auth setIsAuth={setIsAuth}/>} />
                 <Route path='/account' element={<Account isAuth={isAuth} setIsAuth={setIsAuth} />} />
                 <Route path='/partnership' element={<Partnership />} />
+                <Route path='/:id/partnership' element={<Partnership />} />
             </Routes>
         </main>
     )

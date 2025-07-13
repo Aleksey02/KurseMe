@@ -12,11 +12,14 @@ const data = [
 ]
 
 function Item({data}) {
+	const {pathname} = window.location;
+	const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
+
 	return <div className={classes.item}>
 		<video src={data.src} controls preload='metadata'></video>
 		<div className={classes.item__info}>
 			<p className={classes.item__howToLook}>{data.title}</p>
-			<p className={classes.item__join}>{data.join} <a href="http://t.me/egeball21_bot">@egeball21_bot</a>{data.joinStatus}</p>
+			<p className={classes.item__join}>{data.join} <a href={`http://t.me/egeball21_bot${refLink}`}>@egeball21_bot</a>{data.joinStatus}</p>
 		</div>
 	</div>
 }

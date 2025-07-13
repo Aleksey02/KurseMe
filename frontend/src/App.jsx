@@ -12,7 +12,9 @@ import { AuthService } from "./services/auth.service"
 
 function App({data}) {
   const [isAuth, setIsAuth] = useState(false);
-  const link = window.location.pathname.includes('ref') ? "https://t.me/egeball21_bot?start=6186465800" : "https://t.me/egeball21_bot";
+  const {pathname} = window.location;
+  const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
+
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
     try {
@@ -44,7 +46,7 @@ function App({data}) {
         <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Main data={data} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Footer/>
-        <a href={link} className="app__circle" target="_blank">
+        <a href={`https://t.me/egeball21_bot${refLink}`} className="app__circle" target="_blank">
           <img src="https://egeball.com/logo_tg.png" alt="logo telegram" />
         </a>
         {/* <Surface /> */}

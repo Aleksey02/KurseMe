@@ -7,8 +7,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 function Header({isAuth, setIsAuth}){
     const [isBurgerActive, setIsBurgerActive] = useState(false);
-    const location = useLocation().pathname.includes('ref') ? '/ref/' : '/';
-    
+    const {pathname} = window.location;
+    const location = pathname.includes('id') ? `/id${pathname.split('id')[1]}` : "";
+
     return (
         <header className={classes.header}>
             <div className={classes.header__box}>
@@ -17,7 +18,7 @@ function Header({isAuth, setIsAuth}){
                 </NavLink>
                 <ul className={classes.header__list}>
                     <li className={classes.header__item}>
-                        <NavLink to={location + 'partnership'} className={classes.header__link}>Сотрудничество</NavLink>
+                        <NavLink to={location + '/partnership'} className={classes.header__link}>Сотрудничество</NavLink>
                     </li>
                     {/* <li className={classes.header__item}>
                         <NavLink to={location + '9'} className={classes.header__link}>ОГЭ</NavLink>
@@ -42,7 +43,7 @@ function Header({isAuth, setIsAuth}){
                     </button>
                 </div>
                 <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
-                    <NavLink to={location + 'partnership'} className={classes.menu__link}>Сотрудничество</NavLink>
+                    <NavLink to={location + '/partnership'} className={classes.menu__link}>Сотрудничество</NavLink>
                     {/* <NavLink to={location + '9'} className={classes.menu__link}>ОГЭ</NavLink> */}
                 </div>
             </div>

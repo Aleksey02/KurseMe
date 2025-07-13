@@ -1,4 +1,4 @@
-import {NavLink, useLocation} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import classes from './Partnership.module.scss'
 import PartnerLine from '../../components/PartnerLine/PartnerLine'
 import img1 from '../../assets/images/Partnership/partnership_image_1.jpg'
@@ -89,11 +89,11 @@ const openLines = [
 	},
 	{
 		title: 'Сумма и условия выплат:',
-		desc: `1) За каждое пополнение своего реферала Вы будете получать 25% с его суммы пополнения;
-<br/>
-2) Сумма вывода на любую карту РФ или в монете USDT (сеть TRC) доступна от 5,000 рублей. 
-<br/>
-3) Если Ваши рефералы принесли вам меньше 5,000 рублей, то вы можете потратить их на курсе в боте.`
+		desc: `• За каждое пополнение своего реферала Вы будете получать 25% с его суммы пополнения;
+<br/><br/>
+• Сумма вывода на любую карту РФ или в монете USDT (сеть TRC) доступна от 5,000 рублей.
+<br/><br/>
+• Если Ваши рефералы принесли вам меньше 5,000 рублей, то вы можете потратить их на курсе в боте.<br/><br/>`
 	},
 	{
 		title: 'Как начать зарабатывать:',
@@ -135,7 +135,8 @@ function Item({data}) {
 
 
 function Partnership() {
-	const link = useLocation().pathname === '/' ? "https://t.me/egeball21_bot" : "https://t.me/egeball21_bot?start=6186465800"
+	const {pathname} = window.location;
+	const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1].split('/')[0]}` : "";
 
 	return <div className={classes.partnership}>
 		<h2>Реферальная система | <NavLink to="/">egeball.com</NavLink></h2>
@@ -201,7 +202,7 @@ function Partnership() {
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[14].title} desc={openLines[14].desc} />
 		</div>
-		<a href={link} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
+		<a href={`https://t.me/egeball21_bot${refLink}`} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
 	</div>
 }
 
