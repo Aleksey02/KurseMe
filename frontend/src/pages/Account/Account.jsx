@@ -10,7 +10,14 @@ function Account({isAuth, setIsAuth}) {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const response = axios.get('https://egeball.lol/v1/api/me/');
+		const initData = window.Telegram?.WebApp?.initData;
+		const response = axios.get('https://egeball.lol/v1/api/me/', {
+			headers: {
+				'Content-Type': 'application/json',
+				'X-Telegram-Init-Data': initData
+    // 'Authorization': `Bearer ${token}`,
+			}
+		});
 		console.log(response);
 		
 	}, [])
