@@ -25,7 +25,7 @@ const TelegramLogin = ({ setIsAuth }) => {
           accept: 'application/json',
           initData: user, // если Telegram требует в заголовках, а не в query
         };
-        axios.get(url, { headers })
+        axios.get('https://egeball.lol/v1/api/login/', { headers })
         .then(response => {
           console.log('Ответ сервера:', response.data);
         })
