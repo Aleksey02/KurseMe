@@ -22,7 +22,7 @@ const TelegramLogin = ({ setIsAuth }) => {
         window.__toast?.success?.('Вход прошел успешно');
         const headers = {
           accept: 'application/json',
-          initData: initData, // если Telegram требует в заголовках, а не в query
+          initData: user, // если Telegram требует в заголовках, а не в query
         };
         axios.get(url, { headers })
         .then(response => {
