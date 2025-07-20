@@ -20,6 +20,17 @@ const TelegramLogin = ({ setIsAuth }) => {
         window.__setTokenToLocalStorage?.('token', user.hash);
         window.__navigate?.('/');
         window.__toast?.success?.('Вход прошел успешно');
+        const headers = {
+          accept: 'application/json',
+          initData: initData, // если Telegram требует в заголовках, а не в query
+        };
+        axios.get(url, { headers })
+        .then(response => {
+          console.log('Ответ сервера:', response.data);
+        })
+        .catch(error => {
+          console.error('Ошибка при запросе:', error);
+        });
       } else {
         console.warn('⚠️ setIsAuth is not a function');
       }
