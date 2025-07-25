@@ -21,11 +21,11 @@ const TelegramLogin = ({ setIsAuth }) => {
         window.__setTokenToLocalStorage?.('token', user.hash);
         window.__navigate?.('/');
         window.__toast?.success?.('Вход прошел успешно');
-        const headers = {
-          accept: 'application/json',
-          initData: user, // если Telegram требует в заголовках, а не в query
-        };
-        axios.get('https://egeball.lol/v1/api/login/', { headers })
+        axios.get(`https://egeball.lol/v1/api/login/?initData=${encodeURIComponent(user)}`, {
+          headers: {
+            accept: 'application/json',
+          }
+        })
         .then(response => {
           console.log('Ответ сервера:', response.data);
         })
