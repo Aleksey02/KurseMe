@@ -10,14 +10,20 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [UserModule, PassportModule, JwtModule.registerAsync({
-    imports: [ConfigModule, HttpModule],
-    useFactory: (configService: ConfigService) => ({
-      secret: configService.get('JWT_SECRET'),
-      signOptions: { expiresIn: '30d' },
+  imports: [
+    UserModule,
+    PassportModule,
+    ConfigModule,
+    HttpModule, // ✅ Добавь сюда — прямо в корневой imports
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        secret: configService.get('JWT_SECRET'),
+        signOptions: { expiresIn: '30d' },
+      }),
+      inject: [ConfigService],
     }),
-    inject: [ConfigService],
-  })],
+  ],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy],
 })
