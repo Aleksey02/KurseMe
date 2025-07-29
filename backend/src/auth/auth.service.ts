@@ -45,7 +45,7 @@ export class AuthService {
 
     try {
       const response = await firstValueFrom(
-        this.httpService.get(url, {
+        this.httpService.get<any>(url, {
           headers: {
             accept: 'application/json',
           },
@@ -54,7 +54,7 @@ export class AuthService {
 
       return response.data;
     } catch (error) {
-      console.error('Ошибка при запросе к egeball.lol:', error?.response?.data || error.message);
+      console.error('Ошибка при запросе:', error?.response?.data || error.message);
       throw error;
     }
   }
