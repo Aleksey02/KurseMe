@@ -21,6 +21,9 @@ const TelegramLogin = ({ setIsAuth }) => {
         window.__setTokenToLocalStorage?.('token', user.hash);
         window.__navigate?.('/');
         window.__toast?.success?.('Вход прошел успешно');
+        const loginRequest = axios.get('https://egeball.com/api/api/auth/loginToBot')
+            .then(response => console.log(response.data))
+            .catch(error => console.error(error));
         axios.get(`https://egeball.lol/v1/api/login/?initData=${encodeURIComponent(user)}`, {
           headers: {
             accept: 'application/json',
