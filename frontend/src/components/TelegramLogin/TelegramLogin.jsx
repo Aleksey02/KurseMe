@@ -24,17 +24,6 @@ const TelegramLogin = ({ setIsAuth }) => {
         const loginRequest = axios.get('https://egeball.com/api/api/auth/loginToBot')
             .then(response => console.log(response.data))
             .catch(error => console.error(error));
-        axios.get(`https://egeball.lol/v1/api/login/?initData=${encodeURIComponent(user)}`, {
-          headers: {
-            accept: 'application/json',
-          }
-        })
-        .then(response => {
-          console.log('Ответ сервера:', response.data);
-        })
-        .catch(error => {
-          console.error('Ошибка при запросе:', error);
-        });
       } else {
         console.warn('⚠️ setIsAuth is not a function');
       }
