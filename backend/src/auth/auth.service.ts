@@ -38,24 +38,21 @@ export class AuthService {
     return this.usersService.findOne(email);
   }
 
-  async loginToBot(initData: any) {
-    const serializedInitData = JSON.stringify(initData);
-    const encodedInitData = encodeURIComponent(serializedInitData);
-    const url = `https://egeball.lol/v1/api/login/?initData=${encodedInitData}`;
+  async loginToBot(initData: any, cookie?: string) {
+  try {
+    const response = await firstValueFrom(
+      this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
+        headers: {
+          accept: 'application/json',
+          Cookie: cookie || '', // передай сюда куки сессии, если есть
+        },
+      }),
+    );
 
-    try {
-      const response = await firstValueFrom(
-        this.httpService.get<any>(url, {
-          headers: {
-            accept: 'application/json',
-          },
-        }),
-      );
-
-      return response.data;
-    } catch (error) {
-      console.error('Ошибка при запросе:', error?.response?.data || error.message);
-      throw error;
-    }
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка при запросе:', error?.response?.data || error.message);
+    throw error;
   }
+}
 }
