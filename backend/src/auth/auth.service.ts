@@ -59,7 +59,9 @@ export class AuthService {
           },
         }),
       );
-
+      console.log(cookie, 'cookie');
+      console.log(token, 'token');
+      
       return token;
     } catch (error) {
       console.error('Ошибка при запросе:', error?.response?.data || error.message);
