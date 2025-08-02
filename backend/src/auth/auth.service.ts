@@ -6,11 +6,16 @@ import { IUser } from 'src/types/types';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import * as crypto from 'crypto';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
-  configService: any;
-  constructor(private usersService: UserService, private jwtService: JwtService, private readonly httpService: HttpService) {}
+  constructor(
+    private usersService: UserService, 
+    private jwtService: JwtService, 
+    private readonly httpService: HttpService,
+    private readonly configService: ConfigService
+  ) {}
 
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.usersService.findOne(email);
