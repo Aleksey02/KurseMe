@@ -5,16 +5,13 @@ import { JwtService } from '@nestjs/jwt';
 import { IUser } from 'src/types/types';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import * as crypto from 'crypto';
-import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UserService, 
     private jwtService: JwtService, 
-    private readonly httpService: HttpService,
-    private readonly configService: ConfigService
+    private readonly httpService: HttpService
   ) {}
 
   async validateUser(email: string, password: string): Promise<any> {
@@ -46,10 +43,6 @@ export class AuthService {
   }
 
   async loginToBot(initData: any, cookie?: string) {
-    const isValid = this.verifyTelegramData(initData);
-    if (!isValid) {
-      throw new UnauthorizedException('Неверные данные Telegram');
-    }
     const token = this.jwtService.sign({
       id: initData.id,
       username: initData.username,
@@ -73,22 +66,4 @@ export class AuthService {
       throw error;
     }
   }
-  verifyTelegramData(data: Record<string, any>): boolean {
-    const { hash, ...authData } = data;
-
-    const dataCheckString = Object.keys(authData)
-      .sort()
-      .map((key) => `${key}=${authData[key]}`)
-      .join('\n');
-
-      const secret = crypto.createHash('sha256')
-        .update(this.configService.get('TELEGRAM_BOT_TOKEN'))
-        .digest();
-
-      const hmac = crypto.createHmac('sha256', secret)
-        .update(dataCheckString)
-        .digest('hex');
-
-      return hmac === hash;
-    }
 }
