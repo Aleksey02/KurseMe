@@ -1,8 +1,8 @@
-import { Controller, Post, UseGuards, Request, Get, Body, Res } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Get, Body, Res, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { Response } from 'express';
+import { Response, Request as ExpressRequest } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -21,8 +21,13 @@ export class AuthController {
   }
 
   @Post('loginToBot')
-  async loginToBot(@Body('initData') initData: any, @Res({ passthrough: true }) res: Response) {
-    const token = await this.authService.loginToBot(initData);
+  async loginToBot(
+    @Body('initData') initData: any,
+    @Req() req: ExpressRequest,
+    @Res({ passthrough: true }) res: Response
+) {
+    const cookie = req.headers.cookie || '';
+    const token = await this.authService.loginToBot(initData, cookie);
   
     res.cookie('access_token', token, {
       httpOnly: true,
