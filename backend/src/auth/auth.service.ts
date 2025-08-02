@@ -5,9 +5,11 @@ import { JwtService } from '@nestjs/jwt';
 import { IUser } from 'src/types/types';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
+import * as crypto from 'crypto';
 
 @Injectable()
 export class AuthService {
+  configService: any;
   constructor(private usersService: UserService, private jwtService: JwtService, private readonly httpService: HttpService) {}
 
   async validateUser(email: string, password: string): Promise<any> {
@@ -39,20 +41,47 @@ export class AuthService {
   }
 
   async loginToBot(initData: any, cookie?: string) {
-  try {
-    const response = await firstValueFrom(
-      this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
-        headers: {
-          accept: 'application/json',
-          Cookie: cookie || '', // передай сюда куки сессии, если есть
-        },
-      }),
-    );
+    const isValid = this.verifyTelegramData(initData);
+    if (!isValid) {
+      throw new UnauthorizedException('Неверные данные Telegram');
+    }
+    const token = this.jwtService.sign({
+      id: initData.id,
+      username: initData.username,
+    });
 
-    return response.data;
-  } catch (error) {
-    console.error('Ошибка при запросе:', error?.response?.data || error.message);
-    throw error;
+    try {
+      const response = await firstValueFrom(
+        this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
+          headers: {
+            accept: 'application/json',
+            Cookie: cookie || '', // передай сюда куки сессии, если есть
+          },
+        }),
+      );
+
+      return token;
+    } catch (error) {
+      console.error('Ошибка при запросе:', error?.response?.data || error.message);
+      throw error;
+    }
   }
-}
+  verifyTelegramData(data: Record<string, any>): boolean {
+    const { hash, ...authData } = data;
+
+    const dataCheckString = Object.keys(authData)
+      .sort()
+      .map((key) => `${key}=${authData[key]}`)
+      .join('\n');
+
+      const secret = crypto.createHash('sha256')
+        .update(this.configService.get('TELEGRAM_BOT_TOKEN'))
+        .digest();
+
+      const hmac = crypto.createHmac('sha256', secret)
+        .update(dataCheckString)
+        .digest('hex');
+
+      return hmac === hash;
+    }
 }
