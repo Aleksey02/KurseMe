@@ -57,6 +57,7 @@ export class AuthService {
           },
         }),
       );
+      console.log(response, 'response');
       console.log(cookie, 'cookie');
       console.log(token, 'token');
       
