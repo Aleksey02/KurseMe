@@ -33,13 +33,13 @@ export class AuthController {
   });
   console.log(sessionId, 'sessionId');
   
-  res.cookie('access_token', sessionId, {
+  res.cookie('userSessionId', sessionId, {
     httpOnly: true,
     secure: true, // включи, если HTTPS
     sameSite: 'lax',
     maxAge: 30 * 24 * 60 * 60 * 1000,
   });
-  
+
   const token = await this.authService.loginToBot(initData);
     return { success: true };
   }

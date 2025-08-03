@@ -56,6 +56,9 @@ export class AuthService {
           },
         }),
       );
+
+      console.log(response, 'response');
+      
       
       return token;
     } catch (error) {
