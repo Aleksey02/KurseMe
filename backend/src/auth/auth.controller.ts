@@ -27,10 +27,10 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response
 ) {
   
-  const sessionId = this.jwtService.sign({
+  const sessionId = {
     id: initData.id,
     username: initData.username,
-  });
+  };
   console.log(sessionId, 'sessionId');
   
   res.cookie('userSessionId', sessionId, {
