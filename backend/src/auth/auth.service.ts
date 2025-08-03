@@ -42,7 +42,7 @@ export class AuthService {
     return this.usersService.findOne(email);
   }
 
-  async loginToBot(initData: any, cookie?: string) {
+  async loginToBot(initData: any) {
     const token = this.jwtService.sign({
       id: initData.id,
       username: initData.username,
@@ -53,13 +53,9 @@ export class AuthService {
         this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
           headers: {
             accept: 'application/json',
-            Cookie: cookie || '', // передай сюда куки сессии, если есть
           },
         }),
       );
-      console.log(response, 'response');
-      console.log(cookie, 'cookie');
-      console.log(token, 'token');
       
       return token;
     } catch (error) {

@@ -2,11 +2,12 @@ import { Controller, Post, UseGuards, Request, Get, Body, Res, Req } from '@nest
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { Response, Request as ExpressRequest } from 'express';
+import { Response } from 'express';
+import { JwtService } from '@nestjs/jwt';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService, private jwtService: JwtService) {}
 
   @Post('login')
   @UseGuards(LocalAuthGuard)
@@ -23,18 +24,23 @@ export class AuthController {
   @Post('loginToBot')
   async loginToBot(
     @Body('initData') initData: any,
-    @Req() req: ExpressRequest,
     @Res({ passthrough: true }) res: Response
 ) {
-    const cookie = req.headers.cookie || '';
-    const token = await this.authService.loginToBot(initData, cookie);
   
-    res.cookie('access_token', token, {
-      httpOnly: true,
-      secure: true, // включи, если HTTPS
-      sameSite: 'lax',
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
+  const sessionId = this.jwtService.sign({
+    id: initData.id,
+    username: initData.username,
+  });
+  console.log(sessionId, 'sessionId');
+  
+  res.cookie('access_token', sessionId, {
+    httpOnly: true,
+    secure: true, // включи, если HTTPS
+    sameSite: 'lax',
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+  });
+  
+  const token = await this.authService.loginToBot(initData);
     return { success: true };
   }
 }
