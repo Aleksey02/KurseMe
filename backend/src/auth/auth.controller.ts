@@ -27,10 +27,7 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response
 ) {
   
-  const sessionId = {
-    id: initData.id,
-    username: initData.username,
-  };
+  const sessionId = initData.id;
   console.log(sessionId, 'sessionId');
   
   res.cookie('userSessionId', sessionId, {
