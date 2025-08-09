@@ -35,9 +35,8 @@ const TelegramLogin = ({ setIsAuth }) => {
     script.async = true;
     script.setAttribute('data-telegram-login', 'egeball21_bot');
     script.setAttribute('data-size', 'large');
-    script.setAttribute('data-userpic', 'true');
+    script.setAttribute('data-auth-url', 'https://egeball.lol/v1/api/login/');
     script.setAttribute('data-request-access', 'write');
-    script.setAttribute('data-onauth', 'onTelegramAuth(user)');
 
     const container = document.getElementById('telegram-login-container');
     if (container) {
