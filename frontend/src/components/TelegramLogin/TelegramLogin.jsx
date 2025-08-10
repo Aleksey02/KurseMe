@@ -3,6 +3,12 @@ import { useEffect } from 'react';
 const TelegramLogin = ({setIsAuth}) => {
 
   useEffect(() => {
+      window.TelegramLoginWidget = {
+    onAuth: (user) => {
+      setIsAuth(user);
+      console.log('User authorized:', user);
+    }
+  };
     // Создаём Telegram Login Widget скрипт
     const script = document.createElement('script');
     script.src = 'https://telegram.org/js/telegram-widget.js?22';
