@@ -20,7 +20,7 @@ const TelegramLogin = ({setIsAuth}) => {
     }
 
     return () => {
-      console.log(window.location);
+      setIsAuth(true);
     }
   }, []);
 
