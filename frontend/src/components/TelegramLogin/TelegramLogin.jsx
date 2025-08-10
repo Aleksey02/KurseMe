@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
-const TelegramLogin = () => {
+const TelegramLogin = ({setIsAuth}) => {
+
   useEffect(() => {
     // Создаём Telegram Login Widget скрипт
     const script = document.createElement('script');
@@ -16,6 +17,10 @@ const TelegramLogin = () => {
     if (container) {
       container.innerHTML = '';
       container.appendChild(script);
+    }
+
+    return () => {
+      console.log(window.location);
     }
   }, []);
 
