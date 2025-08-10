@@ -11,9 +11,9 @@ function Account({isAuth, setIsAuth}) {
 
 	useEffect(() => {
 		const response = axios.get('https://egeball.lol/v1/api/me/')
-		.then(response => {
-		console.log(response.data);
-		setIsAuth(response.data)
+		.then(res => {
+		console.log(res);
+		setIsAuth(res.data)
 		// Здесь можешь, например, вызвать setIsAuth(true)
 		})
     .catch(error => {
