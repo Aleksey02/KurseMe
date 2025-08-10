@@ -11,16 +11,13 @@ const TelegramLogin = ({setIsAuth}) => {
     script.setAttribute('data-size', 'large');
     script.setAttribute('data-auth-url', 'https://egeball.lol/v1/api/login/');
     script.setAttribute('data-request-access', 'write');
+    setIsAuth(true);
 
     // Вставляем скрипт в контейнер
     const container = document.getElementById('telegram-login-container');
     if (container) {
       container.innerHTML = '';
       container.appendChild(script);
-    }
-
-    return () => {
-      setIsAuth(true);
     }
   }, []);
 
