@@ -39,7 +39,7 @@ function Account({isAuth, setIsAuth}) {
 		{isAuth ? <>
 			<h2 className={classes.account__title}>Личный кабинет</h2>
 			<div className={classes.account__yourId}>
-				<img src={isAuth.photo_url.length ? isAuth.photo_url : img} alt="profile image" />
+				<img src={isAuth?.photo_url?.length ? isAuth.photo_url : img} alt="profile image" />
 				<p>Ваш ID: <span>{isAuth.id}</span></p>
 				<button onClick={logout} className={classes.account__btn}>Выйти</button>
 			</div>
