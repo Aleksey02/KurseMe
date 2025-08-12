@@ -44,6 +44,8 @@ export class AuthService {
 
 async loginToBot(cookies: string) {
   try {
+    console.log(cookies, 'cookie');
+    
     const response = await firstValueFrom(
       this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
         headers: {
