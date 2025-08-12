@@ -42,28 +42,24 @@ export class AuthService {
     return this.usersService.findOne(email);
   }
 
-  async loginToBot(initData: any) {
-    const token = this.jwtService.sign({
-      id: initData.id,
-      username: initData.username,
-    });
+async loginToBot(cookies: string) {
+  try {
+    const response = await firstValueFrom(
+      this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
+        headers: {
+          accept: 'application/json',
+          Cookie: cookies, // передаем куки
+        },
+        withCredentials: true, // на бэке обычно не обязательно, но можно оставить
+      }),
+    );
 
-    try {
-      const response = await firstValueFrom(
-        this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
-          headers: {
-            accept: 'application/json',
-          },
-        }),
-      );
+    console.log(response.data, 'response');
 
-      console.log(response, 'response');
-      
-      
-      return token;
-    } catch (error) {
-      console.error('Ошибка при запросе:', error?.response?.data || error.message);
-      throw error;
-    }
+    return response.data; // или нужный токен
+  } catch (error) {
+    console.error('Ошибка при запросе:', error?.response?.data || error.message);
+    throw error;
   }
+}
 }
