@@ -10,16 +10,17 @@ function Account({isAuth, setIsAuth}) {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const response = axios.get('https://egeball.lol/v1/api/me/')
-		.then(res => {
-		console.log(res);
-		setIsAuth(res.data)
-		// Здесь можешь, например, вызвать setIsAuth(true)
-		})
-    .catch(error => {
-      console.log('Ошибка получения пользователя', error);
-      // Пользователь не авторизован, или ошибка сети
-    });
+		console.log(document.cookie, 'cookie');
+		
+		const response = axios.get('https://egeball.lol/v1/api/me/', {withCredentials: true})
+			.then(res => {
+				console.log(res);
+				setIsAuth(res.data)
+			})
+			.catch(error => {
+			console.log('Ошибка получения пользователя', error);
+			// Пользователь не авторизован, или ошибка сети
+			});
 		
 	}, [])
 
