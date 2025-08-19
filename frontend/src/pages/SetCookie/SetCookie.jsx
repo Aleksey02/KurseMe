@@ -10,7 +10,7 @@ const SetCookie = () => {
 		//document.cookie = "session_id=your-session-id; path=/; Secure; SameSite=Lax";
 
 		// Редирект
-		console.log('redirected', next);
+		alert('redirected', next);
 		window.location.replace(next);
 		
 	}, [next]);
