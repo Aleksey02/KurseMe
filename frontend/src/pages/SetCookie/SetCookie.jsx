@@ -11,6 +11,8 @@ const SetCookie = () => {
 
 		// Редирект
 		window.location.replace(next);
+		console.log('redirected');
+		
 	}, [next]);
 
 	return (
