@@ -10,6 +10,7 @@ import SubjectAdmin from '../../pages/Admin/SubjectAdmin'
 import Auth from '../../pages/Auth/Auth'
 import Account from '../../pages/Account/Account'
 import Partnership from '../../pages/Partnership/Partnership'
+import SetCookie from '../../pages/SetCookie/SetCookie'
 
 function Main({data, isAuth, setIsAuth}) {
     console.log(isAuth);
@@ -35,6 +36,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/account' element={<Account isAuth={isAuth} setIsAuth={setIsAuth} />} />
                 <Route path='/partnership' element={<Partnership />} />
                 <Route path='/:id/partnership' element={<Partnership />} />
+                <Route path='/set-cookie' element={<SetCookie />} />
             </Routes>
         </main>
     )
