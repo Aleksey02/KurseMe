@@ -32,7 +32,7 @@ function Account({isAuth, setIsAuth}) {
 	}
 
 	const copyReferralLink = () => {
-		navigator.clipboard.writeText('https://egeball.com/id' + isAuth.tg_id);
+		navigator.clipboard.writeText('https://t.me/egeball21_bot?start=' + isAuth.tg_id);
 		toast.success('Скопировано');
 	}
 
