@@ -14,7 +14,7 @@ function Account({isAuth, setIsAuth}) {
 			const response = axios.get('https://egeball.com/api/api/auth/loginToBot', {withCredentials: true})
 				.then(res => {
 					console.log(res);
-					setIsAuth(res.data)
+					setIsAuth(res)
 				})
 				.catch(error => {
 				console.log('Ошибка получения пользователя', error);
