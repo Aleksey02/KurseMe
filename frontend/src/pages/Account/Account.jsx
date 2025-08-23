@@ -32,7 +32,7 @@ function Account({isAuth, setIsAuth}) {
 	}
 
 	const copyReferralLink = () => {
-		navigator.clipboard.writeText('https://egeball.com/id' + isAuth.id);
+		navigator.clipboard.writeText('https://egeball.com/id' + isAuth.tg_id);
 		toast.success('Скопировано');
 	}
 
@@ -41,7 +41,7 @@ function Account({isAuth, setIsAuth}) {
 			<h2 className={classes.account__title}>Личный кабинет</h2>
 			<div className={classes.account__yourId}>
 				<img src={isAuth?.photo_url?.length ? isAuth.photo_url : img} alt="profile image" />
-				<p>Ваш ID: <span>{isAuth.id}</span></p>
+				<p>Ваш ID: <span>{isAuth.tg_id}</span></p>
 				<button onClick={logout} className={classes.account__btn}>Выйти</button>
 			</div>
 			<h3 className={classes.account__subtitle}>Реферальная система</h3>
@@ -55,13 +55,13 @@ function Account({isAuth, setIsAuth}) {
 				<div className={classes.account__referal}>
 					<h4>Кол-во рефералов</h4>
 					<div className={classes.account__box}>
-						<span>0</span>
+						<span>{isAuth?.details?.referrals_count}</span>
 					</div>
 				</div>
 				<div className={classes.account__referal}>
 					<h4>Заработано с рефералов</h4>
 					<div className={classes.account__box}>
-						<span>0₽</span>
+						<span>{isAuth?.details?.referral_balance}₽</span>
 					</div>
 				</div>
 			</div>
