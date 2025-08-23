@@ -14,7 +14,7 @@ function Account({isAuth, setIsAuth}) {
 			const response = axios.get('https://egeball.com/api/api/auth/loginToBot', {withCredentials: true})
 				.then(res => {
 					console.log(res);
-					setIsAuth(res)
+					setIsAuth(res.data)
 				})
 				.catch(error => {
 				console.log('Ошибка получения пользователя', error);
@@ -55,13 +55,13 @@ function Account({isAuth, setIsAuth}) {
 				<div className={classes.account__referal}>
 					<h4>Кол-во рефералов</h4>
 					<div className={classes.account__box}>
-						<span>{isAuth?.details?.referrals_count}</span>
+						<span>{isAuth?.details?.referrals_count ?? 0}</span>
 					</div>
 				</div>
 				<div className={classes.account__referal}>
 					<h4>Заработано с рефералов</h4>
 					<div className={classes.account__box}>
-						<span>{isAuth?.details?.referral_balance}₽</span>
+						<span>{isAuth?.details?.referral_balance ?? 0}₽</span>
 					</div>
 				</div>
 			</div>
