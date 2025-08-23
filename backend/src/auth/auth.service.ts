@@ -55,10 +55,7 @@ async loginToBot(cookies: string) {
         withCredentials: true, // на бэке обычно не обязательно, но можно оставить
       }),
     );
-
-    console.log(response.data, 'response');
-
-    return response.data; // или нужный токен
+    return response; // или нужный токен
   } catch (error) {
     console.error('Ошибка при запросе:', error?.response?.data || error.message);
     throw error;

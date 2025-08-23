@@ -24,9 +24,7 @@ export class AuthController {
   async loginToBot(
     @Headers('cookie') cookie: string
 ) {
-  console.log('controller', cookie);
-  
-  const token = await this.authService.loginToBot(cookie);
-    return { success: true };
+  const data = await this.authService.loginToBot(cookie);
+    return data;
   }
 }
