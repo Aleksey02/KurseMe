@@ -78,6 +78,11 @@
 			cursor: pointer;
 			font-size: 18px;
 			color: gray;
+			transition: color .3s ease;
+
+			&:hover {
+				color: #fcc63b;
+			}
 
 			&.active {
 				font-size: 24px;

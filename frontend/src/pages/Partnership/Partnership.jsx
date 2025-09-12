@@ -208,19 +208,20 @@ function Item({data}) {
 
 
 function Partnership() {
-	const [isBot, setIsBot] = useState(true);
+	const [isBot, setIsBot] = useState(null);
 	const {pathname} = window.location;
 	const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1].split('/')[0]}` : "";
 
 	return <div className={classes.partnership}>
+		<p>Мы предлагаем сотрудничество под два наших проекта: бот с курсами ОГЭ/ЕГЭ и лучший ИИ-агент для ОГЭ/ЕГЭ.</p><br /><br />
+		<p>Советуем ознакомиться с двумя нашими проектами и выбрать подходящий для себя 👇🏻</p><br /><br />
 		<div className={classes.partnership__btns}>
 			<button onClick={() => setIsBot(true)} className={isBot ? classes.active : ''}>Бот с курсами ОГЭ/ЕГЭ</button>
 			<span>|</span>
-			<button onClick={() => setIsBot(false)} className={isBot ? '' : classes.active}>Лучший ИИ-агент для ОГЭ/ЕГЭ</button>
+			<button onClick={() => setIsBot(false)} className={isBot === false ? classes.active : ''}>Лучший ИИ-агент для ОГЭ/ЕГЭ</button>
 		</div>
-		{isBot
-		? <>
-		<h2>Реферальная система | <NavLink to="/">egeball.com</NavLink></h2>
+		{isBot === true && <>
+		<h2>Реферальная система | Бот с курсами ОГЭ/ЕГЭ</h2>
 		<p>Наш проект является одним из первых в тематике сливов курсов ОГЭ/ЕГЭ. С 2020 года мы помогли 10,000+ выпускникам подготовиться к экзаменам почти за бесценок! Становясь нашим партнером, мы гарантируем качественный продукт, быстрые выплаты и повышение ставок.</p>
 		<br />
 		<br />
@@ -283,9 +284,9 @@ function Partnership() {
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[14].title} desc={openLines[14].desc} />
 		</div>
-		</>
-		: <>
-		<h2>Реферальная система | <a href="https:t.me/egeballAI_bot">Лучший ИИ-агент для ОГЭ/ЕГЭ</a></h2>
+		</>}
+		{isBot === false && <>
+		<h2>Реферальная система | Лучший ИИ-агент для ОГЭ/ЕГЭ</h2>
 		<p>Мы создали лучшего ИИ-агента для учебы и подготовки к ОГЭ/ЕГЭ. Он уже обгоняет конкурентов и базовые GPT-модели. Рекламируй нашего ИИ-бота и зарабатывай вместе с нами!</p>
 		<br />
 		<br />
@@ -337,7 +338,7 @@ function Partnership() {
 			<PartnerLine title={iiOpenLines[10].title} desc={iiOpenLines[10].desc} />
 		</div>
 		</>}
-
+		<br /><br />
 		<a href={`https://t.me/egeball21_bot${refLink}`} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
 	</div>
 }
