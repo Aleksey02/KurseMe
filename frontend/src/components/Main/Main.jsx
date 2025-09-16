@@ -11,6 +11,7 @@ import Auth from '../../pages/Auth/Auth'
 import Account from '../../pages/Account/Account'
 import Partnership from '../../pages/Partnership/Partnership'
 import SetCookie from '../../pages/SetCookie/SetCookie'
+import RedirectAI from '../../pages/RedirectAI/RedirectAI'
 
 function Main({data, isAuth, setIsAuth}) {
     console.log(isAuth);
@@ -37,6 +38,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/partnership' element={<Partnership />} />
                 <Route path='/:id/partnership' element={<Partnership />} />
                 <Route path='/set-cookie' element={<SetCookie setIsAuth={setIsAuth}/>} />
+                <Route path='/ai' element={<RedirectAI />} />
             </Routes>
         </main>
     )
