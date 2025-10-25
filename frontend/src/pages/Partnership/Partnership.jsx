@@ -58,8 +58,7 @@ const openLines = [
 • Если ролик набрал больше 50,000 просмотров, мы вам заплатим 7,000 рублей.
 <br /><br />
 • Если ролик набрал больше 100,000 просмотров, мы вам заплатим 10,000 рублей.
-<br /><br />
-• Если ваши ролики НЕ залетают, то мы заплатим вам за суммарное кол-во просмотров на вашем аккаунте. То есть за 10 роликов, которые набрали по 3,000 просмотров вы получите так же выплату в 5,000 рублей.<br /><br />`
+<br /><br />`
 	},
 	{
 		title: 'Как начать зарабатывать:',
@@ -258,9 +257,6 @@ function Partnership() {
 		</div>
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[7].title} desc={openLines[7].desc} />
-		</div>
-		<div className={classes.partnership__open_line}>
-			<PartnerLine title={openLines[8].title} desc={openLines[8].desc} />
 		</div>
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[9].title} desc={openLines[9].desc} />
