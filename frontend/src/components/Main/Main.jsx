@@ -40,7 +40,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/:id/partnership' element={<Partnership />} />
                 <Route path='/set-cookie' element={<SetCookie setIsAuth={setIsAuth}/>} />
                 <Route path='/ai' element={<RedirectAI />} />
-                <Route path='/player' element={<Player />} />
+                <Route path='/player' element={<Player isAuth={isAuth}/>} />
             </Routes>
         </main>
     )

@@ -1,4 +1,11 @@
-function Player() {
+function Player({isAuth}) {
+	if(!isAuth) {
+		return <div style={{
+			display: 'flex',
+			justifyContent: 'center'
+		}}>Чтобы смотреть видео материалы нужно войти в аккаунт</div>
+	}
+
 	return (
 		<div>
 			<h1>Player</h1>
