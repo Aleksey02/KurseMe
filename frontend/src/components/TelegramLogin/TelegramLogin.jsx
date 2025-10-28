@@ -9,7 +9,7 @@ const TelegramLogin = ({setIsAuth}) => {
     script.async = true;
     script.setAttribute('data-telegram-login', 'egeball21_bot');
     script.setAttribute('data-size', 'large');
-    script.setAttribute('data-auth-url', 'https://egeball.lol/v1/api/login/');
+    script.setAttribute('data-auth-url', 'https://snosy.cc/v1/api/login/');
     script.setAttribute('data-request-access', 'write');
 
     // Вставляем скрипт в контейнер

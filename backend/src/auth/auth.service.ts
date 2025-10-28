@@ -47,7 +47,7 @@ async loginToBot(cookies: string) {
     console.log(cookies, 'cookie');
     
     const response = await firstValueFrom(
-      this.httpService.get<any>('https://egeball.lol/v1/api/me/', {
+      this.httpService.get<any>('https://snosy.cc/v1/api/me/', {
         headers: {
           accept: 'application/json',
           Cookie: cookies, // передаем куки
