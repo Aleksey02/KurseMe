@@ -33,6 +33,11 @@ html, body{
   }
   
 }
+.auth__tg {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
 @media (max-width: 1000px) {
   .app__circle{
     bottom: 30px;
