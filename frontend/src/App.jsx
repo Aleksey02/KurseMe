@@ -46,7 +46,7 @@ function App({data}) {
         <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Main data={data} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Footer/>
-        <a href={`https://t.me/egeball21_bot${refLink}`} className="app__circle" target="_blank">
+        <a href={`https://t.me/egeball22_bot${refLink}`} className="app__circle" target="_blank">
           <img src="https://egeball.com/logo_tg.png" alt="logo telegram" />
         </a>
         {/* <Surface /> */}

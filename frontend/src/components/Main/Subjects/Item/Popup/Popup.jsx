@@ -10,7 +10,7 @@ function Popup({setIsPopupOpen}){
                 <p className={classes.popup__text}>Перейти к оплате через Telegram-бота?</p>
                 <div className={classes.popup__btns}>
                     <button className={classes.popup__btn} onClick={() => setIsPopupOpen(false)}>Отмена</button>
-                    <a href={`https://t.me/egeball21_bot${refLink}`} target='_blank' className={classes.popup__btn} onClick={() => setIsPopupOpen(false)}>Перейти</a>
+                    <a href={`https://t.me/egeball22_bot${refLink}`} target='_blank' className={classes.popup__btn} onClick={() => setIsPopupOpen(false)}>Перейти</a>
                 </div>
             </div>
         </div>

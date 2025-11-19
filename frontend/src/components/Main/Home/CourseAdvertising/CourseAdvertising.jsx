@@ -14,7 +14,7 @@ function CourseAdvertising() {
 				<div className={classes.courseAdvertising__image}>
 					<img src={advertImg} alt="Сливы курсов ЕГЭ и ОГЭ в 10 раз дешевле." />
 				</div>
-				<a href={`https://t.me/egeball21_bot${refLink}`} target='_blank' className={classes.courseAdvertising__btn}>Купить Курсы</a>
+				<a href={`https://t.me/egeball22_bot${refLink}`} target='_blank' className={classes.courseAdvertising__btn}>Купить Курсы</a>
 			</div>
 		</div>
 	</div>

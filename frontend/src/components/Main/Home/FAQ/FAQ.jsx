@@ -28,7 +28,7 @@ function FAQ({data}){
             <div className={classes.faq__box}>
                 {data.map((item, index)=><Item info={item} key={index}/>)}
             </div>
-            <a href={`https://t.me/egeball21_bot${refLink}`} target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
+            <a href={`https://t.me/egeball22_bot${refLink}`} target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
         </div>
     )
 }

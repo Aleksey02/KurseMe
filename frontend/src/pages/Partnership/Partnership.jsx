@@ -335,7 +335,7 @@ function Partnership() {
 		</div>
 		</>}
 		<br /><br />
-		<a href={`https://t.me/egeball21_bot${refLink}`} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
+		<a href={`https://t.me/egeball22_bot${refLink}`} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
 	</div>
 }
 
