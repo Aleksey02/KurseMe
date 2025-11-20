@@ -24,7 +24,7 @@ export class User {
 	isAdmin: boolean
 	
 	@Column({nullable: true})
-	isSubscribed: string
+	isSubscribed: boolean
 	
 	@Column({nullable: true})
 	referral_balance: number
