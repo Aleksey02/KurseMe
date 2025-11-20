@@ -21,7 +21,7 @@ export class UserService {
     const uniqueKey = uuid();
 
     const user = await this.userRepository.save({
-      name: createUserDto.username,
+      username: createUserDto.username,
       tgId: createUserDto.tg_id,
       key: uniqueKey,
       is_subscribed: createUserDto.is_subscribed,
