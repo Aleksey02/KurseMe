@@ -11,7 +11,7 @@ export class CreateUserDto {
 	key?: string
 
 	@IsBoolean()
-	isSubscribed: boolean
+	is_subscribed: boolean
 
 	@IsOptional()
 	details?: {
