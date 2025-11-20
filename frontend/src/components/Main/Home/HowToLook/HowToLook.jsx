@@ -19,7 +19,7 @@ function Item({data}) {
 		<video src={data.src} controls preload='metadata'></video>
 		<div className={classes.item__info}>
 			<p className={classes.item__howToLook}>{data.title}</p>
-			<p className={classes.item__join}>{data.join} <a href={`http://t.me/egeball21_bot${refLink}`}>@egeball21_bot</a>{data.joinStatus}</p>
+			<p className={classes.item__join}>{data.join} <a href={`http://t.me/egeball22_bot${refLink}`}>@egeball22_bot</a>{data.joinStatus}</p>
 		</div>
 	</div>
 }
