@@ -1,6 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
-import * as argon2 from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 import { IUser } from 'src/types/types';
 import { HttpService } from '@nestjs/axios';
@@ -14,19 +13,6 @@ export class AuthService {
     private readonly httpService: HttpService
   ) {}
 
-  async validateUser(email: string, password: string): Promise<any> {
-    const user = await this.usersService.findOne(email);
-    if(user){
-      const passwordIsMatch = await argon2.verify(user.password, password);
-      if(passwordIsMatch){
-        const { password, ...result } = user;
-        return result;
-      }
-      throw new UnauthorizedException('Password is incorrect');
-    }
-    throw new UnauthorizedException('User not found');
-  }
-
   async login(user: IUser) {
     const { id, email, isAdmin } = user;
     const payload = { email, id };
@@ -38,14 +24,12 @@ export class AuthService {
     };
   }
 
-  async getProfile(email: string){
-    return this.usersService.findOne(email);
+  async getProfile(uniqueKey: string){
+    return this.usersService.findOneByKey(uniqueKey);
   }
 
 async loginToBot(cookies: string) {
   try {
-    console.log(cookies, 'cookie');
-    
     const response = await firstValueFrom(
       this.httpService.get<any>('https://snosy.cc/v1/api/me/', {
         headers: {
@@ -55,7 +39,10 @@ async loginToBot(cookies: string) {
         withCredentials: true, // на бэке обычно не обязательно, но можно оставить
       }),
     );
-    return response.data; // или нужный токен
+
+    const user = await this.usersService.create(response.data);
+
+    return user; // или нужный токен
   } catch (error) {
     console.error('Ошибка при запросе:', error?.response?.data || error.message);
     throw error;

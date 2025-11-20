@@ -6,10 +6,13 @@ export class User {
 	id: number
 
 	@Column()
-	email: string
+	tgId: number
 
 	@Column()
-	password: string
+	key: string
+
+	@Column()
+	name: string
 
 	@CreateDateColumn()
 	createdAt: Date

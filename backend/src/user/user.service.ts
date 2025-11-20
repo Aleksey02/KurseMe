@@ -1,37 +1,43 @@
-import { JwtService } from '@nestjs/jwt';
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
-import * as argon2 from 'argon2';
+import { ConfigService } from '@nestjs/config';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
-    private readonly JwtService: JwtService
+    private readonly configService: ConfigService
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    const existUser = await this.userRepository.findOne({ where: { email: createUserDto.email } });
-    if(existUser) throw new BadRequestException('Email already exist');
-    const userCount = await this.userRepository.count();
-    const user = await this.userRepository.save({
-      email: createUserDto.email,
-      password: await argon2.hash(createUserDto.password),
-      isAdmin: userCount === 0
-    });
+    const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tgId } });
+    if(existUser) return existUser;
 
-    const token = this.JwtService.sign({ email: createUserDto.email })
-    return { user, token };
+    const adminsIds =  this.configService.get<string>('ADMINS_IDS');
+    const uniqueKey = uuid();
+
+    const user = await this.userRepository.save({
+      name: createUserDto.username,
+      tgId: createUserDto.tgId,
+      key: uniqueKey,
+      isAdmin: Boolean(adminsIds?.split(' ').find(id => Number(id) === createUserDto.tgId))
+    });
+    return { user };
   }
 
   findAll() {
     return `This action returns all user`;
   }
 
-  async findOne(email: string) {
-    return await this.userRepository.findOne({ where: { email } });
+  async findOne(tgId: number) {
+    return await this.userRepository.findOne({ where: { tgId } });
+  }
+
+  async findOneByKey(uniqueKey: string) {
+    return await this.userRepository.findOne({ where: { key: uniqueKey } });
   }
 }
