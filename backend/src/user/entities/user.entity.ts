@@ -8,7 +8,7 @@ export class User {
 	@Column({nullable: true})
 	tgId: number
 
-	@Column()
+	@Column({nullable: true})
 	key: string
 
 	@Column()
