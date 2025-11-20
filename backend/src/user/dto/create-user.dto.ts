@@ -5,7 +5,7 @@ export class CreateUserDto {
 	username: string;
 
 	@IsInt()
-	tgId: number;
+	tg_id: number;
 
 	@IsOptional()
 	key?: string
