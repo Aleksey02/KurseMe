@@ -11,8 +11,8 @@ export class User {
 	@Column({nullable: true})
 	key: string
 
-	@Column()
-	name: string
+	@Column({nullable: true})
+	username: string
 
 	@CreateDateColumn()
 	createdAt: Date
