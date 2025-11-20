@@ -30,6 +30,7 @@ export class AuthService {
 
 async loginToBot(cookies: string) {
   try {
+    console.log('cookie', cookies);
     const response = await firstValueFrom(
       this.httpService.get<any>('https://snosy.cc/v1/api/me/', {
         headers: {
@@ -39,8 +40,9 @@ async loginToBot(cookies: string) {
         withCredentials: true, // на бэке обычно не обязательно, но можно оставить
       }),
     );
-
+    console.log('response', response);
     const user = await this.usersService.create(response.data);
+    console.log('user', user);
 
     return user; // или нужный токен
   } catch (error) {
