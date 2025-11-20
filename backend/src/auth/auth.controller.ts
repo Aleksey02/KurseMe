@@ -16,7 +16,7 @@ export class AuthController {
   @Get('profile')
   getProfile(@Request() req) {
     console.log('req', req.user);
-    return this.authService.getProfile(req.user?.key);
+    return this.authService.getProfile(req.user?.email);
   }
 
   @Get('loginToBot')
