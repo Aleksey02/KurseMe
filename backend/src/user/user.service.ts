@@ -24,6 +24,9 @@ export class UserService {
       name: createUserDto.username,
       tgId: createUserDto.tgId,
       key: uniqueKey,
+      is_subscribed: createUserDto.isSubscribed,
+      referral_balance: createUserDto.details?.referral_balance,
+      referrals_count: createUserDto.details?.referrals_count,
       isAdmin: Boolean(adminsIds?.split(' ').find(id => Number(id) === createUserDto.tgId))
     });
     return { user };

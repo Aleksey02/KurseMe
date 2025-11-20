@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsInt } from "class-validator";
+import { IsOptional, IsString, IsInt, IsBoolean } from "class-validator";
 
 export class CreateUserDto {
 	@IsString()
@@ -9,4 +9,13 @@ export class CreateUserDto {
 
 	@IsOptional()
 	key?: string
+
+	@IsBoolean()
+	isSubscribed: boolean
+
+	@IsOptional()
+	details?: {
+		referral_balance?: number, 
+		referrals_count?: number
+	}
 }
