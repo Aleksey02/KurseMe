@@ -1,4 +1,4 @@
-import { removeTokenFromLocalStorage } from "../../helper/localstorage.helper";
+import { removeTokenFromLocalStorage, setTokenToLocalStorage } from "../../helper/localstorage.helper";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import classes from './Account.module.scss';
@@ -14,6 +14,7 @@ function Account({isAuth, setIsAuth}) {
 			const response = axios.get('https://egeball.com/api/api/auth/loginToBot', {withCredentials: true})
 				.then(res => {
 					setIsAuth(res.data)
+					setTokenToLocalStorage('egeball_key', res.data.key)
 				})
 				.catch(error => {
 				console.log('Ошибка получения пользователя', error);
@@ -24,7 +25,7 @@ function Account({isAuth, setIsAuth}) {
 	}, [])
 
 	const logout = () => {
-		removeTokenFromLocalStorage('token');
+		removeTokenFromLocalStorage('egeball_key');
 		toast.success('Вы успешно вышли');
 		navigate('/');
 		setIsAuth(false);

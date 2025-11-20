@@ -1,5 +1,5 @@
 export function getTokenFromLocalStorage(): string {
-	const data = localStorage.getItem('token');
+	const data = localStorage.getItem('egeball_key');
 	const token = data ? JSON.parse(data) : '';
 
 	return token
