@@ -1,6 +1,7 @@
 import { IsString } from "class-validator";
-import { PrimaryGeneratedColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity()
 export class BotLink {
 	@PrimaryGeneratedColumn()
 	id: number;
