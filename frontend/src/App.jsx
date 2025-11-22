@@ -10,6 +10,7 @@ import { getTokenFromLocalStorage } from "./helper/localstorage.helper"
 import { AuthService } from "./services/auth.service"
 import { observer } from "mobx-react-lite";
 import botLinkStore from "./store/botLink"
+import axios from "axios"
 //import Surface from "./components/Surface/Surface"
 
 
@@ -38,7 +39,7 @@ const App = observer(({data}) => {
 
   const getBotLink = async () => {
     try {
-      const response = await fetch('https://egeball.com/api/api/bot-link');
+      const response = await axios.get('https://egeball.com/api/api/bot-link');
       console.log(response, 'response');
       const data = await response.json();
       console.log(data, 'data');
