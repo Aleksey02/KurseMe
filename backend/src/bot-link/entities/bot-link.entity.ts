@@ -5,6 +5,6 @@ export class BotLink {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column()
+	@Column({nullable: true})
 	link: string;
 }
