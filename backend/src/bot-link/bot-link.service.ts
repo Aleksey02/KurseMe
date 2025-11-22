@@ -27,7 +27,7 @@ export class BotLinkService {
   }
 
   getLink() {
-    return this.botLinkRepository.findOne(0);
+    return this.botLinkRepository.findOne({ where: { id: 0 } });
   }
 
   remove(id: number) {
