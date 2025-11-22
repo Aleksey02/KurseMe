@@ -16,7 +16,6 @@ export class BotLinkService {
     const hasLink = await this.findAll();
 
     if (hasLink.length) {
-      await this.botLinkRepository.clear();
       const check = await this.botLinkRepository.update(0, createBotLinkDto);
       console.log(check, 'CHECK')
       return check;
