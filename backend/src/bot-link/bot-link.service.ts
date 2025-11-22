@@ -16,21 +16,21 @@ export class BotLinkService {
     const hasLink = await this.findAll();
 
     if (hasLink.length) {
-      this.botLinkRepository.clear();
-      const check = this.botLinkRepository.update(0, createBotLinkDto);
+      await this.botLinkRepository.clear();
+      const check = await this.botLinkRepository.update(0, createBotLinkDto);
       console.log(check, 'CHECK')
       return check;
     } 
 
-    return this.botLinkRepository.save(createBotLinkDto);
+    return await this.botLinkRepository.save(createBotLinkDto);
   }
 
-  findAll() {
-    return this.botLinkRepository.find();
+  async findAll() {
+    return await this.botLinkRepository.find();
   }
 
-  getLink() {
-    return this.botLinkRepository.findOne({ where: { id: 0 } });
+  async getLink() {
+    return await this.botLinkRepository.findOne({ where: { id: 0 } });
   }
 
   remove(id: number) {
