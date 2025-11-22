@@ -48,6 +48,7 @@ const App = observer(({data}) => {
   }
   useEffect(() => {
     checkAuth();
+    getBotLink();
     setTimeout(() => {
       AOS.init();
       AOS.refresh();
