@@ -41,9 +41,7 @@ const App = observer(({data}) => {
     try {
       const response = await axios.get('https://egeball.com/api/api/bot-link');
       console.log(response, 'response');
-      const data = await response.json();
-      console.log(data, 'data');
-      botLinkStore.setLink(data.link);
+      botLinkStore.setLink(response.data);
       console.log(botLinkStore.link, 'LINK');
     } catch (error) {
       console.log(error);

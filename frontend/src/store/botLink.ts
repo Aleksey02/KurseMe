@@ -8,6 +8,7 @@ class BotLink {
 	}
 
 	setLink(link: string) {
+		if (!link) return;
 		this.link = link;
 	}
 }
