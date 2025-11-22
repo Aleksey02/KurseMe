@@ -19,6 +19,7 @@ function Admin({isAuth}){
 			</div>
 			<div className='admin__box admin__box-full-width'>
 				<NavLink to="/admin/classes" className='admin__item'>Классы</NavLink>
+				<NavLink to="/admin/links" className='admin__item'>Ссылка на бота</NavLink>
 			</div>
 		</div>
 	)

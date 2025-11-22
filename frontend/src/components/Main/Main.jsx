@@ -5,6 +5,7 @@ import School from './School/School'
 import Subjects from './Subjects/Subjects'
 import Admin from '../../pages/Admin/Admin'
 import Classes from '../../pages/Admin/Classes'
+import Links from '../../pages/Admin/Links'
 import SchoolAdmin from '../../pages/Admin/SchoolAdmin'
 import SubjectAdmin from '../../pages/Admin/SubjectAdmin'
 import Auth from '../../pages/Auth/Auth'
@@ -34,6 +35,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/admin/classes' element={<Classes isAuth={isAuth} />} />
                 <Route path='/admin/classes/:classAdmin' element={<SchoolAdmin />} />
                 <Route path='/admin/classes/:classAdmin/:schoolId' element={<SubjectAdmin />} />
+                <Route path='/admin/classes/links' element={<Links isAuth={isAuth} />} />
                 <Route path='/auth' element={<Auth setIsAuth={setIsAuth}/>} />
                 <Route path='/account' element={<Account isAuth={isAuth} setIsAuth={setIsAuth} />} />
                 <Route path='/partnership' element={<Partnership />} />

@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { BotLinkModule } from './bot-link/bot-link.module';
 
 
 @Module({
@@ -30,6 +31,7 @@ import { AuthModule } from './auth/auth.module';
     MulterModule.register({ dest: './uploads' }),
     UserModule,
     AuthModule,
+    BotLinkModule,
   ],
 })
 export class AppModule {}

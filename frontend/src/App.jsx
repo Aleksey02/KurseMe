@@ -1,3 +1,4 @@
+import React from "react"
 import Header from "./components/Header/Header"
 import {BrowserRouter} from 'react-router-dom'
 import Main from "./components/Main/Main"
@@ -7,10 +8,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { getTokenFromLocalStorage } from "./helper/localstorage.helper"
 import { AuthService } from "./services/auth.service"
+import { observer } from "mobx-react-lite";
+import botLinkStore from "./store/botLink"
 //import Surface from "./components/Surface/Surface"
 
 
-function App({data}) {
+const App = observer(({data}) => {
   const [isAuth, setIsAuth] = useState(false);
   const {pathname} = window.location;
   const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
@@ -30,6 +33,17 @@ function App({data}) {
     } catch (error) {
       console.log(error);
       
+    }
+  }
+
+  const getBotLink = async () => {
+    try {
+      const response = await fetch('https://egeball.com/api/api/bot-link');
+      const data = await response.json();
+      botLinkStore.setLink(data.link);
+      console.log(botLinkStore.link, 'LINK');
+    } catch (error) {
+      console.log(error);
     }
   }
   useEffect(() => {
@@ -54,6 +68,6 @@ function App({data}) {
       
     </BrowserRouter>
   )
-}
+})
 
-export default App
+export default App;
