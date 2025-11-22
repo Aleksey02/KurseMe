@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BotLink } from './entities/bot-link.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([BotLink]), BotLinkModule],
+  imports: [TypeOrmModule.forFeature([BotLink])],
   controllers: [BotLinkController],
   providers: [BotLinkService],
 })
