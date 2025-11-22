@@ -7,8 +7,7 @@ import { observer } from 'mobx-react-lite';
 
 const Links = observer(({isAuth}) => {
 	const navigate = useNavigate();
-	const {botLink, setIsAuth} = BotLinkStore;
-	const [link, setLink] = useState(botLink);
+	const [link, setLink] = useState(BotLinkStore.link);
 	
 	useEffect(() => {
 		const admin = isAuth?.isAdmin;
@@ -24,7 +23,7 @@ const Links = observer(({isAuth}) => {
 		try {
 			axios.post('https://egeball.com/api/api/bot-link', {link})
 				.then(response => {
-					setIsAuth({...isAuth, botLink: link})
+					BotLinkStore.setLink(response.data);
 					toast.success('Ссылка сохранена');
 					
 				})
