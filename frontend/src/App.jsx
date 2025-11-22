@@ -39,7 +39,9 @@ const App = observer(({data}) => {
   const getBotLink = async () => {
     try {
       const response = await fetch('https://egeball.com/api/api/bot-link');
+      console.log(response, 'response');
       const data = await response.json();
+      console.log(data, 'data');
       botLinkStore.setLink(data.link);
       console.log(botLinkStore.link, 'LINK');
     } catch (error) {
