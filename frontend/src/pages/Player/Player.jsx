@@ -1,3 +1,6 @@
+import React from 'react';
+import TelegramLogin from '../../components/TelegramLogin/TelegramLogin';
+
 function Player({isAuth}) {
 	if(!isAuth) {
 		return <div style={{
