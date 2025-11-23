@@ -27,7 +27,6 @@ const Links = observer(({isAuth}) => {
 			BotLinkStore.setLink(response.data.link);
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
-			navigate('/');
 		} catch (error) {
 			console.error(error);
 			
