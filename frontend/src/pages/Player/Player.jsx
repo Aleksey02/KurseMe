@@ -1,7 +1,7 @@
 import React from 'react';
 import TelegramLogin from '../../components/TelegramLogin/TelegramLogin';
 
-function Player({isAuth}) {
+function Player({isAuth, setIsAuth}) {
 	if(!isAuth) {
 		return <div style={{
 			display: 'flex',
@@ -25,7 +25,7 @@ function Player({isAuth}) {
 				: <>
 					<p>Нужно ввойти в аккаунт</p>
 					<div className="auth__tg">
-						<TelegramLogin setIsAuth={props.setIsAuth}/>
+						<TelegramLogin setIsAuth={setIsAuth}/>
 					</div>
 				</>
 			}
