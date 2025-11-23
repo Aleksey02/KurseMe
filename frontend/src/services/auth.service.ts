@@ -12,7 +12,6 @@ export const AuthService = {
 	},
 	async getProfile() {
 		const {data} = await instance.get<IUser>('auth/profile');
-		console.log(data, 'data');
 		
 		if(data) return data
 	}

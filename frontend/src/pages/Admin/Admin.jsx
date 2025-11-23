@@ -6,7 +6,6 @@ import { NavLink, useNavigate } from 'react-router-dom'
 function Admin({isAuth}){
 	const navigate = useNavigate();
 	useEffect(() => {
-		console.log(isAuth);
 		const admin = isAuth?.isAdmin;
 		
 		if(!admin) navigate('/');

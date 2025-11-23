@@ -16,7 +16,6 @@ import RedirectAI from '../../pages/RedirectAI/RedirectAI'
 import Player from '../../pages/Player/Player'
 
 function Main({data, isAuth, setIsAuth}) {
-    console.log(isAuth);
     
     return (
         <main className={classes.main}>

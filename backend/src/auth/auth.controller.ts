@@ -17,7 +17,6 @@ export class AuthController {
   @Get('profile')
   getProfile(@Headers('authorization') req) {
     const key = req.split(' ')[1];
-    console.log('req-key', key);
     return this.authService.getProfile(key);
   }
 

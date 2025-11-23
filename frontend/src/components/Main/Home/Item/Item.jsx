@@ -10,7 +10,6 @@ const images = {
 
 function Item({numberClass, text}) {
     const location = useLocation().pathname.includes('ref') ? useLocation().pathname + '/' :  useLocation().pathname
-    console.log(useLocation().pathname);
     
     return (
         <div className={classes.item}>
