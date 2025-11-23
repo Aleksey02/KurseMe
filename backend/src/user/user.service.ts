@@ -5,7 +5,6 @@ import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { v4 as uuid } from 'uuid';
-import { log } from 'console';
 
 @Injectable()
 export class UserService {
