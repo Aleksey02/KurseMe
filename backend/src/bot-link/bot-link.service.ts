@@ -38,7 +38,7 @@ export class BotLinkService {
         take: 1,
       });
 
-    return lastLink[0];
+    return lastLink[0].link;
   }
 
   remove(id: number) {
