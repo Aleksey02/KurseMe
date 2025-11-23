@@ -13,16 +13,18 @@ const Account = observer(({isAuth, setIsAuth}) => {
 	const link = `https://t.me/${botLinkStore.link}?start=`
 
 	useEffect(() => {
-		setTimeout(()=>{
-			const response = axios.get('https://egeball.com/api/api/auth/loginToBot', {withCredentials: true})
-				.then(res => {
-					setIsAuth(res.data)
+		setTimeout(async ()=>{
+			try {
+				const response = await axios.get('https://egeball.com/api/api/auth/loginToBot', {withCredentials: true})
+				setIsAuth(res.data)
+				if(res.data.key) {
 					setTokenToLocalStorage('egeball_key', res.data.key)
-				})
-				.catch(error => {
-				console.log('Ошибка получения пользователя', error);
-				// Пользователь не авторизован, или ошибка сети
-				});
+				}
+			}
+			catch{
+			console.log('Ошибка получения пользователя', error);
+			// Пользователь не авторизован, или ошибка сети
+			};
 		}, 1000)
 		
 	}, [])
