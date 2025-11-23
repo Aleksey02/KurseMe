@@ -21,25 +21,21 @@ const Links = observer(({isAuth}) => {
 
 	const saveLink = async () => {
 		try {
-			axios.post('https://egeball.com/api/api/bot-link', {link})
-				.then(response => {
-					console.log(response, 'save');
-					BotLinkStore.setLink(response.data.link);
-					toast.success('Ссылка сохранена');
-					console.log('data', response);
-				})
-				.catch(error => {
-					toast.success('Ошибка сохранения');
-					console.error(error);
-				})
-				navigate('/');
+			const response = await axios.post('https://egeball.com/api/api/bot-link', { link });
+
+			console.log(response, 'save');
+			BotLinkStore.setLink(response.data.link);
+			toast.success('Ссылка сохранена');
+
+			navigate('/');
+
 		} catch (error) {
-			const err = error.response?.data.message;
-			console.log(error);
+			console.error(error);
 			
-			toast.error(err?.toString());
+			const err = error.response?.data?.message || 'Ошибка сохранения';
+			toast.error(err.toString());
 		}
-	}
+	};
 
 	return (
 		<div className='admin'>
