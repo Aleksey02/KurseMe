@@ -15,9 +15,9 @@ export class AuthController {
   }
 
   @Get('profile')
-  getProfile(@Headers() req) {
+  getProfile(@Headers('authorization') req) {
     console.log('req-key', req);
-    return this.authService.getProfile(req.user?.key);
+    return this.authService.getProfile(req);
   }
 
   @Get('loginToBot')
