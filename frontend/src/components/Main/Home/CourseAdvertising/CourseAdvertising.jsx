@@ -1,7 +1,7 @@
 import classes from './CourseAdvertising.module.scss'
 import advertImg from '../../../../assets/images/Home/CourseAdvertising/advert_image.png'
 import { observer } from 'mobx-react-lite';
-import botLinkStore from '../../store/botLink';
+import botLinkStore from '../../../../store/botLink';
 
 const CourseAdvertising = observer(() => {
 	const {pathname} = window.location;

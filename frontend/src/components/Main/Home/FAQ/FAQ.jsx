@@ -2,7 +2,7 @@ import Item from './Item/Item'
 import classes from './FAQ.module.scss'
 import { useEffect } from 'react'
 import { observer } from 'mobx-react-lite';
-import botLinkStore from '../../store/botLink';
+import botLinkStore from '../../../../store/botLink';
 
 const FAQ = observer(({data}) => {
     const {pathname} = window.location;
