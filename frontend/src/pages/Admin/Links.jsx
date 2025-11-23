@@ -42,6 +42,7 @@ const Links = observer(({isAuth}) => {
 				<h2 className='admin__title'>Ссылка на бота</h2>
 			</div>
 			<div className='admin__box admin__box-full-width'>
+			check
 				<input type="text" onChange={onChange} value={link}/>
 				<button onClick={saveLink}>Сохранить</button>
 			</div>
