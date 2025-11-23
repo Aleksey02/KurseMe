@@ -41,14 +41,13 @@ const Account = observer(({isAuth, setIsAuth}) => {
 		navigator.clipboard.writeText(link + isAuth.tg_id);
 		toast.success('Скопировано');
 	}
-console.log(isAuth, 'AUTH');
 
 	return <div className={classes.account}>
 		{isAuth ? <>
 			<h2 className={classes.account__title}>Личный кабинет</h2>
 			<div className={classes.account__yourId}>
 				<img src={isAuth?.photo_url?.length ? isAuth.photo_url : img} alt="profile image" />
-				<p>Ваш ID: <span>{isAuth.tg_id}</span></p>
+				<p>Ваш ID: <span>{isAuth.tgId}</span></p>
 				<button onClick={logout} className={classes.account__btn}>Выйти</button>
 			</div>
 			<h3 className={classes.account__subtitle}>Реферальная система</h3>
