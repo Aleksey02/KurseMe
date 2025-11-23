@@ -16,8 +16,8 @@ export class BotLinkService {
     const hasLink = await this.findAll();
     console.log(hasLink, 'hasLink');
     
-    if (hasLink.length) {
-      const check = await this.botLinkRepository.update(0, createBotLinkDto);
+    if (hasLink) {
+      const check = await this.botLinkRepository.update({ id: 2 }, createBotLinkDto);
       console.log(check, 'CHECK')
       return check;
     } 
@@ -30,7 +30,7 @@ export class BotLinkService {
   }
 
   async getLink() {
-    return await this.botLinkRepository.findOne({ where: { id: 0 } });
+    return await this.botLinkRepository.findOne({ where: { id: 2 } });
   }
 
   remove(id: number) {
