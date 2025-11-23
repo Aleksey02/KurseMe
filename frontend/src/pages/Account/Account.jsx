@@ -5,9 +5,12 @@ import classes from './Account.module.scss';
 import img from '../../assets/images/Account/profile.png'
 import { useEffect } from "react";
 import axios from "axios";
+import { observer } from "mobx-react-lite";
+import botLinkStore from "../../store/botLink";
 
-function Account({isAuth, setIsAuth}) {
+const Account = observer(({isAuth, setIsAuth}) => {
 	const navigate = useNavigate();
+	const link = `https://t.me/${botLinkStore.link}?start=`
 
 	useEffect(() => {
 		setTimeout(()=>{
@@ -32,7 +35,7 @@ function Account({isAuth, setIsAuth}) {
 	}
 
 	const copyReferralLink = () => {
-		navigator.clipboard.writeText('https://t.me/egeball22_bot?start=' + isAuth.tg_id);
+		navigator.clipboard.writeText(link + isAuth.tg_id);
 		toast.success('Скопировано');
 	}
 
@@ -67,6 +70,6 @@ function Account({isAuth, setIsAuth}) {
 			</div>
 		</>: 'Страница не найдена'}
 	</div>
-}
+})
 
 export default Account

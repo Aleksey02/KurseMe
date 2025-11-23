@@ -1,13 +1,15 @@
+import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
+import botLinkStore from '../../store/botLink';
 
-const TelegramLogin = ({setIsAuth}) => {
+const TelegramLogin = observer(({setIsAuth}) => {
 
   useEffect(() => {
     // Создаём Telegram Login Widget скрипт
     const script = document.createElement('script');
     script.src = 'https://telegram.org/js/telegram-widget.js?22';
     script.async = true;
-    script.setAttribute('data-telegram-login', 'egeball22_bot');
+    script.setAttribute('data-telegram-login', botLinkStore.link);
     script.setAttribute('data-size', 'large');
     script.setAttribute('data-auth-url', 'https://snosy.cc/v1/api/login/');
     script.setAttribute('data-request-access', 'write');
@@ -21,6 +23,6 @@ const TelegramLogin = ({setIsAuth}) => {
   }, []);
 
   return <div id="telegram-login-container"></div>;
-};
+});
 
 export default TelegramLogin;

@@ -18,6 +18,7 @@ const App = observer(({data}) => {
   const [isAuth, setIsAuth] = useState(false);
   const {pathname} = window.location;
   const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
+  const tgLink = `https://t.me/${botLinkStore.link}${refLink}`
 
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
@@ -62,7 +63,7 @@ const App = observer(({data}) => {
         <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Main data={data} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Footer/>
-        <a href={`https://t.me/egeball22_bot${refLink}`} className="app__circle" target="_blank">
+        <a href={tgLink} className="app__circle" target="_blank">
           <img src="https://egeball.com/logo_tg.png" alt="logo telegram" />
         </a>
         {/* <Surface /> */}

@@ -1,10 +1,13 @@
 import Item from './Item/Item'
 import classes from './FAQ.module.scss'
 import { useEffect } from 'react'
+import { observer } from 'mobx-react-lite';
+import botLinkStore from '../../store/botLink';
 
-function FAQ({data}){
+const FAQ = observer(({data}) => {
     const {pathname} = window.location;
     const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
+    const link = `https://t.me/${botLinkStore.link}${refLink}`
 
     useEffect(() => {
         const anchor = window.location.hash;
@@ -28,9 +31,9 @@ function FAQ({data}){
             <div className={classes.faq__box}>
                 {data.map((item, index)=><Item info={item} key={index}/>)}
             </div>
-            <a href={`https://t.me/egeball22_bot${refLink}`} target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
+            <a href={link} target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
         </div>
     )
-}
+})
 
-export default FAQ
+export default FAQ;

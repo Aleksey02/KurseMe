@@ -11,6 +11,8 @@ import video1 from '../../assets/video/Partnership/video1.mp4'
 import video2 from '../../assets/video/Partnership/video2.mp4'
 import video3 from '../../assets/video/Partnership/video3.mp4'
 import { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+import botLinkStore from '../../store/botLink'
 
 const videosData = [
 	{ src: video1, title: '1.4M просмотров. Платформа ТикТок. Популярный звук + скриншоты полезных PDF-материалов для математики.'},
@@ -206,7 +208,7 @@ function Item({data}) {
 }
 
 
-function Partnership() {
+const Partnership = observer(() => {
 	const [isBot, setIsBot] = useState(null);
 	const {pathname} = window.location;
 	const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1].split('/')[0]}` : "";
@@ -335,8 +337,8 @@ function Partnership() {
 		</div>
 		</>}
 		<br /><br />
-		<a href={`https://t.me/egeball22_bot${refLink}`} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
+		<a href={`https://t.me/${botLinkStore.link}${refLink}`} target='_blank' className={classes.partnership__link}>КУПИТЬ КУРСЫ</a>
 	</div>
-}
+})
 
 export default Partnership;
