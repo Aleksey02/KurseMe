@@ -21,7 +21,7 @@ function Player({isAuth, setIsAuth}) {
 
 	return (
 		<div>
-			<h1>Player</h1>
+			<h1 style={{textAlign: 'center'}}>Player</h1>
 			{isAuth.is_subscribed || isAuth.isAdmin
 				? <div style={{position: 'relative', paddingTop: '56.25%', width: '100%'}}>
 					<iframe 
