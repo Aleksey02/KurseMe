@@ -6,7 +6,12 @@ function Player({isAuth, setIsAuth}) {
 		return <div style={{
 			display: 'flex',
 			justifyContent: 'center'
-		}}>Чтобы смотреть видео материалы нужно войти в аккаунт</div>
+		}}>
+			<p>Чтобы смотреть видео материалы нужно войти в аккаунт</p>
+		<div className="auth__tg">
+						<TelegramLogin setIsAuth={setIsAuth}/>
+					</div>
+		</div>
 	}
 
 	return (
@@ -23,10 +28,8 @@ function Player({isAuth, setIsAuth}) {
 					</iframe>
 				</div>
 				: <>
-					<p>Нужно ввойти в аккаунт</p>
-					<div className="auth__tg">
-						<TelegramLogin setIsAuth={setIsAuth}/>
-					</div>
+					<p>Плеер доступен только аккаунтом с подпиской. Если у вас имеется подписка, попробуйте перезайти в аккаунт</p>
+					
 				</>
 			}
 		</div>
