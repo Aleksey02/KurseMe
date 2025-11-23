@@ -15,9 +15,8 @@ export class AuthController {
   }
 
   @Get('profile')
-  //@UseGuards(JwtAuthGuard)
-  getProfile(@Request() req) {
-    console.log('req-key', req.user);
+  getProfile(@Headers() req) {
+    console.log('req-key', req);
     return this.authService.getProfile(req.user?.key);
   }
 
