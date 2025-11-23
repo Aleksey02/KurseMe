@@ -24,9 +24,9 @@ const Links = observer(({isAuth}) => {
 			axios.post('https://egeball.com/api/api/bot-link', {link})
 				.then(response => {
 					console.log(response, 'save');
-					console.log('data', response);
-					BotLinkStore.setLink(response);
+					BotLinkStore.setLink(response.data.link);
 					toast.success('Ссылка сохранена');
+					console.log('data', response);
 				})
 				.catch(error => {
 					toast.success('Ошибка сохранения');
