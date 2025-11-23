@@ -11,10 +11,12 @@ function Player({isAuth, setIsAuth}) {
 		}}>
 			<p>Чтобы смотреть видео материалы нужно войти в аккаунт</p>
 		<div className="auth__tg">
-						<TelegramLogin setIsAuth={setIsAuth}/>
-					</div>
+			<TelegramLogin setIsAuth={setIsAuth}/>
+		</div>
 		</div>
 	}
+
+	const { title } = useParams();
 
 	return (
 		<div>
@@ -22,7 +24,7 @@ function Player({isAuth, setIsAuth}) {
 			{isAuth.is_subscribed
 				? <div style={{position: 'relative', paddingTop: '56.25%', width: '100%'}}>
 					<iframe 
-						src="https://kinescope.io/embed/2HFsUa9yj9mnLzhQUaTVYE?watermark=egeball.com" 
+						src={`https://kinescope.io/embed/${title}?watermark=egeball.com`}
 						allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;" 
 						frameBorder="0" 
 						allowFullScreen 
