@@ -1,5 +1,6 @@
 import React from 'react';
 import TelegramLogin from '../../components/TelegramLogin/TelegramLogin';
+import { useParams } from 'react-router-dom';
 
 function Player({isAuth, setIsAuth}) {
 	if(!isAuth) {
@@ -21,7 +22,7 @@ function Player({isAuth, setIsAuth}) {
 	return (
 		<div>
 			<h1>Player</h1>
-			{isAuth.is_subscribed
+			{isAuth.is_subscribed || isAuth.isAdmin
 				? <div style={{position: 'relative', paddingTop: '56.25%', width: '100%'}}>
 					<iframe 
 						src={`https://kinescope.io/embed/${title}?watermark=egeball.com`}
