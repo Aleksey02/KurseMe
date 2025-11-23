@@ -13,15 +13,18 @@ export class BotLinkService {
     ) {}
 
   async create(createBotLinkDto: CreateBotLinkDto) {
-    const hasLink = await this.findAll();
-    console.log(hasLink, 'hasLink');
-    
-    if (hasLink) {
-      const check = await this.botLinkRepository.update({ id: 2 }, createBotLinkDto);
-      console.log(check, 'CHECK')
-      return check;
-    } 
+    // Ищем последнюю запись (максимальный id)
+    const lastLink = await this.botLinkRepository.findOne({
+      order: { id: 'DESC' },
+    });
 
+    // Если запись существует → обновляем её
+    if (lastLink) {
+      await this.botLinkRepository.update(lastLink.id, createBotLinkDto);
+      return { ...lastLink, ...createBotLinkDto };
+    }
+
+    // Иначе → создаём новую
     return await this.botLinkRepository.save(createBotLinkDto);
   }
 
@@ -30,7 +33,9 @@ export class BotLinkService {
   }
 
   async getLink() {
-    return await this.botLinkRepository.findOne({ where: { id: 2 } });
+    return await this.botLinkRepository.findOne({
+      order: { id: 'DESC' },  // сортируем по убыванию
+    });
   }
 
   remove(id: number) {
