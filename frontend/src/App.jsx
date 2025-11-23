@@ -42,9 +42,7 @@ const App = observer(({data}) => {
   const getBotLink = async () => {
     try {
       const response = await axios.get('https://egeball.com/api/api/bot-link');
-      console.log(response, 'response');
       botLinkStore.setLink(response.data);
-      console.log(botLinkStore.link, 'LINK');
     } catch (error) {
       console.log(error);
     }
