@@ -5,7 +5,9 @@ function Player({isAuth, setIsAuth}) {
 	if(!isAuth) {
 		return <div style={{
 			display: 'flex',
-			justifyContent: 'center'
+			flexDirection: 'column',
+			justifyContent: 'center',
+			alignItems: 'center'
 		}}>
 			<p>Чтобы смотреть видео материалы нужно войти в аккаунт</p>
 		<div className="auth__tg">
@@ -29,7 +31,6 @@ function Player({isAuth, setIsAuth}) {
 				</div>
 				: <>
 					<p>Плеер доступен только аккаунтом с подпиской. Если у вас имеется подписка, попробуйте перезайти в аккаунт</p>
-					
 				</>
 			}
 		</div>

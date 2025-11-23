@@ -41,6 +41,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 		navigator.clipboard.writeText(link + isAuth.tg_id);
 		toast.success('Скопировано');
 	}
+console.log(isAuth, 'AUTH');
 
 	return <div className={classes.account}>
 		{isAuth ? <>
