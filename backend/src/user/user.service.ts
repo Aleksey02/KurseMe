@@ -5,6 +5,7 @@ import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { v4 as uuid } from 'uuid';
+import { log } from 'console';
 
 @Injectable()
 export class UserService {
@@ -14,6 +15,11 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
+    await this.userRepository.clear();
+    const allUsers = await this.userRepository.find();
+    console.log(allUsers, 'allUsers');
+    
+    
     const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id } });
     if(existUser) return existUser;
 
