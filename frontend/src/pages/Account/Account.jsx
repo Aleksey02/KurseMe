@@ -61,13 +61,13 @@ const Account = observer(({isAuth, setIsAuth}) => {
 				<div className={classes.account__referal}>
 					<h4>Кол-во рефералов</h4>
 					<div className={classes.account__box}>
-						<span>{isAuth?.details?.referrals_count ?? 0}</span>
+						<span>{isAuth?.referrals_count ?? 0}</span>
 					</div>
 				</div>
 				<div className={classes.account__referal}>
 					<h4>Заработано с рефералов</h4>
 					<div className={classes.account__box}>
-						<span>{isAuth?.details?.referral_balance ?? 0}₽</span>
+						<span>{isAuth?.referral_balance ?? 0}₽</span>
 					</div>
 				</div>
 			</div>
