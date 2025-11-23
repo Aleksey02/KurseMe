@@ -22,6 +22,7 @@ const App = observer(({data}) => {
 
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
+    console.log(token);
     try {
       if(token){
         const data = await AuthService.getProfile();
