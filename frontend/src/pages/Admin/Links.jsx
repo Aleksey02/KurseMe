@@ -22,8 +22,6 @@ const Links = observer(({isAuth}) => {
 	const saveLink = async () => {
 		try {
 			const response = await axios.post('https://egeball.com/api/api/bot-link', { link });
-
-			console.log(response, 'save');
 			BotLinkStore.setLink(response.data.link);
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
@@ -42,7 +40,6 @@ const Links = observer(({isAuth}) => {
 				<h2 className='admin__title'>Ссылка на бота</h2>
 			</div>
 			<div className='admin__box admin__box-full-width'>
-			check
 				<input type="text" onChange={onChange} value={link}/>
 				<button onClick={saveLink}>Сохранить</button>
 			</div>
