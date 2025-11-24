@@ -25,7 +25,7 @@ function Player({isAuth, setIsAuth}) {
 			{isAuth.is_subscribed || isAuth.isAdmin
 				? <div style={{position: 'relative', paddingTop: '56.25%', width: '100%'}}>
 					<iframe 
-						src={`https://kinescope.io/embed/${title}?watermark=egeball.com`}
+						src={`https://kinescope.io/embed/${title}?watermark=id${isAuth.tgId}`}
 						allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;" 
 						frameBorder="0" 
 						allowFullScreen 
