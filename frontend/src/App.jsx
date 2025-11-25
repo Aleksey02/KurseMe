@@ -11,6 +11,7 @@ import { AuthService } from "./services/auth.service"
 import { observer } from "mobx-react-lite";
 import botLinkStore from "./store/botLink"
 import axios from "axios"
+import channelLinkStore from "./store/channelLinkStore"
 //import Surface from "./components/Surface/Surface"
 
 
@@ -46,9 +47,20 @@ const App = observer(({data}) => {
       console.log(error);
     }
   }
+
+  const getChannelLink = async () => {
+    try {
+      const response = await axios.get('https://egeball.com/api/api/channel-link');
+      channelLinkStore.setLink(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     checkAuth();
     getBotLink();
+    getChannelLink();
     setTimeout(() => {
       AOS.init();
       AOS.refresh();
