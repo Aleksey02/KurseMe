@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import BotLinkStore from '../../store/botLink';
+import ChannelLinkStore from '../../store/channelLinkStore';
 import { observer } from 'mobx-react-lite';
 
-const Links = observer(({isAuth}) => {
+const Links = observer(({isAuth, type}) => {
 	const navigate = useNavigate();
-	const [link, setLink] = useState(BotLinkStore.link);
+	const [link, setLink] = useState(type === 'bot' ? BotLinkStore.link : ChannelLinkStore.link);
 	
 	useEffect(() => {
 		const admin = isAuth?.isAdmin;
@@ -21,8 +22,12 @@ const Links = observer(({isAuth}) => {
 
 	const saveLink = async () => {
 		try {
-			const response = await axios.post('https://egeball.com/api/api/bot-link', { link });
-			BotLinkStore.setLink(response.data.link);
+			const response = await axios.post(`https://egeball.com/api/api/${type}-link`, { link });
+			if (type === 'bot') {
+				BotLinkStore.setLink(response.data.link);
+			} else {
+				ChannelLinkStore.setLink(response.data.link);
+			}
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
 		} catch (error) {

@@ -7,6 +7,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { BotLinkModule } from './bot-link/bot-link.module';
+import { ChannelLinkModule } from './channel-link/channel-link.module';
 
 
 @Module({
@@ -32,6 +33,7 @@ import { BotLinkModule } from './bot-link/bot-link.module';
     UserModule,
     AuthModule,
     BotLinkModule,
+    ChannelLinkModule,
   ],
 })
 export class AppModule {}

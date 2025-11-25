@@ -34,7 +34,8 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/admin/classes' element={<Classes isAuth={isAuth} />} />
                 <Route path='/admin/classes/:classAdmin' element={<SchoolAdmin />} />
                 <Route path='/admin/classes/:classAdmin/:schoolId' element={<SubjectAdmin />} />
-                <Route path='/admin/links' element={<Links isAuth={isAuth} />} />
+                <Route path='/admin/bot-link' element={<Links isAuth={isAuth} type="bot"/>} />
+                <Route path='/admin/channel-link' element={<Links isAuth={isAuth} type="channel"/>} />
                 <Route path='/auth' element={<Auth setIsAuth={setIsAuth}/>} />
                 <Route path='/account' element={<Account isAuth={isAuth} setIsAuth={setIsAuth} />} />
                 <Route path='/partnership' element={<Partnership />} />
