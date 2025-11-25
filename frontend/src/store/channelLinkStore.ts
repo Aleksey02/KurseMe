@@ -1,7 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
 class ChannelLinkStore {
-	link = 'egeball22_bot'
+	link = 'https://t.me/+ASnWu1PJinQ0ZDUy'
 
 	constructor() {
 		makeAutoObservable(this);
