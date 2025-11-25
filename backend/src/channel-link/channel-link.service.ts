@@ -18,7 +18,6 @@ export class ChannelLinkService {
     });
     
     const link = lastLink[0];
-    console.log(link, 'link');
   
       if (link) {
         await this.channelLinkRepository.update(link.id, createBotLinkDto);

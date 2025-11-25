@@ -1,8 +1,10 @@
 import classes from './Footer.module.scss'
 import logo from '../../assets/images/Footer/logo.svg'
 import { NavLink, useLocation } from 'react-router-dom'
+import { observer } from 'mobx-react-lite';
+import channelLinkStore from '../../store/channelLinkStore';
 
-function Footer(){
+const Footer = observer(() => {
     const location = useLocation().pathname.includes('ref') ? '/ref/' : '/';
 
     return (
@@ -25,10 +27,11 @@ function Footer(){
             </div>
             <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>Мы в телеграме</h4>
-                <a href='https://t.me/+ASnWu1PJinQ0ZDUy' className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
+                <a href={channelLinkStore.link} className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
                 <a href='https://t.me/+R3o7lVXE2YcwZjli' className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
             </div>
         </footer>
     )
-}
-export default Footer
+});
+
+export default Footer;
