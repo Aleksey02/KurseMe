@@ -8,6 +8,7 @@ export class ChannelLinkController {
 
   @Post()
   create(@Body() createBotLinkDto: CreateChannelLinkDto) {
+    console.log(createBotLinkDto, 'createBotLinkDto');
     return this.channelLinkService.create(createBotLinkDto);
   }
 

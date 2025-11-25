@@ -12,12 +12,13 @@ export class ChannelLinkService {
   ) {}
   
   async create(createBotLinkDto: CreateChannelLinkDto) {
-      const lastLink = await this.channelLinkRepository.find({
-        order: { id: 'DESC' },
-        take: 1,
-      });
-  
-      const link = lastLink[0];
+    const lastLink = await this.channelLinkRepository.find({
+      order: { id: 'DESC' },
+      take: 1,
+    });
+    
+    const link = lastLink[0];
+    console.log(link, 'link');
   
       if (link) {
         await this.channelLinkRepository.update(link.id, createBotLinkDto);
