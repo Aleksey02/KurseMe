@@ -20,7 +20,9 @@ html, body{
   flex-direction: column;
   min-height: 100%;
   position: relative;
-  &__circle{
+
+  &__circle,
+  &__circle--reload {
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -31,6 +33,13 @@ html, body{
       width: 100%;
     }
   }
+
+  &__circle--reload{
+    border: none;
+    background: none;
+    bottom: 120px;
+    cursor: pointer;
+  }
   
 }
 .auth__tg {
@@ -39,19 +48,27 @@ html, body{
   background-color: transparent;
 }
 @media (max-width: 1000px) {
-  .app__circle{
+  .app__circle,
+  .app__circle--reload {
     bottom: 30px;
     right: 30px;
     width: 45px;
     height: 45px;
   }
+  .app__circle--reload{
+    bottom: 85px;
+  }
 }
 @media (max-width: 500px) {
-  .app__circle{
+  .app__circle,
+  .app__circle--reload {
     bottom: 15px;
     right: 15px;
     width: 45px;
     height: 45px;
+  }
+  .app__circle--reload{
+    bottom: 65px;
   }
 }
 #root{

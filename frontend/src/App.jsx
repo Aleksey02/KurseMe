@@ -12,6 +12,7 @@ import { observer } from "mobx-react-lite";
 import botLinkStore from "./store/botLink"
 import axios from "axios"
 import channelLinkStore from "./store/channelLinkStore"
+import reloadImage from './assets/images/reload.png'
 //import Surface from "./components/Surface/Surface"
 
 
@@ -57,6 +58,26 @@ const App = observer(({data}) => {
     }
   }
 
+  const clearCache = async () => {
+  try {
+      // Очистка localStorage
+      localStorage.clear();
+
+      // Очистка sessionStorage
+      sessionStorage.clear();
+
+      // Очистка Cache Storage (кеш сервис-воркера)
+      if ('caches' in window) {
+        const cacheNames = await caches.keys();
+        await Promise.all(cacheNames.map(cache => caches.delete(cache)));
+      }
+
+      console.log("Все хранилища и кэши очищены");
+    } catch (err) {
+      console.error("Ошибка при очистке кэша:", err);
+    }
+  };
+
   useEffect(() => {
     checkAuth();
     getBotLink();
@@ -73,6 +94,9 @@ const App = observer(({data}) => {
         <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Main data={data} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Footer/>
+        <button className="app__circle--reload" onClick={clearCache}>
+          <img src={reloadImage} alt="reload button" />
+        </button>
         <a href={tgLink} className="app__circle" target="_blank">
           <img src="https://egeball.com/logo_tg.png" alt="logo telegram" />
         </a>
