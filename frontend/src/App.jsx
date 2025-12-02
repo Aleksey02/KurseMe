@@ -72,6 +72,18 @@ const App = observer(({data}) => {
         await Promise.all(cacheNames.map(cache => caches.delete(cache)));
       }
 
+      try {
+        
+        const databases = await indexedDB.databases();
+        await Promise.all(databases.map(db => indexedDB.deleteDatabase(db.name)));
+      }
+      catch (err) {
+        console.error("Ошибка при очистке IndexedDB:", err);
+      }
+
+      window.location.reload();
+      // Очистка IndexedDB
+
       console.log("Все хранилища и кэши очищены");
     } catch (err) {
       console.error("Ошибка при очистке кэша:", err);
