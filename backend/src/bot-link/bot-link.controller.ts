@@ -11,9 +11,9 @@ export class BotLinkController {
     return this.botLinkService.create(createBotLinkDto);
   }
 
-  @Get()
-  getLink() {
-    return this.botLinkService.getLink();
+  @Get(':domen')
+  getLink(@Param('domen') domen: string) {
+    return this.botLinkService.getLink(domen);
   }
 
   @Delete(':id')

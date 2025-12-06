@@ -42,8 +42,17 @@ const App = observer(({data}) => {
 
   const getBotLink = async () => {
     try {
-      const response = await axios.get('https://egeball.com/api/api/bot-link');
+      const response = await axios.get('https://egeball.com/api/api/bot-link/base');
       botLinkStore.setLink(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getBotAuthLink = async () => {
+    try {
+      const response = await axios.get('https://egeball.com/api/api/bot-link/' + window.location.host);
+      botLinkStore.setAuthLink(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -93,6 +102,7 @@ const App = observer(({data}) => {
   useEffect(() => {
     checkAuth();
     getBotLink();
+    getBotAuthLink();
     getChannelLink();
     setTimeout(() => {
       AOS.init();

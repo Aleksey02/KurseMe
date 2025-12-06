@@ -13,16 +13,13 @@ export class BotLinkService {
     ) {}
 
   async create(createBotLinkDto: CreateBotLinkDto) {
-    const lastLink = await this.botLinkRepository.find({
-      order: { id: 'DESC' },
-      take: 1,
+    const existing = await this.botLinkRepository.findOne({
+      where: { domen: createBotLinkDto.domen },
     });
 
-    const link = lastLink[0];
-
-    if (link) {
-      await this.botLinkRepository.update(link.id, createBotLinkDto);
-      return { ...link, ...createBotLinkDto };
+    if (existing) {
+      await this.botLinkRepository.update(existing.id, createBotLinkDto);
+      return { ...existing, ...createBotLinkDto };
     }
 
     return await this.botLinkRepository.save(createBotLinkDto);
@@ -32,13 +29,12 @@ export class BotLinkService {
     return await this.botLinkRepository.find();
   }
 
-  async getLink() {
-    const lastLink = await this.botLinkRepository.find({
-        order: { id: 'DESC' },
-        take: 1,
+  async getLink(domen: string) {
+    const lastLink = await this.botLinkRepository.findOne({
+        where: {domen}
       });
 
-    return lastLink[0].link;
+    return lastLink?.link;
   }
 
   remove(id: number) {

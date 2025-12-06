@@ -9,6 +9,7 @@ import { observer } from 'mobx-react-lite';
 const Links = observer(({isAuth, type}) => {
 	const navigate = useNavigate();
 	const [link, setLink] = useState(type === 'bot' ? BotLinkStore.link : ChannelLinkStore.link);
+	cosnt [authLink, setAuthLink] = useState(BotLinkStore.authLink);
 	
 	useEffect(() => {
 		const admin = isAuth?.isAdmin;
@@ -22,12 +23,27 @@ const Links = observer(({isAuth, type}) => {
 
 	const saveLink = async () => {
 		try {
-			const response = await axios.post(`https://egeball.com/api/api/${type}-link`, { link });
 			if (type === 'bot') {
+				const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link, type: 'base' });
 				BotLinkStore.setLink(response.data.link);
 			} else {
+				const response = await axios.post(`https://egeball.com/api/api/channel-link`, { link });
 				ChannelLinkStore.setLink(response.data.link);
 			}
+			toast.success('Ссылка сохранена');
+			setTimeout(() => navigate('/'), 1000);
+		} catch (error) {
+			console.error(error);
+			
+			const err = error.response?.data?.message || 'Ошибка сохранения';
+			toast.error(err.toString());
+		}
+	};
+
+	const saveAuthLink = async () => {
+		try {
+			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { authLink, type: window.location.host });
+			BotLinkStore.setAuthLink(response.data.link);
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
 		} catch (error) {
@@ -48,6 +64,11 @@ const Links = observer(({isAuth, type}) => {
 				<input type="text" onChange={onChange} value={link}/>
 				<button onClick={saveLink}>Сохранить</button>
 			</div>
+			{type === 'bot' && <div className='admin__box admin__box-full-width'>
+				<p>Ссылка для подключения авторизации ТГ</p>
+				<input type="text" onChange={(e) => setAuthLink(e.target.value)} value={authLink}/>
+				<button onClick={saveAuthLink}>Сохранить</button>
+			</div>}
 		</div>
 	)
 })

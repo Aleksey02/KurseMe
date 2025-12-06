@@ -7,4 +7,7 @@ export class BotLink {
 
 	@Column({nullable: true})
 	link: string;
+
+	@Column({nullable: true})
+	domen: string;
 }
