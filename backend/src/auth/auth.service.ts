@@ -39,6 +39,8 @@ async loginToBot(cookies: string) {
         withCredentials: true, // на бэке обычно не обязательно, но можно оставить
       }),
     );
+    console.log(response.data);
+    
     const user = await this.usersService.create(response.data);
 
     return user; // или нужный токен
