@@ -5,9 +5,6 @@ import botLinkStore from '../../store/botLink';
 const TelegramLogin = observer(({setIsAuth}) => {
 
   useEffect(() => {
-    // Создаём Telegram Login Widget скрипт
-    console.log(botLinkStore.authLink);
-    
     const script = document.createElement('script');
     script.src = 'https://telegram.org/js/telegram-widget.js?22';
     script.async = true;
