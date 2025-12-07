@@ -22,7 +22,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 					setTokenToLocalStorage('egeball_key', response.data.key)
 				}
 			}
-			catch{
+			catch(error) {
 			console.log('Ошибка получения пользователя', error);
 			// Пользователь не авторизован, или ошибка сети
 			};
