@@ -77,7 +77,7 @@ const Links = observer(({isAuth, type}) => {
 				</div>
 				<div className='admin__box admin__box-full-width'>
 					<p>Ссылка для подключения авторизации ТГ на egeball.org</p>	
-					<input type="text" onChange={(e) => setAuthLink(e.target.value)} value={orgLink}/>
+					<input type="text" onChange={(e) => setOrgLink(e.target.value)} value={orgLink}/>
 					<button onClick={()=>saveAuthLink(false)}>Сохранить</button>
 				</div>
 			</>}
