@@ -42,7 +42,7 @@ const Links = observer(({isAuth, type}) => {
 
 	const saveAuthLink = async () => {
 		try {
-			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { authLink, domen: window.location.host });
+			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link: authLink, domen: window.location.host });
 			BotLinkStore.setAuthLink(authLink);
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
