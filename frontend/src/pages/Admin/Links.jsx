@@ -24,7 +24,7 @@ const Links = observer(({isAuth, type}) => {
 	const saveLink = async () => {
 		try {
 			if (type === 'bot') {
-				const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link, type: 'base' });
+				const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link, domen: 'base' });
 				BotLinkStore.setLink(response.data.link);
 			} else {
 				const response = await axios.post(`https://egeball.com/api/api/channel-link`, { link });
@@ -42,7 +42,7 @@ const Links = observer(({isAuth, type}) => {
 
 	const saveAuthLink = async () => {
 		try {
-			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { authLink, type: window.location.host });
+			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { authLink, domen: window.location.host });
 			BotLinkStore.setAuthLink(response.data.link);
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
