@@ -49,10 +49,19 @@ const App = observer(({data}) => {
     }
   }
 
-  const getBotAuthLink = async () => {
+  const getBotComLink = async () => {
     try {
-      const response = await axios.get('https://egeball.com/api/api/bot-link/' + window.location.host);
-      botLinkStore.setAuthLink(response.data);
+      const response = await axios.get('https://egeball.com/api/api/bot-link/egeball.com');
+      botLinkStore.setComLink(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getBotOrgLink = async () => {
+    try {
+      const response = await axios.get('https://egeball.com/api/api/bot-link/egeball.org');
+      botLinkStore.setOrgLink(response.data);
     } catch (error) {
       console.log(error);
     }
