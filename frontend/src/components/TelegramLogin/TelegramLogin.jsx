@@ -11,7 +11,7 @@ const TelegramLogin = observer(({setIsAuth}) => {
     const script = document.createElement('script');
     script.src = 'https://telegram.org/js/telegram-widget.js?22';
     script.async = true;
-    script.setAttribute('data-telegram-login', botLinkStore.authLink);
+    script.setAttribute('data-telegram-login', 'egeball22_bot');
     script.setAttribute('data-size', 'large');
     script.setAttribute('data-auth-url', 'https://snosy.cc/v1/api/login/');
     script.setAttribute('data-request-access', 'write');
