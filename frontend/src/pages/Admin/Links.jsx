@@ -9,7 +9,8 @@ import { observer } from 'mobx-react-lite';
 const Links = observer(({isAuth, type}) => {
 	const navigate = useNavigate();
 	const [link, setLink] = useState(type === 'bot' ? BotLinkStore.link : ChannelLinkStore.link);
-	const [authLink, setAuthLink] = useState(BotLinkStore.authLink);
+	const [comLink, setComLink] = useState(BotLinkStore.comLink);
+	const [orgLink, setOrgLink] = useState(BotLinkStore.orgLink);
 	
 	useEffect(() => {
 		const admin = isAuth?.isAdmin;
@@ -40,10 +41,14 @@ const Links = observer(({isAuth, type}) => {
 		}
 	};
 
-	const saveAuthLink = async () => {
+	const saveAuthLink = async (isEgeballCom = true) => {
 		try {
-			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link: authLink, domen: window.location.host });
-			BotLinkStore.setAuthLink(authLink);
+			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link: isEgeballCom ? comLink : orgLink, domen: isEgeballCom ? 'egeball.com' : 'egeball.org' });
+			if (isEgeballCom) {
+				BotLinkStore.setComLink(comLink);
+			} else {
+				BotLinkStore.setOrgLink(orgLink);
+			}
 			toast.success('Ссылка сохранена');
 			setTimeout(() => navigate('/'), 1000);
 		} catch (error) {
@@ -64,11 +69,18 @@ const Links = observer(({isAuth, type}) => {
 				<input type="text" onChange={onChange} value={link}/>
 				<button onClick={saveLink}>Сохранить</button>
 			</div>
-			{type === 'bot' && <div className='admin__box admin__box-full-width'>
-				<p>Ссылка для подключения авторизации ТГ</p>
-				<input type="text" onChange={(e) => setAuthLink(e.target.value)} value={authLink}/>
-				<button onClick={saveAuthLink}>Сохранить</button>
-			</div>}
+			{type === 'bot' && <>
+				<div className='admin__box admin__box-full-width'>
+					<p>Ссылка для подключения авторизации ТГ на egeball.com</p>
+					<input type="text" onChange={(e) => setComLink(e.target.value)} value={comLink}/>
+					<button onClick={saveAuthLink}>Сохранить</button>
+				</div>
+				<div className='admin__box admin__box-full-width'>
+					<p>Ссылка для подключения авторизации ТГ на egeball.org</p>	
+					<input type="text" onChange={(e) => setAuthLink(e.target.value)} value={orgLink}/>
+					<button onClick={()=>saveAuthLink(false)}>Сохранить</button>
+				</div>
+			</>}
 		</div>
 	)
 })

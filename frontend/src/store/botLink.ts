@@ -2,7 +2,8 @@ import {makeAutoObservable} from "mobx";
 
 class BotLink {
 	link = 'egeball22_bot'
-	authLink = 'egeball22_bot'
+	comLink = 'egeball22_bot'
+	orgLink = 'egeball22_bot'
 
 	constructor() {
 		makeAutoObservable(this);
@@ -13,9 +14,14 @@ class BotLink {
 		this.link = link;
 	}
 
-	setAuthLink(link: string) {
+	setComLink(link: string) {
 		if (!link) return;
-		this.authLink = link;
+		this.comLink = link;
+	}
+
+	setOrgLink(link: string) {
+		if (!link) return;
+		this.orgLink = link;
 	}
 }
 
