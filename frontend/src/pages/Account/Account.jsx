@@ -15,7 +15,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 	useEffect(() => {
 		setTimeout(async ()=>{
 			try {
-				const response = await axios.get('https://egeball.com/api/api/auth/loginToBot', {withCredentials: true})
+				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
 				setIsAuth(response.data)
 
 				if(response.data.key) {

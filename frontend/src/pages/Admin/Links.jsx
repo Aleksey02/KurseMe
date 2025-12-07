@@ -25,10 +25,10 @@ const Links = observer(({isAuth, type}) => {
 	const saveLink = async () => {
 		try {
 			if (type === 'bot') {
-				const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link, domen: 'base' });
+				const response = await axios.post(`https://${window.location.host}/api/api/bot-link`, { link, domen: 'base' });
 				BotLinkStore.setLink(response.data.link);
 			} else {
-				const response = await axios.post(`https://egeball.com/api/api/channel-link`, { link });
+				const response = await axios.post(`https://${window.location.host}/api/api/channel-link`, { link });
 				ChannelLinkStore.setLink(response.data.link);
 			}
 			toast.success('Ссылка сохранена');
@@ -43,7 +43,7 @@ const Links = observer(({isAuth, type}) => {
 
 	const saveAuthLink = async (isEgeballCom = true) => {
 		try {
-			const response = await axios.post(`https://egeball.com/api/api/bot-link`, { link: isEgeballCom ? comLink : orgLink, domen: isEgeballCom ? 'egeball.com' : 'egeball.org' });
+			const response = await axios.post(`https://${window.location.host}/api/api/bot-link`, { link: isEgeballCom ? comLink : orgLink, domen: isEgeballCom ? 'egeball.com' : 'egeball.org' });
 			if (isEgeballCom) {
 				BotLinkStore.setComLink(comLink);
 			} else {

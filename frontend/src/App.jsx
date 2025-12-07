@@ -42,7 +42,7 @@ const App = observer(({data}) => {
 
   const getBotLink = async () => {
     try {
-      const response = await axios.get('https://egeball.com/api/api/bot-link/base');
+      const response = await axios.get(`https://${window.location.host}/api/api/bot-link/base`);
       botLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -51,7 +51,7 @@ const App = observer(({data}) => {
 
   const getBotComLink = async () => {
     try {
-      const response = await axios.get('https://egeball.com/api/api/bot-link/egeball.com');
+      const response = await axios.get(`https://${window.location.host}/api/api/bot-link/egeball.com`);
       botLinkStore.setComLink(response.data);
     } catch (error) {
       console.log(error);
@@ -60,7 +60,7 @@ const App = observer(({data}) => {
 
   const getBotOrgLink = async () => {
     try {
-      const response = await axios.get('https://egeball.com/api/api/bot-link/egeball.org');
+      const response = await axios.get(`https://${window.location.host}/api/api/bot-link/egeball.org`);
       botLinkStore.setOrgLink(response.data);
     } catch (error) {
       console.log(error);
@@ -69,7 +69,7 @@ const App = observer(({data}) => {
 
   const getChannelLink = async () => {
     try {
-      const response = await axios.get('https://egeball.com/api/api/channel-link');
+      const response = await axios.get(`https://${window.location.host}/api/api/channel-link`);
       channelLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -130,7 +130,7 @@ const App = observer(({data}) => {
           <img src={reloadImage} alt="reload button" />
         </button>
         <a href={tgLink} className="app__circle" target="_blank">
-          <img src="https://egeball.com/logo_tg.png" alt="logo telegram" />
+          <img src={`https://${window.location.host}/logo_tg.png`} alt="logo telegram" />
         </a>
         {/* <Surface /> */}
       </div>
