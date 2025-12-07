@@ -9,7 +9,7 @@ import { observer } from 'mobx-react-lite';
 const Links = observer(({isAuth, type}) => {
 	const navigate = useNavigate();
 	const [link, setLink] = useState(type === 'bot' ? BotLinkStore.link : ChannelLinkStore.link);
-	cosnt [authLink, setAuthLink] = useState(BotLinkStore.authLink);
+	const [authLink, setAuthLink] = useState(BotLinkStore.authLink);
 	
 	useEffect(() => {
 		const admin = isAuth?.isAdmin;

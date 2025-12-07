@@ -71,7 +71,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 					</div>
 				</div>
 			</div>
-		</>: 'Страница не найдена'}
+		</>: 'Загрузка...'}
 	</div>
 })
 
