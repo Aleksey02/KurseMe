@@ -111,7 +111,8 @@ const App = observer(({data}) => {
   useEffect(() => {
     checkAuth();
     getBotLink();
-    getBotAuthLink();
+    getBotComLink();
+    getBotOrgLink();
     getChannelLink();
     setTimeout(() => {
       AOS.init();
