@@ -16,11 +16,6 @@ const Footer = observer(() => {
                 <p className={classes.footer__text}>Общеобразовательный проект для подготовки к ЕГЭ и ОГЭ</p>
             </div>
             <div className={classes.footer__item}>
-                <h4 className={classes.footer__title}>Обучение</h4>
-                <NavLink to={location + '11'} className={classes.footer__text}>ЕГЭ</NavLink>
-                <NavLink to={location + '9'} className={classes.footer__text}>ОГЭ</NavLink>
-            </div>
-            <div className={classes.footer__item}>
                 <h4 className={classes.footer__title}>О нас</h4>
                 <a href='https://t.me/racketeersss' target='_blank' className={classes.footer__text}>Поддержка</a>
                 <a href='https://t.me/egeball_feed' target='_blank' className={classes.footer__text}>Отзывы</a>

@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "./components/Header/Header"
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, useParams} from 'react-router-dom'
 import Main from "./components/Main/Main"
 import Footer from "./components/Footer/Footer"
 import { useState, useEffect } from "react"
@@ -108,12 +108,20 @@ const App = observer(({data}) => {
     }
   };
 
+  const checkRef = () => {
+    const params = useParams();
+    if(params.id){
+      window.location.href = `https://t.me/${botLinkStore.link}?start=${params.id}`
+    }
+  }
+
   useEffect(() => {
     checkAuth();
     getBotLink();
     getBotComLink();
     getBotOrgLink();
     getChannelLink();
+    checkRef();
     setTimeout(() => {
       AOS.init();
       AOS.refresh();
