@@ -37,7 +37,7 @@ function Item({info}){
     return(
         <div className={classes.item}>
             <div className={classes.item__wrapper}>
-                <img src={imageUrl} alt="" />
+                <img src={imageUrl} alt={info.name} />
                 <div className={classes.item__box}>
                     {/* <p className={classes.item__kurs}>{info.countCusr}</p> */}
                     <p className={classes.item__cost}>от {cost}₽/мес</p>

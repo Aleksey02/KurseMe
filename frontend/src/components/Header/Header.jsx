@@ -31,7 +31,7 @@ function Header({isAuth, setIsAuth}){
                 </div>
                 <div className={classes.header__buttons}>
                     {isAuth.isAdmin && <NavLink className={classes.header__profile}  to={'admin'}>
-                            <img src={adminImg} alt="" />
+                            <img src={adminImg} alt="admin pannel button" />
                         </NavLink>}
                     <NavLink  to={isAuth? 'account' : 'auth'} className={classes.header__profile}>
                         <img src={profile} className={classes.header__profile} alt="Аккаунт" />

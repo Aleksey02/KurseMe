@@ -231,7 +231,7 @@ const Partnership = observer(() => {
 		<br />
 		<p className={classes.partnership__bold}>1) Создавай короткий видео-контент с упоминанием нашего проекта и получай фиксированную оплату за кол-во просмотров:</p>
 		<br/><br />
-		<img src={img1} alt="" />
+		<img src={img1} alt="Создавай короткий видео-контент с упоминанием нашего проекта" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[0].title} desc={openLines[0].desc} />
 		</div>
@@ -250,7 +250,7 @@ const Partnership = observer(() => {
 		<br />
 		<p className={classes.partnership__bold}>2) Рекламируй свою реферальную ссылку и получай до 25% с каждого пополнения. </p>
 		<br/><br />
-		<img src={img2} alt="" />
+		<img src={img2} alt="Рекламируй свою реферальную ссылку и получай до 25% с каждого пополнения" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[5].title} desc={openLines[5].desc} />
 		</div>
@@ -269,7 +269,7 @@ const Partnership = observer(() => {
 		<br />
 		<p className={classes.partnership__bold}>3) Делись своей реферальной ссылкой с небольшим кругом людей и получай эксклюзивные курсы.</p>
 		<br/><br />
-		<img src={img3} alt="" />
+		<img src={img3} alt="Делись своей реферальной ссылкой с небольшим кругом людей и получай эксклюзивные курсы" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={openLines[11].title} desc={openLines[11].desc} />
 		</div>
@@ -293,7 +293,7 @@ const Partnership = observer(() => {
 		<br />
 		<p className={classes.partnership__bold}>1) Создавай короткий видео-контент с упоминанием нашего проекта и получай фиксированную оплату за кол-во просмотров:</p>
 		<br/><br />
-		<img src={IIimg1} alt="" />
+		<img src={IIimg1} alt="Создавай короткий видео-контент с упоминанием нашего проекта и получай фиксированную оплату за кол-во просмотров" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={iiOpenLines[0].title} desc={iiOpenLines[0].desc} />
 		</div>
@@ -309,7 +309,7 @@ const Partnership = observer(() => {
 		<br />
 		<p className={classes.partnership__bold}>2) Рекламируй свою реферальную ссылку и получай до 25% с каждой купленной подписки. </p>
 		<br/><br />
-		<img src={IIimg2} alt="" />
+		<img src={IIimg2} alt="Рекламируй свою реферальную ссылку и получай до 25% с каждой купленной подписки" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={iiOpenLines[4].title} desc={iiOpenLines[4].desc} />
 		</div>
@@ -328,7 +328,7 @@ const Partnership = observer(() => {
 		<br />
 		<p className={classes.partnership__bold}>3) Делись своей реферальной ссылкой с небольшим кругом людей и получай +20 несгораемых запросов к ИИ-боту:</p>
 		<br/><br />
-		<img src={IIimg3} alt="" />
+		<img src={IIimg3} alt="Делись своей реферальной ссылкой с небольшим кругом людей и получай +20 несгораемых запросов к ИИ-боту" />
 		<div className={classes.partnership__open_line}>
 			<PartnerLine title={iiOpenLines[9].title} desc={iiOpenLines[9].desc} />
 		</div>
