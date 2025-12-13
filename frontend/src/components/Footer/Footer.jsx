@@ -16,12 +16,12 @@ const Footer = observer(() => {
                 <p className={classes.footer__text}>Общеобразовательный проект для подготовки к ЕГЭ и ОГЭ</p>
             </div>
             <div className={classes.footer__item}>
-                <h4 className={classes.footer__title}>О нас</h4>
+                <h3 className={classes.footer__title}>О нас</h3>
                 <a href='https://t.me/racketeersss' target='_blank' className={classes.footer__text}>Поддержка</a>
                 <a href='https://t.me/egeball_feed' target='_blank' className={classes.footer__text}>Отзывы</a>
             </div>
             <div className={classes.footer__item}>
-                <h4 className={classes.footer__title}>Мы в телеграме</h4>
+                <h3 className={classes.footer__title}>Мы в телеграме</h3>
                 <a href={channelLinkStore.link} className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
                 <a href='https://t.me/+R3o7lVXE2YcwZjli' className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
             </div>
