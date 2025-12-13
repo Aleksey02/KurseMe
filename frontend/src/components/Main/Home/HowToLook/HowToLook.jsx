@@ -5,6 +5,7 @@ import video4 from '../../../../assets/video/HowToLook/video4.mp4'
 import video5 from '../../../../assets/video/HowToLook/video5.mp4'
 import { observer } from 'mobx-react-lite'
 import botLinkStore from '../../../../store/botLink'
+import description from '../../../../assets/description_video/description.vtt'
 
 const data = [
 	{ src: video1, title: 'Как выглядит слив курса ФЛЕШ👆🏻', join: 'Вступить в курс:', joinStatus: '⚡️'},
@@ -19,7 +20,11 @@ const Item = observer(({data}) => {
 	const link = `http://t.me/${botLinkStore.link}${refLink}`
 
 	return <div className={classes.item}>
-		<video src={data.src} controls preload='metadata'></video>
+		<video src={data.src} controls preload='metadata'>
+			<track kind="descriptions" src={description} srclang="ru" label="Description"></track>
+			Ваш браузер не поддерживает видео. 
+			<p>Описание видео: {data.title}</p>
+		</video>
 		<div className={classes.item__info}>
 			<p className={classes.item__howToLook}>{data.title}</p>
 			<p className={classes.item__join}>{data.join} <a href={link}>@{botLinkStore.link}</a>{data.joinStatus}</p>
