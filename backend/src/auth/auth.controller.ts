@@ -1,9 +1,8 @@
-import { Controller, Post, UseGuards, Request, Get, Headers, Res, UnauthorizedException } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Get, Headers, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { JwtService } from '@nestjs/jwt';
-import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -23,8 +22,7 @@ export class AuthController {
 
   @Get('loginToBot')
   async loginToBot(
-    @Headers('cookie') cookie: string,
-    @Res() res: Response
+    @Headers('cookie') cookie: string
 ) {
   console.log(cookie, 'cookieNEWWWWWWWWWWWWWWW');
   if (!cookie) {

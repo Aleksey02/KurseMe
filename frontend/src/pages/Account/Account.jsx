@@ -18,7 +18,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 				console.log('start response');
 				
 				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
-				console.log(response);
+				await console.log(response);
 				setIsAuth(response.data)
 
 				if(response.data.key) {
