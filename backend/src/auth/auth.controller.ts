@@ -31,6 +31,8 @@ export class AuthController {
     throw new UnauthorizedException();
   };
   const data = await this.authService.loginToBot(cookie);
+  console.log(data, 'asnwer responmse');
+  
     return data;
   }
 }
