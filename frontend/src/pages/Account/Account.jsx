@@ -1,12 +1,12 @@
 import { removeTokenFromLocalStorage, setTokenToLocalStorage } from "../../helper/localstorage.helper";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import classes from './Account.module.scss';
 import img from '../../assets/images/Account/profile.png'
 import { useEffect } from "react";
 import axios from "axios";
 import { observer } from "mobx-react-lite";
 import botLinkStore from "../../store/botLink";
+import { useNavigate } from 'react-router-dom'
 
 const Account = observer(({isAuth, setIsAuth}) => {
 	const navigate = useNavigate();
@@ -17,7 +17,8 @@ const Account = observer(({isAuth, setIsAuth}) => {
 			try {
 				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
 				if (response.status === 401) {
-					window.location.href = '/';
+					console.log('Пользователь не авторизован');
+					navigate('/');
 					return;
 				}
 				setIsAuth(response.data)
