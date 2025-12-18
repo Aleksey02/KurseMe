@@ -26,7 +26,7 @@ export class AuthController {
     @Headers('cookie') cookie: string,
     @Res() res: Response
 ) {
-  console.log(cookie, 'cookie');
+  console.log(cookie, 'cookieNEWWWWWWWWWWWWWWW');
   if (!cookie) {
     throw new UnauthorizedException();
   };

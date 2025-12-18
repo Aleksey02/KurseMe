@@ -15,6 +15,8 @@ const Account = observer(({isAuth, setIsAuth}) => {
 	useEffect(() => {
 		setTimeout(async ()=>{
 			try {
+				console.log('start response');
+				
 				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
 				console.log(response);
 				setIsAuth(response.data)
