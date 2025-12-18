@@ -29,6 +29,8 @@ export class UserService {
       referrals_count: createUserDto.details?.referrals_count,
       isAdmin: Boolean(adminsIds?.split(' ').find(id => Number(id) === createUserDto.tg_id))
     });
+    console.log('user', user);
+    console.log('createUserDto', createUserDto);
     return { user };
   }
 
