@@ -1,8 +1,9 @@
-import { Controller, Post, UseGuards, Request, Get, Headers } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Get, Headers, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { JwtService } from '@nestjs/jwt';
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -22,9 +23,12 @@ export class AuthController {
 
   @Get('loginToBot')
   async loginToBot(
-    @Headers('cookie') cookie: string
+    @Headers('cookie') cookie: string,
+    @Res() res: Response
 ) {
-  if (!cookie) return;
+  if (!cookie) {
+    return res.redirect(302, '/');
+  };
   const data = await this.authService.loginToBot(cookie);
     return data;
   }
