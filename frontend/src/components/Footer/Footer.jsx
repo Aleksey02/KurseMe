@@ -17,7 +17,7 @@ const Footer = observer(() => {
             </div>
             <div className={classes.footer__item}>
                 <h3 className={classes.footer__title}>О нас</h3>
-                <a href='https://t.me/racketeersss' target='_blank' className={classes.footer__text}>Поддержка</a>
+                <a href='https://t.me/egeball_forum' target='_blank' className={classes.footer__text}>Поддержка</a>
                 <a href='https://t.me/egeball_feed' target='_blank' className={classes.footer__text}>Отзывы</a>
             </div>
             <div className={classes.footer__item}>

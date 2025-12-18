@@ -65,7 +65,7 @@ const openLines = [
 	},
 	{
 		title: 'Как начать зарабатывать:',
-		desc: `Для начала сотрудничества с нами, напишите техническому менеджеру: <a href="https://t.me/racketeersss">https://t.me/racketeersss</a><br /><br />`
+		desc: `Для начала сотрудничества с нами, напишите техническому менеджеру: <a href="https://t.me/egeball_forum">https://t.me/egeball_forum</a><br /><br />`
 	},
 	{
 		title: 'Подробнее:',
@@ -154,7 +154,7 @@ const iiOpenLines = [
 	},
 	{
 		title: 'Как начать зарабатывать:',
-		desc: `Для начала сотрудничества с нами, напишите техническому менеджеру: <a href="https://t.me/racketeersss">https://t.me/racketeersss</a><br /><br />`
+		desc: `Для начала сотрудничества с нами, напишите техническому менеджеру: <a href="https://t.me/egeball_forum">https://t.me/egeball_forum</a><br /><br />`
 	},
 	{
 		title: 'Подробнее:',
