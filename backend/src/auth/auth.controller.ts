@@ -26,6 +26,7 @@ export class AuthController {
     @Headers('cookie') cookie: string,
     @Res() res: Response
 ) {
+  console.log(cookie, 'cookie');
   if (!cookie) {
     return res.redirect(302, '/');
   };
