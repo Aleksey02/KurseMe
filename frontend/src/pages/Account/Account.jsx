@@ -16,8 +16,8 @@ const Account = observer(({isAuth, setIsAuth}) => {
 		setTimeout(async ()=>{
 			try {
 				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
+				console.log(response);
 				setIsAuth(response.data)
-console.log(response.data);
 
 				if(response.data.key) {
 					setTokenToLocalStorage('egeball_key', response.data.key)
