@@ -76,37 +76,63 @@ const App = observer(({data}) => {
     }
   }
 
-  const clearCache = async () => {
+ const clearCache = async () => {
   try {
-      // Очистка localStorage
-      localStorage.clear();
+    // localStorage
+    localStorage.clear();
 
-      // Очистка sessionStorage
-      sessionStorage.clear();
+    // sessionStorage
+    sessionStorage.clear();
 
-      // Очистка Cache Storage (кеш сервис-воркера)
-      if ('caches' in window) {
-        const cacheNames = await caches.keys();
-        await Promise.all(cacheNames.map(cache => caches.delete(cache)));
-      }
-
-      try {
-        
-        const databases = await indexedDB.databases();
-        await Promise.all(databases.map(db => indexedDB.deleteDatabase(db.name)));
-      }
-      catch (err) {
-        console.error("Ошибка при очистке IndexedDB:", err);
-      }
-
-      window.location.reload();
-      // Очистка IndexedDB
-
-      console.log("Все хранилища и кэши очищены");
-    } catch (err) {
-      console.error("Ошибка при очистке кэша:", err);
+    // Cache Storage
+    if ('caches' in window) {
+      const cacheNames = await caches.keys();
+      await Promise.all(
+        cacheNames.map(name => caches.delete(name))
+      );
     }
-  };
+
+    // IndexedDB
+    if (indexedDB.databases) {
+      const databases = await indexedDB.databases();
+      await Promise.all(
+        databases.map(db => {
+          if (db.name) {
+            return new Promise((resolve, reject) => {
+              const request = indexedDB.deleteDatabase(db.name);
+              request.onsuccess = resolve;
+              request.onerror = reject;
+              request.onblocked = resolve;
+            });
+          }
+        })
+      );
+    }
+
+    // ❗ УДАЛЯЕМ SERVICE WORKERS
+    if ('serviceWorker' in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(
+        registrations.map(reg => reg.unregister())
+      );
+    }
+
+    // ❗ Cookies
+    document.cookie.split(";").forEach(cookie => {
+      const name = cookie.split("=")[0].trim();
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    });
+
+    console.log("Максимально возможная очистка выполнена");
+
+    // Жёсткая перезагрузка
+    window.location.reload(true);
+
+  } catch (err) {
+    console.error("Ошибка при очистке:", err);
+  }
+};
+
 
   const checkRef = () => {
     if(refLink){
