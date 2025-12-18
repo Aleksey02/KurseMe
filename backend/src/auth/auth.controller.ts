@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Request, Get, Headers, Res } from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Get, Headers, Res, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
@@ -28,7 +28,7 @@ export class AuthController {
 ) {
   console.log(cookie, 'cookie');
   if (!cookie) {
-    return res.redirect(302, '/');
+    throw new UnauthorizedException();
   };
   const data = await this.authService.loginToBot(cookie);
     return data;

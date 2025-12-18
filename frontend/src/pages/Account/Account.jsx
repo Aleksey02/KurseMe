@@ -16,6 +16,10 @@ const Account = observer(({isAuth, setIsAuth}) => {
 		setTimeout(async ()=>{
 			try {
 				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
+				if (response.status === 401) {
+					window.location.href = '/';
+					return;
+				}
 				setIsAuth(response.data)
 console.log(response.data);
 
