@@ -14,7 +14,7 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    console.log('createUserDto.tg_id', createUserDto.tg_id);
+    console.log('createUserDto', createUserDto);
     const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id } });
     console.log('existUser', existUser);
     if(existUser) return existUser;
