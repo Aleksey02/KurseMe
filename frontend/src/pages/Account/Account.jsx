@@ -16,11 +16,6 @@ const Account = observer(({isAuth, setIsAuth}) => {
 		setTimeout(async ()=>{
 			try {
 				const response = await axios.get(`https://${window.location.host}/api/api/auth/loginToBot`, {withCredentials: true})
-				if (response.status === 401) {
-					console.log('Пользователь не авторизован');
-					navigate('/');
-					return;
-				}
 				setIsAuth(response.data)
 console.log(response.data);
 
@@ -31,6 +26,10 @@ console.log(response.data);
 			catch(error) {
 			console.log('Ошибка получения пользователя', error);
 			// Пользователь не авторизован, или ошибка сети
+			if (error.response.status === 401) {
+				removeTokenFromLocalStorage('egeball_key')
+				navigate('/')
+			}
 			};
 		}, 500)
 		
