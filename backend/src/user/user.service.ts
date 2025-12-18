@@ -14,7 +14,9 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
+    console.log('createUserDto', createUserDto);
     const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id } });
+    console.log('existUser', existUser);
     if(existUser) return existUser;
 
     const adminsIds =  this.configService.get<string>('ADMINS_IDS');
@@ -30,7 +32,6 @@ export class UserService {
       isAdmin: Boolean(adminsIds?.split(' ').find(id => Number(id) === createUserDto.tg_id))
     });
     console.log('user', user);
-    console.log('createUserDto', createUserDto);
     return { user };
   }
 
