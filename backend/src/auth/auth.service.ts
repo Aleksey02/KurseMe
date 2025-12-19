@@ -40,6 +40,9 @@ async loginToBot(cookies: string) {
       }),
     );
     console.log(response.data, 'response.data org');
+    if (response.data?.includes('<!DOCTYPE html>')) {
+      throw new UnauthorizedException();
+    }
     const user = await this.usersService.create(response.data);
 
     return user; // или нужный токен
