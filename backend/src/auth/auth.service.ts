@@ -40,7 +40,12 @@ async loginToBot(cookies: string) {
       }),
     );
     console.log(response.data, 'response.data org');
-    if (!('tg_id' in response.data)) {
+    const data = response.data;
+    if (
+      typeof data !== 'object' ||
+      data === null ||
+      !('tg_id' in data)
+    ) {
       throw new UnauthorizedException();
     }
     const user = await this.usersService.create(response.data);
