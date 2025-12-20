@@ -5,8 +5,8 @@ export class User {
 	@PrimaryGeneratedColumn()
 	id: number
 
-	@Column({nullable: true})
-	tgId: number
+	@Column({nullable: true, type: 'bigint'})
+	tgId: string
 
 	@Column({nullable: true})
 	key: string

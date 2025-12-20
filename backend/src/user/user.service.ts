@@ -15,7 +15,7 @@ export class UserService {
 
   async create(createUserDto: CreateUserDto) {
     console.log('createUserDto', createUserDto);
-    const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id } });
+    const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id.toString() } });
     console.log('existUser', existUser);
     if(existUser) return existUser;
 
@@ -24,12 +24,12 @@ export class UserService {
 
     const user = await this.userRepository.save({
       username: createUserDto.username,
-      tgId: createUserDto.tg_id,
+      tgId: createUserDto.tg_id.toString(),
       key: uniqueKey,
       isSubscribed: createUserDto.is_subscribed,
       referral_balance: createUserDto.details?.referral_balance,
       referrals_count: createUserDto.details?.referrals_count,
-      isAdmin: Boolean(adminsIds?.split(' ').find(id => Number(id) === createUserDto.tg_id))
+      isAdmin: Boolean(adminsIds?.split(' ').find(id => id === createUserDto.tg_id.toString()))
     });
     console.log('user', user);
     return { user };
@@ -39,8 +39,8 @@ export class UserService {
     return `This action returns all user`;
   }
 
-  async findOne(tgId: number) {
-    return await this.userRepository.findOne({ where: { tgId } });
+  async findOne(tgId: string) {
+    return await this.userRepository.findOne({ where: { tgId: tgId.toString() } });
   }
 
   async findOneByKey(uniqueKey: string) {
