@@ -3,6 +3,8 @@ import TelegramLogin from '../../components/TelegramLogin/TelegramLogin';
 import { useParams } from 'react-router-dom';
 
 function Player({isAuth, setIsAuth}) {
+	console.log(isAuth);
+	
 	if(!isAuth) {
 		return <div style={{
 			display: 'flex',
