@@ -45,7 +45,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 	}
 
 	const copyReferralLink = () => {
-		navigator.clipboard.writeText(link + isAuth.tg_id);
+		navigator.clipboard.writeText(link + isAuth.tgId);
 		toast.success('Скопировано');
 	}
 
