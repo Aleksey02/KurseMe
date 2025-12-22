@@ -19,7 +19,7 @@ export class UserService {
     const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id.toString() } });
     console.log('existUser', existUser);
     if(existUser) {
-      const updateUser = await this.userRepository.update(existUser.id, {
+      const updateUser = await this.userRepository.merge(existUser, {
         username: createUserDto.username,
         isSubscribed: createUserDto.is_subscribed,
         referral_balance: createUserDto.details?.referral_balance,
@@ -27,8 +27,10 @@ export class UserService {
         isAdmin: Boolean(adminsIds?.split(' ').find(id => id === createUserDto.tg_id.toString()))
       });
       console.log(updateUser, 'updateUser');
+
+      const savedUser = await this.userRepository.save(updateUser);
       
-      return { user: updateUser };
+      return { user: savedUser };
     };
 
     const uniqueKey = uuid();
