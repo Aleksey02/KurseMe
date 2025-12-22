@@ -30,7 +30,7 @@ export class UserService {
 
       const savedUser = await this.userRepository.save(updateUser);
       
-      return { user: savedUser };
+      return savedUser;
     };
 
     const uniqueKey = uuid();
