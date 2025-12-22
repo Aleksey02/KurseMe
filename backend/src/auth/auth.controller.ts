@@ -24,13 +24,10 @@ export class AuthController {
   async loginToBot(
     @Headers('cookie') cookie: string
 ) {
-  console.log(cookie, 'cockie org');
   if (!cookie) {
     throw new UnauthorizedException();
   };
   const data = await this.authService.loginToBot(cookie);
-  console.log(data, 'asnwer responmse org');
-  
     return data;
   }
 }

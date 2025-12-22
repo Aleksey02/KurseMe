@@ -17,7 +17,12 @@ export class UserService {
     console.log('createUserDto', createUserDto);
     const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id.toString() } });
     console.log('existUser', existUser);
-    if(existUser) return existUser;
+    if(existUser) {
+      const updateUser = await this.userRepository.update(existUser.id, createUserDto);
+      console.log(updateUser, 'updateUser');
+      
+      return { user: updateUser };
+    };
 
     const adminsIds =  this.configService.get<string>('ADMINS_IDS');
     const uniqueKey = uuid();
