@@ -14,17 +14,23 @@ export class UserService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
+    const adminsIds =  this.configService.get<string>('ADMINS_IDS');
     console.log('createUserDto', createUserDto);
     const existUser = await this.userRepository.findOne({ where: { tgId: createUserDto.tg_id.toString() } });
     console.log('existUser', existUser);
     if(existUser) {
-      const updateUser = await this.userRepository.update(existUser.id, createUserDto);
+      const updateUser = await this.userRepository.update(existUser.id, {
+        username: createUserDto.username,
+        isSubscribed: createUserDto.is_subscribed,
+        referral_balance: createUserDto.details?.referral_balance,
+        referrals_count: createUserDto.details?.referrals_count,
+        isAdmin: Boolean(adminsIds?.split(' ').find(id => id === createUserDto.tg_id.toString()))
+      });
       console.log(updateUser, 'updateUser');
       
       return { user: updateUser };
     };
 
-    const adminsIds =  this.configService.get<string>('ADMINS_IDS');
     const uniqueKey = uuid();
 
     const user = await this.userRepository.save({
