@@ -10,7 +10,12 @@ import { useNavigate } from 'react-router-dom'
 
 const Account = observer(({isAuth, setIsAuth}) => {
 	const navigate = useNavigate();
-	const link = `https://t.me/${botLinkStore.link}?start=`
+	const link = `https://t.me/${botLinkStore.link}?start=`;
+
+	const formatBalance = (value: number | string) => {
+		const num = Number(value);
+		return Number.isInteger(num) ? num : num.toFixed(2);
+	};
 
 	useEffect(() => {
 		setTimeout(async ()=>{
@@ -74,7 +79,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 				<div className={classes.account__referal}>
 					<h4>Заработано с рефералов</h4>
 					<div className={classes.account__box}>
-						<span>{isAuth?.referral_balance ?? 0}₽</span>
+						<span>{formatBalance(isAuth?.referral_balance ?? 0)}₽</span>
 					</div>
 				</div>
 			</div>
