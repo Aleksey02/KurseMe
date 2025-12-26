@@ -12,7 +12,7 @@ const Account = observer(({isAuth, setIsAuth}) => {
 	const navigate = useNavigate();
 	const link = `https://t.me/${botLinkStore.link}?start=`;
 
-	const formatBalance = (value: number | string) => {
+	const formatBalance = (value) => {
 		const num = Number(value);
 		return Number.isInteger(num) ? num : num.toFixed(2);
 	};
