@@ -26,7 +26,7 @@ export class User {
 	@Column({nullable: true})
 	isSubscribed: boolean
 	
-	@Column({nullable: true})
+	@Column({nullable: true, type: 'numeric', precision: 10, scale: 2})
 	referral_balance: number
 
 	@Column({nullable: true})
