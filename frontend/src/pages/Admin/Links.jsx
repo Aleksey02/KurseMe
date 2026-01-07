@@ -6,9 +6,36 @@ import BotLinkStore from '../../store/botLink';
 import ChannelLinkStore from '../../store/channelLinkStore';
 import { observer } from 'mobx-react-lite';
 
+const getTypeLink = (type) => {
+	switch (type) {
+		case 'bot':
+			return BotLinkStore.link;
+		case 'chat':
+			return ChatLinkStore.link;
+		case 'channel':
+			return ChannelLinkStore.link;
+		default:
+			return ChannelLinkStore.link;
+	}
+}
+
+const getTitleLink = (type) => {
+	switch (type) {
+		case 'bot':
+			return 'бота';
+		case 'chat':
+			return 'чат';
+		case 'channel':
+			return 'канал';
+		default:
+			return 'канал';
+	}
+}
+
 const Links = observer(({isAuth, type}) => {
 	const navigate = useNavigate();
-	const [link, setLink] = useState(type === 'bot' ? BotLinkStore.link : ChannelLinkStore.link);
+
+	const [link, setLink] = useState(getTypeLink(type));
 	const [comLink, setComLink] = useState(BotLinkStore.comLink);
 	const [orgLink, setOrgLink] = useState(BotLinkStore.orgLink);
 	
@@ -27,7 +54,11 @@ const Links = observer(({isAuth, type}) => {
 			if (type === 'bot') {
 				const response = await axios.post(`https://${window.location.host}/api/api/bot-link`, { link, domen: 'base' });
 				BotLinkStore.setLink(response.data.link);
-			} else {
+			} else if(type === 'chat') {
+				const response = await axios.post(`https://${window.location.host}/api/api/chat-link`, { link });
+				ChatLinkStore.setLink(response.data.link);
+			}
+			else {
 				const response = await axios.post(`https://${window.location.host}/api/api/channel-link`, { link });
 				ChannelLinkStore.setLink(response.data.link);
 			}
@@ -63,7 +94,7 @@ const Links = observer(({isAuth, type}) => {
 		<div className='admin'>
 			<div className='admin__header'>
 				<button className='admin__back admin__btn' onClick={() => navigate(-1)}>&lt;-Назад</button>
-				<h2 className='admin__title'>Ссылка на бота</h2>
+				<h2 className='admin__title'>Ссылка на {getTitleLink(type)}</h2>
 			</div>
 			<div className='admin__box admin__box-full-width'>
 				<input type="text" onChange={onChange} value={link}/>

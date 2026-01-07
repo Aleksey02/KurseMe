@@ -12,6 +12,7 @@ import { observer } from "mobx-react-lite";
 import botLinkStore from "./store/botLink"
 import axios from "axios"
 import channelLinkStore from "./store/channelLinkStore"
+import chatLinkStore from "./store/chatLinkStore"
 import reloadImage from './assets/images/reload.png'
 //import Surface from "./components/Surface/Surface"
 
@@ -71,6 +72,15 @@ const App = observer(({data}) => {
     try {
       const response = await axios.get(`https://${window.location.host}/api/api/channel-link`);
       channelLinkStore.setLink(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getChatLink = async () => {
+    try {
+      const response = await axios.get(`https://${window.location.host}/api/api/chat-link`);
+      chatLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -146,6 +156,7 @@ const App = observer(({data}) => {
     getBotComLink();
     getBotOrgLink();
     getChannelLink();
+    getChatLink();
     checkRef();
     setTimeout(() => {
       AOS.init();
