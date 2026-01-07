@@ -3,6 +3,7 @@ import logo from '../../assets/images/Footer/logo.svg'
 import { NavLink, useLocation } from 'react-router-dom'
 import { observer } from 'mobx-react-lite';
 import channelLinkStore from '../../store/channelLinkStore';
+import chatLinkStore from '../../store/chatLinkStore';
 
 const Footer = observer(() => {
     const location = useLocation().pathname.includes('ref') ? '/ref/' : '/';
@@ -23,7 +24,7 @@ const Footer = observer(() => {
             <div className={classes.footer__item}>
                 <h3 className={classes.footer__title}>Мы в телеграме</h3>
                 <a href={channelLinkStore.link} className={classes.footer__text} target='_blank'>Наш Telegram канал</a>
-                <a href='https://t.me/+R3o7lVXE2YcwZjli' className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
+                <a href={chatLinkStore.link} className={classes.footer__text} target='_blank'>Наш Telegram чат</a>
             </div>
         </footer>
     )

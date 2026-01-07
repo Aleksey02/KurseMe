@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { BotLinkModule } from './bot-link/bot-link.module';
 import { ChannelLinkModule } from './channel-link/channel-link.module';
+import { ChatLinkModule } from './chat-link/chat-link.module';
 
 
 @Module({
@@ -34,6 +35,7 @@ import { ChannelLinkModule } from './channel-link/channel-link.module';
     AuthModule,
     BotLinkModule,
     ChannelLinkModule,
+    ChatLinkModule,
   ],
 })
 export class AppModule {}
