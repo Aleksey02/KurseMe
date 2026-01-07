@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import BotLinkStore from '../../store/botLink';
 import ChannelLinkStore from '../../store/channelLinkStore';
+import ChatLinkStore from '../../store/chatLinkStore';
 import { observer } from 'mobx-react-lite';
 
 const getTypeLink = (type) => {
