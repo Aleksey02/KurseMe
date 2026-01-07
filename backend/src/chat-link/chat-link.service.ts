@@ -38,7 +38,7 @@ export class ChatLinkService {
           take: 1,
         });
 
-      if (!lastLink) {
+      if (!lastLink.length) {
         return null;
       }
   
