@@ -37,6 +37,10 @@ export class ChatLinkService {
           order: { id: 'DESC' },
           take: 1,
         });
+
+      if (!lastLink) {
+        return null;
+      }
   
       return lastLink[0].link;
     }
