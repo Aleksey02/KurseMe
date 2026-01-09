@@ -147,7 +147,7 @@ const App = observer(({data}) => {
 
 
   const checkRef = () => {
-    if(refLink){
+    if(refLink && botLinkStore.isLoad){
       window.location.href = tgLink;
     }
   }
@@ -165,6 +165,11 @@ const App = observer(({data}) => {
       AOS.refresh();
   }, 100);
   }, []);
+
+  useEffect(() => {
+    checkRef();
+    console.log('rerender');
+  }, [tgLink])
   
   return (
     <BrowserRouter>

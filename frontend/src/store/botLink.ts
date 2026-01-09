@@ -5,6 +5,8 @@ class BotLink {
 	comLink = 'egeball22_bot'
 	orgLink = 'egeball22_bot'
 
+	isLoad = false;
+
 	constructor() {
 		makeAutoObservable(this);
 	}
@@ -12,6 +14,7 @@ class BotLink {
 	setLink(link: string) {
 		if (!link) return;
 		this.link = link;
+		this.setIsLoad(true);
 	}
 
 	setComLink(link: string) {
@@ -22,6 +25,10 @@ class BotLink {
 	setOrgLink(link: string) {
 		if (!link) return;
 		this.orgLink = link;
+	}
+
+	setIsLoad(isLoad: boolean) {
+		this.isLoad = isLoad;
 	}
 }
 
