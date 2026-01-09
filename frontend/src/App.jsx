@@ -150,7 +150,7 @@ const App = observer(({data}) => {
     if(refLink && botLinkStore.isLoad){
       console.log('check', refLink, botLinkStore.link, botLinkStore.isLoad);
       
-      window.location.href = tgLink;
+      //window.location.href = tgLink;
     }
   }
 
