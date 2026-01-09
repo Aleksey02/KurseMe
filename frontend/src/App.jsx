@@ -148,9 +148,9 @@ const App = observer(({data}) => {
 
   const checkRef = () => {
     if(refLink && botLinkStore.isLoad){
-      console.log('check', refLink, botLinkStore.link, botLinkStore.isLoad);
-      
-      //window.location.href = tgLink;
+      setTimeout(() => {
+        window.location.href = tgLink
+      }, 50);
     }
   }
 
