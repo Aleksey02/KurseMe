@@ -22,8 +22,6 @@ const App = observer(({data}) => {
   const {pathname} = window.location;
   const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
   const tgLink = `https://t.me/${botLinkStore.link}${refLink}`
-  console.log(tgLink, 'tgLink');
-  console.log(botLinkStore.link, 'botLinkStore.link');
 
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
