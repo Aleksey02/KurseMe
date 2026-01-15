@@ -9,6 +9,9 @@ export class RedirectController {
   @Get(':id')
   async redirectToTelegram(@Param('id') id: string, @Res() res: Response) {
     const botName = await this.botLinkService.getLink('base');
+	console.log('redirect');
+	console.log(id, 'id');
+	
     if (!botName) {
       return res.status(404).send('Not found');
     }
