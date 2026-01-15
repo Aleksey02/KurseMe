@@ -15,10 +15,8 @@ export class RedirectController {
 
 		const idM = idMatch[1];
 		const botName = await this.botLinkService.getLink('base');
-		console.log('redirect');
 		console.log(id, 'id');
-		console.log(botName, 'botName');
-		
+
 		if (!botName) {
 			return res.status(404).send('Not found bot link');
 		}
