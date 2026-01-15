@@ -4,21 +4,26 @@ import { BotLinkService } from './bot-link/bot-link.service';
 
 @Controller()
 export class RedirectController {
-  constructor(private readonly botLinkService: BotLinkService) {}
+	constructor(private readonly botLinkService: BotLinkService) {}
 
-  @Get(':id')
-  async redirectToTelegram(@Param('id') id: string, @Res() res: Response) {
-    const botName = await this.botLinkService.getLink('base');
-	console.log('redirect');
-	console.log(id, 'id');
-	console.log(res, 'res');
-	console.log(botName, 'botName');
-	
-    if (!botName) {
-      return res.status(404).send('Not found');
-    }
+	@Get(':id')
+	async redirectToTelegram(@Param('id') id: string, @Res() res: Response) {
+		const idMatch = id.match(/^id(\d+)$/);
+		if (!idMatch) {
+			return res.status(204).send();
+		}
 
-    const telegramUrl = `https://t.me/${botName}?start=${id}`;
-    return res.redirect(302, telegramUrl);
-  }
+		const idM = idMatch[1];
+		const botName = await this.botLinkService.getLink('base');
+		console.log('redirect');
+		console.log(id, 'id');
+		console.log(botName, 'botName');
+		
+		if (!botName) {
+			return res.status(404).send('Not found bot link');
+		}
+
+		const telegramUrl = `https://t.me/${botName}?start=${idM}`;
+		return res.redirect(302, telegramUrl);
+	}
 }
