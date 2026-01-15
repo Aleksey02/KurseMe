@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { BotLinkModule } from './bot-link/bot-link.module';
 import { ChannelLinkModule } from './channel-link/channel-link.module';
 import { ChatLinkModule } from './chat-link/chat-link.module';
+import { RedirectController } from './redirect.contoller';
 
 
 @Module({
@@ -37,5 +38,6 @@ import { ChatLinkModule } from './chat-link/chat-link.module';
     ChannelLinkModule,
     ChatLinkModule,
   ],
+  controllers: [RedirectController],
 })
 export class AppModule {}
