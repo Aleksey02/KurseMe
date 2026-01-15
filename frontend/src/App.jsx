@@ -16,12 +16,9 @@ import chatLinkStore from "./store/chatLinkStore"
 import reloadImage from './assets/images/reload.png'
 //import Surface from "./components/Surface/Surface"
 
-
 const App = observer(({data}) => {
   const [isAuth, setIsAuth] = useState(false);
-  const {pathname} = window.location;
-  const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
-  const tgLink = `https://t.me/${botLinkStore.link}${refLink}`
+  const tgLink = `https://t.me/${botLinkStore.link}`
 
   const checkAuth = async () => {
     const token = getTokenFromLocalStorage();
@@ -143,15 +140,6 @@ const App = observer(({data}) => {
   }
 };
 
-
-  const checkRef = () => {
-    if(refLink && botLinkStore.isLoad){
-      setTimeout(() => {
-        window.location.href = tgLink
-      }, 50);
-    }
-  }
-
   useEffect(() => {
     checkAuth();
     getBotLink();
@@ -159,17 +147,11 @@ const App = observer(({data}) => {
     getBotOrgLink();
     getChannelLink();
     getChatLink();
-    checkRef();
     setTimeout(() => {
       AOS.init();
       AOS.refresh();
   }, 100);
   }, []);
-
-  useEffect(() => {
-    checkRef();
-    console.log('rerender');
-  }, [tgLink])
   
   return (
     <BrowserRouter>
