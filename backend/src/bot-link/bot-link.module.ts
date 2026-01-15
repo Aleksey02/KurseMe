@@ -8,5 +8,6 @@ import { BotLink } from './entities/bot-link.entity';
   imports: [TypeOrmModule.forFeature([BotLink])],
   controllers: [BotLinkController],
   providers: [BotLinkService],
+  exports: [BotLinkService],
 })
 export class BotLinkModule {}
