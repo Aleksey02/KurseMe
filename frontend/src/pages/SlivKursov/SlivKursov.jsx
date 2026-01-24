@@ -50,7 +50,7 @@ export default function SlivKursov() {
           ))}
         </div>
 
-        <a href={`https://t.me/${link}`} className={styles.button}>
+        <a href="https://t.me/addlist/v30Y6V-DZZ1iOTMy" className={styles.button}>
           → ОТКРЫТЬ ПАПКУ С КУРСАМИ ←
         </a>
       </section>
