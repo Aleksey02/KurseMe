@@ -1,14 +1,17 @@
 import styles from './SlivKursov.module.scss';
+import botLinkStore from '../../store/botLink';
+
+const courses = [
+  "Умскул",
+  "Джобc & Кабанов",
+  "Школково",
+  "Пифагор",
+  "100балльный",
+  "и ещё 20+",
+];
 
 export default function SlivKursov() {
-	const courses = [
-    "Умскул",
-    "Джобc & Кабанов",
-    "Школково",
-    "Пифагор",
-    "100балльный",
-    "и ещё 20+",
-  ];
+  const {link} = botLinkStore;
 
 	return (
     <main className={styles.wrapper}>
@@ -47,7 +50,7 @@ export default function SlivKursov() {
           ))}
         </div>
 
-        <a href="#" className={styles.button}>
+        <a href={`https://t.me/${link}`} className={styles.button}>
           → ОТКРЫТЬ ПАПКУ С КУРСАМИ ←
         </a>
       </section>
