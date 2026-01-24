@@ -14,6 +14,7 @@ import Partnership from '../../pages/Partnership/Partnership'
 import SetCookie from '../../pages/SetCookie/SetCookie'
 import RedirectAI from '../../pages/RedirectAI/RedirectAI'
 import Player from '../../pages/Player/Player'
+import SlivKursov from '../../pages/SlivKursov/SlivKursov'
 
 function Main({data, isAuth, setIsAuth}) {
     
@@ -44,6 +45,7 @@ function Main({data, isAuth, setIsAuth}) {
                 <Route path='/set-cookie' element={<SetCookie setIsAuth={setIsAuth}/>} />
                 <Route path='/ai' element={<RedirectAI />} />
                 <Route path='/player/:title' element={<Player isAuth={isAuth} setIsAuth={setIsAuth}/>} />
+                <Route path='/slivy-kursov-ege' element={<SlivKursov/>} />
             </Routes>
         </main>
     )

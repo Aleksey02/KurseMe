@@ -21,7 +21,7 @@ const Item = observer(({data}) => {
 
 	return <div className={classes.item}>
 		<video src={data.src} controls preload='metadata'>
-			<track kind="captions" src={description} srclang="ru" label="Описание видео"></track>
+			<track kind="captions" src={description} srcLang="ru" label="Описание видео"></track>
 			Ваш браузер не поддерживает видео. 
 		</video>
 		<div className={classes.item__info}>

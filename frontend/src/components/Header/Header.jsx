@@ -20,11 +20,10 @@ function Header({isAuth, setIsAuth}){
                     <li className={classes.header__item}>
                         <NavLink to={location + '/partnership'} className={classes.header__link}>Сотрудничество</NavLink>
                     </li>
-                    {/* <li className={classes.header__item}>
-                        <NavLink to={location + '9'} className={classes.header__link}>ОГЭ</NavLink>
-                    </li> */}
+                    <li className={classes.header__item}>
+                        <NavLink to={location + '/slivy-kursov-ege'} className={classes.header__link}>Бесплатные Курсы</NavLink>
+                    </li>
                 </ul>
-                {/* <a className={classes.header__btn} href='https://telegra.ph/Besplatnye-kursy-01-14' target='_blank'>Форум</a> */}
                 <div>
                 {isAuth.isAdmin && <NavLink className={classes.header__btn}  to={'admin'}>Админ панель</NavLink>}
                 <NavLink className={classes.header__btn}  to={isAuth? 'account' : 'auth'}>{isAuth? 'Аккаунт' : 'Войти'}</NavLink>
@@ -44,7 +43,7 @@ function Header({isAuth, setIsAuth}){
                 </div>
                 <div className={classes.menu + ' ' + (isBurgerActive ? classes.active : '')}>
                     <NavLink to={location + '/partnership'} className={classes.menu__link}>Сотрудничество</NavLink>
-                    {/* <NavLink to={location + '9'} className={classes.menu__link}>ОГЭ</NavLink> */}
+                    <NavLink to={location + '/slivy-kursov-ege'} className={classes.menu__link}>Бесплатные Курсы</NavLink>
                 </div>
             </div>
         </header>
