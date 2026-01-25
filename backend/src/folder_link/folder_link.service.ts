@@ -11,25 +11,32 @@ export class FolderLinkService {
       private readonly folderLinkRepository: Repository<FolderLink>
     ) {}
 
-  async create(createFolderLinkDto: CreateFolderLinkDto) {
-    console.log('createFolderLInkDTO', createFolderLinkDto);
-    
+async create(createFolderLinkDto: CreateFolderLinkDto) {
+  console.log('createFolderLinkDTO', createFolderLinkDto);
+
   const [lastLink] = await this.folderLinkRepository.find({
     order: { id: 'DESC' },
     take: 1,
   });
-console.log(lastLink, 'lastLInk');
+  console.log(lastLink, 'lastLink');
 
   let linkToSave;
 
   if (!lastLink) {
+    // создаём новую запись
     linkToSave = this.folderLinkRepository.create(createFolderLinkDto);
   } else {
-    lastLink.link = createFolderLinkDto.link;
-    linkToSave = lastLink;
+    // безопасно подгружаем существующую запись с новыми данными
+    linkToSave = await this.folderLinkRepository.preload({
+      id: lastLink.id,
+      ...createFolderLinkDto,
+    });
   }
 
-  return await this.folderLinkRepository.save(linkToSave);
+  const saved = await this.folderLinkRepository.save(linkToSave);
+  console.log('saved entity', saved);
+
+  return saved;
 }
   
     async findAll() {
