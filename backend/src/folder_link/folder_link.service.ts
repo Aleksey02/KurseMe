@@ -43,19 +43,17 @@ async create(createFolderLinkDto: CreateFolderLinkDto) {
       return await this.folderLinkRepository.find();
     }
   
-    async getLink() {
-      console.log('getLink service');
-      
-      const lastLink = await this.folderLinkRepository.find({
-          order: { id: 'DESC' },
-          take: 1,
-        });
-console.log(lastLink, 'lastlink');
+async getLink() {
+  console.log('getLink service');
 
-      if (!lastLink.length) {
-        return null;
-      }
-  
-      return lastLink[0].link;
-    }
+  const [lastLink] = await this.folderLinkRepository.find({
+    order: { id: 'DESC' },
+    take: 1,
+  });
+
+  console.log(lastLink, 'lastLink');
+
+  return lastLink?.link ?? null;
+}
+
 }
