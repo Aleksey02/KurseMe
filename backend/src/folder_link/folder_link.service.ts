@@ -12,10 +12,13 @@ export class FolderLinkService {
     ) {}
 
   async create(createFolderLinkDto: CreateFolderLinkDto) {
+    console.log('createFolderLInkDTO', createFolderLinkDto);
+    
   const [lastLink] = await this.folderLinkRepository.find({
     order: { id: 'DESC' },
     take: 1,
   });
+console.log(lastLink, 'lastLInk');
 
   let linkToSave;
 
