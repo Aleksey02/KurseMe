@@ -78,8 +78,7 @@ const App = observer(({data}) => {
   const getChatLink = async () => {
     try {
       const response = await axios.get(`https://${window.location.host}/api/api/chat-link`);
-      console.log(response);
-      
+
       chatLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -90,6 +89,8 @@ const App = observer(({data}) => {
     try {
       const response = await axios.get(`https://${window.location.host}/api/api/folder-link`);
       console.log('folder', response);
+      console.log(`https://${window.location.host}/api/api/folder-link`);
+      
       
       FolderLinkStore.setLink(response.data);
     } catch (error) {
