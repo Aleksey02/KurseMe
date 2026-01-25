@@ -12,13 +12,11 @@ export class FolderLinkService {
     ) {}
 
 async create(createFolderLinkDto: CreateFolderLinkDto) {
-  console.log('createFolderLinkDTO', createFolderLinkDto);
 
   const [lastLink] = await this.folderLinkRepository.find({
     order: { id: 'DESC' },
     take: 1,
   });
-  console.log(lastLink, 'lastLink');
 
   let linkToSave;
 
@@ -39,21 +37,18 @@ async create(createFolderLinkDto: CreateFolderLinkDto) {
   return saved;
 }
   
-    async findAll() {
-      return await this.folderLinkRepository.find();
-    }
   
-async getLink() {
-  console.log('getLink service');
+  async getLinkFolder() {
+    console.log('getLinkFolder service');
 
-  const [lastLink] = await this.folderLinkRepository.find({
-    order: { id: 'DESC' },
-    take: 1,
-  });
+    const [lastLink] = await this.folderLinkRepository.find({
+      order: { id: 'DESC' },
+      take: 1,
+    });
 
-  console.log(lastLink, 'lastLink');
+    console.log(lastLink, 'lastLink');
 
-  return lastLink?.link ?? null;
-}
+    return lastLink?.link ?? null;
+  }
 
 }

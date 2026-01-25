@@ -8,15 +8,14 @@ export class FolderLinkController {
 
   @Post()
   create(@Body() createFolderLinkDto: CreateFolderLinkDto) {
-    console.log('folder link conroler', createFolderLinkDto);
     
     return this.folderLinkService.create(createFolderLinkDto);
   }
 
   @Get()
-  getLink() {
+  getLinkFolder() {
     console.log('controller folder link');
     
-    return this.folderLinkService.getLink();
+    return this.folderLinkService.getLinkFolder();
   }
 }
