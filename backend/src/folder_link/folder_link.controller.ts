@@ -12,7 +12,7 @@ export class FolderLinkController {
     return this.folderLinkService.create(createFolderLinkDto);
   }
 
-  @Get()
+  @Get('link')
   getLinkFolder() {
     console.log('controller folder link');
     
