@@ -8,6 +8,8 @@ export class FolderLinkController {
 
   @Post()
   create(@Body() createFolderLinkDto: CreateFolderLinkDto) {
+    console.log('folder link conroler', createFolderLinkDto);
+    
     return this.folderLinkService.create(createFolderLinkDto);
   }
 

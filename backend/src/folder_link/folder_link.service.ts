@@ -33,6 +33,8 @@ export class FolderLinkService {
     }
   
     async getLink() {
+      console.log('getLink service');
+      
       const lastLink = await this.folderLinkRepository.find({
           order: { id: 'DESC' },
           take: 1,
