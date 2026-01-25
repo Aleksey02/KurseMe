@@ -87,6 +87,8 @@ const App = observer(({data}) => {
   const getFolderLink = async () => {
     try {
       const response = await axios.get(`https://${window.location.host}/api/api/folder-link`);
+      console.log(response.data);
+      
       FolderLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);

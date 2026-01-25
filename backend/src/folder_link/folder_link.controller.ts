@@ -13,6 +13,8 @@ export class FolderLinkController {
 
   @Get()
   getLink() {
+    console.log('controller folder link');
+    
     return this.folderLinkService.getLink();
   }
 }

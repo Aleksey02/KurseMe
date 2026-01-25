@@ -18,6 +18,7 @@ export class FolderLinkService {
     });
     
     const link = lastLink[0];
+  console.log(link, 'service');
   
       if (link) {
         await this.folderLinkRepository.update(link.id, createFolderLinkDto);
