@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateFolderLinkDto } from './dto/create-folder_link.dto';
-import { UpdateFolderLinkDto } from './dto/update-folder_link.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FolderLink } from './entities/folder_link.entity';
 import { Repository } from 'typeorm';
@@ -37,6 +36,7 @@ export class FolderLinkService {
           order: { id: 'DESC' },
           take: 1,
         });
+console.log(lastLink, 'lastlink');
 
       if (!lastLink.length) {
         return null;
