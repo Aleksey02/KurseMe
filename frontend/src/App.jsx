@@ -68,7 +68,7 @@ const App = observer(({data}) => {
 
   const getChannelLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/api/channel-link`);
+      const response = await axios.get(`https://${window.location.host}/api/api/channel-link/link`);
       channelLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -77,7 +77,7 @@ const App = observer(({data}) => {
 
   const getChatLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/api/chat-link`);
+      const response = await axios.get(`https://${window.location.host}/api/api/chat-link/link`);
 
       chatLinkStore.setLink(response.data);
     } catch (error) {

@@ -11,7 +11,7 @@ export class ChannelLinkController {
     return this.channelLinkService.create(createBotLinkDto);
   }
 
-  @Get()
+  @Get('link')
   getLink() {
     return this.channelLinkService.getLink();
   }

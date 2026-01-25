@@ -32,22 +32,16 @@ async create(createFolderLinkDto: CreateFolderLinkDto) {
   }
 
   const saved = await this.folderLinkRepository.save(linkToSave);
-  console.log('saved entity', saved);
 
   return saved;
 }
   
   
-  async getLinkFolder() {
-    console.log('getLinkFolder service');
-
+  async getLink() {
     const [lastLink] = await this.folderLinkRepository.find({
       order: { id: 'DESC' },
       take: 1,
     });
-
-    console.log(lastLink, 'lastLink');
-
     return lastLink?.link ?? null;
   }
 

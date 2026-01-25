@@ -13,9 +13,9 @@ export class FolderLinkController {
   }
 
   @Get('link')
-  getLinkFolder() {
+  getLink() {
     console.log('controller folder link');
     
-    return this.folderLinkService.getLinkFolder();
+    return this.folderLinkService.getLink();
   }
 }

@@ -11,7 +11,7 @@ export class ChatLinkController {
     return this.chatLinkService.create(createChatLinkDto);
   }
 
-  @Get()
+  @Get('link')
   getLink() {
     return this.chatLinkService.getLink();
   }
