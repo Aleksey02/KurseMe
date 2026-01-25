@@ -13,6 +13,7 @@ import botLinkStore from "./store/botLink"
 import axios from "axios"
 import channelLinkStore from "./store/channelLinkStore"
 import chatLinkStore from "./store/chatLinkStore"
+import FolderLinkStore from "./store/folderLink"
 import reloadImage from './assets/images/reload.png'
 //import Surface from "./components/Surface/Surface"
 
@@ -83,6 +84,15 @@ const App = observer(({data}) => {
     }
   }
 
+  const getFolderLink = async () => {
+    try {
+      const response = await axios.get(`https://${window.location.host}/api/api/folder-link`);
+      FolderLinkStore.setLink(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
  const clearCache = async () => {
   try {
     // localStorage
@@ -147,6 +157,7 @@ const App = observer(({data}) => {
     getBotOrgLink();
     getChannelLink();
     getChatLink();
+    getFolderLink();
     setTimeout(() => {
       AOS.init();
       AOS.refresh();

@@ -21,6 +21,7 @@ function Admin({isAuth}){
 				<NavLink to="/admin/bot-link" className='admin__item'>Ссылка на бота</NavLink>
 				<NavLink to="/admin/channel-link" className='admin__item'>Ссылка на канал</NavLink>
 				<NavLink to="/admin/chat-link" className='admin__item'>Ссылка на чат</NavLink>
+				<NavLink to="/admin/folder-link" className='admin__item'>Ссылка на папку</NavLink>
 			</div>
 		</div>
 	)

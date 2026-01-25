@@ -10,6 +10,7 @@ import { BotLinkModule } from './bot-link/bot-link.module';
 import { ChannelLinkModule } from './channel-link/channel-link.module';
 import { ChatLinkModule } from './chat-link/chat-link.module';
 import { RedirectController } from './redirect.contoller';
+import { FolderLinkModule } from './folder_link/folder_link.module';
 
 
 @Module({
@@ -37,6 +38,7 @@ import { RedirectController } from './redirect.contoller';
     BotLinkModule,
     ChannelLinkModule,
     ChatLinkModule,
+    FolderLinkModule,
   ],
   controllers: [RedirectController],
 })

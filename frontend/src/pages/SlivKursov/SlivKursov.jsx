@@ -1,5 +1,6 @@
 import styles from './SlivKursov.module.scss';
-import botLinkStore from '../../store/botLink';
+import FolderLinkStore from '../../store/folderLink';
+import { observer } from 'mobx-react-lite';
 
 const courses = [
   "Умскул",
@@ -10,9 +11,7 @@ const courses = [
   "и ещё 20+",
 ];
 
-export default function SlivKursov() {
-  const {link} = botLinkStore;
-
+export default observer(function SlivKursov() {
 	return (
     <main className={styles.wrapper}>
       <span className={styles.badge}>EGEBALL</span>
@@ -50,7 +49,7 @@ export default function SlivKursov() {
           ))}
         </div>
 
-        <a href="https://t.me/addlist/v30Y6V-DZZ1iOTMy" className={styles.button}>
+        <a href={FolderLinkStore.link} className={styles.button}>
           → ОТКРЫТЬ ПАПКУ С КУРСАМИ ←
         </a>
       </section>
@@ -60,4 +59,4 @@ export default function SlivKursov() {
       </footer>
     </main>
   );
-}
+});

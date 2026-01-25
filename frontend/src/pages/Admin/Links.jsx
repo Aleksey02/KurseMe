@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import BotLinkStore from '../../store/botLink';
 import ChannelLinkStore from '../../store/channelLinkStore';
 import ChatLinkStore from '../../store/chatLinkStore';
+import FolderLinkStore from '../../store/folderLink';
 import { observer } from 'mobx-react-lite';
 
 const getTypeLink = (type) => {
@@ -13,6 +14,8 @@ const getTypeLink = (type) => {
 			return BotLinkStore.link;
 		case 'chat':
 			return ChatLinkStore.link;
+		case 'folder':
+			return FolderLinkStore.link;
 		case 'channel':
 			return ChannelLinkStore.link;
 		default:
@@ -26,6 +29,8 @@ const getTitleLink = (type) => {
 			return 'бота';
 		case 'chat':
 			return 'чат';
+		case 'folder':
+			return 'папки';
 		case 'channel':
 			return 'канал';
 		default:
@@ -58,8 +63,10 @@ const Links = observer(({isAuth, type}) => {
 			} else if(type === 'chat') {
 				const response = await axios.post(`https://${window.location.host}/api/api/chat-link`, { link });
 				ChatLinkStore.setLink(response.data.link);
-			}
-			else {
+			} else if(type === 'folder') {
+				const response = await axios.post(`https://${window.location.host}/api/api/folder-link`, { link });
+				FolderLinkStore.setLink(response.data.link);
+			} else {
 				const response = await axios.post(`https://${window.location.host}/api/api/channel-link`, { link });
 				ChannelLinkStore.setLink(response.data.link);
 			}
