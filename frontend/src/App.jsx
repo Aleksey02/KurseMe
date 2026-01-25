@@ -41,7 +41,7 @@ const App = observer(({data}) => {
 
   const getBotLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/bot-link/base`);
+      const response = await axios.get(`https://${window.location.host}/api/api/bot-link/base`);
       botLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -50,7 +50,7 @@ const App = observer(({data}) => {
 
   const getBotComLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/bot-link/egeball.com`);
+      const response = await axios.get(`https://${window.location.host}/api/api/bot-link/egeball.com`);
       botLinkStore.setComLink(response.data);
     } catch (error) {
       console.log(error);
@@ -59,7 +59,7 @@ const App = observer(({data}) => {
 
   const getBotOrgLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/bot-link/egeball.org`);
+      const response = await axios.get(`https://${window.location.host}/api/api/bot-link/egeball.org`);
       botLinkStore.setOrgLink(response.data);
     } catch (error) {
       console.log(error);
@@ -68,7 +68,7 @@ const App = observer(({data}) => {
 
   const getChannelLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/channel-link`);
+      const response = await axios.get(`https://${window.location.host}/api/api/channel-link`);
       channelLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -77,7 +77,7 @@ const App = observer(({data}) => {
 
   const getChatLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/chat-link`);
+      const response = await axios.get(`https://${window.location.host}/api/api/chat-link`);
       chatLinkStore.setLink(response.data);
     } catch (error) {
       console.log(error);
@@ -86,7 +86,7 @@ const App = observer(({data}) => {
 
   const getFolderLink = async () => {
     try {
-      const response = await axios.get(`https://${window.location.host}/api/folder-link`);
+      const response = await axios.get(`https://${window.location.host}/api/api/folder-link`);
       console.log(response.data);
       
       FolderLinkStore.setLink(response.data);
