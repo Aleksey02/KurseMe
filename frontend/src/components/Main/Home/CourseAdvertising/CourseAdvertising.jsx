@@ -13,7 +13,7 @@ const CourseAdvertising = observer(() => {
 			<div className={classes.courseAdvertising__info}>
 				<p className={classes.courseAdvertising__label}>{botLinkStore.link}</p>
 				<h2 className={classes.courseAdvertising__title}>Сливы курсов ЕГЭ и ОГЭ в 10 раз дешевле.</h2>
-				<p className={classes.courseAdvertising__desc}>С 2020 года мы помогли 10,000+ выпускникам подготовиться к экзаменам почти за бесценок! Присоединяйся к нашей пиратской семье и занимайся по лучшим курсам за копейки. ❤️</p>
+				<p className={classes.courseAdvertising__desc}>С 2020 года мы помогли 50,000+ выпускникам подготовиться к экзаменам почти за бесценок! Присоединяйся к нашей пиратской семье и занимайся по лучшим курсам за копейки. ❤️</p>
 				<div className={classes.courseAdvertising__image}>
 					<img src={advertImg} alt="Сливы курсов ЕГЭ и ОГЭ в 10 раз дешевле." />
 				</div>
