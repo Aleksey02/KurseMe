@@ -65,6 +65,8 @@ const Links = observer(({isAuth, type}) => {
 				ChatLinkStore.setLink(response.data.link);
 			} else if(type === 'folder') {
 				const response = await axios.post(`https://${window.location.host}/api/api/folder-link`, { link });
+				console.log('folder', link, response);
+				
 				FolderLinkStore.setLink(response.data.link);
 			} else {
 				const response = await axios.post(`https://${window.location.host}/api/api/channel-link`, { link });
