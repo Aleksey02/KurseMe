@@ -3,9 +3,9 @@ import logo from '../../assets/images/Header/logo.svg'
 import profile from '../../assets/images/Header/profile.svg'
 import adminImg from '../../assets/images/Header/sheriff.png'
 import classes from './Header.module.scss'
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-function Header({isAuth, setIsAuth}){
+function Header({isAuth}){
     const [isBurgerActive, setIsBurgerActive] = useState(false);
     const {pathname} = window.location;
     const location = pathname.includes('id') ? `/id${pathname.split('id')[1]}` : "";

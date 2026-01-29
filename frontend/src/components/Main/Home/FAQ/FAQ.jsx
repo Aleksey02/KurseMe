@@ -3,8 +3,9 @@ import classes from './FAQ.module.scss'
 import { useEffect } from 'react'
 import { observer } from 'mobx-react-lite';
 import botLinkStore from '../../../../store/botLink';
+import {faq as faqData} from '../../../../data/data'
 
-const FAQ = observer(({data}) => {
+const FAQ = observer(() => {
     const {pathname} = window.location;
     const refLink = pathname.includes('id') ? `?start=${pathname.split('id')[1]}` : "";
     const link = `https://t.me/${botLinkStore.link}${refLink}`
@@ -29,7 +30,7 @@ const FAQ = observer(({data}) => {
         <div className={classes.faq} id="faq" data-aos="zoom-in-up">
             <h2 className={classes.faq__title}>FAQ:</h2>
             <div className={classes.faq__box}>
-                {data.map((item, index)=><Item info={item} key={index}/>)}
+                {faqData.map((item, index)=><Item info={item} key={index}/>)}
             </div>
             <a href={link} target='_blank' className={classes.faq__link}>КУПИТЬ КУРСЫ</a>
         </div>

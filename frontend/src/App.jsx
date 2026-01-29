@@ -15,9 +15,8 @@ import channelLinkStore from "./store/channelLinkStore"
 import chatLinkStore from "./store/chatLinkStore"
 import FolderLinkStore from "./store/folderLink"
 import reloadImage from './assets/images/reload.png'
-//import Surface from "./components/Surface/Surface"
 
-const App = observer(({data}) => {
+const App = observer(() => {
   const [isAuth, setIsAuth] = useState(false);
   const tgLink = `https://t.me/${botLinkStore.link}`
 
@@ -172,7 +171,7 @@ const App = observer(({data}) => {
     <BrowserRouter>
       <div className="app">
         <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
-        <Main data={data} isAuth={isAuth} setIsAuth={setIsAuth}/>
+        <Main isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Footer/>
         <button className="app__circle--reload" onClick={clearCache}>
           <img src={reloadImage} alt="reload button" />
@@ -180,9 +179,7 @@ const App = observer(({data}) => {
         <a href={tgLink} className="app__circle" target="_blank">
           <img src={`https://${window.location.host}/logo_tg.png`} alt="logo telegram" />
         </a>
-        {/* <Surface /> */}
       </div>
-      
     </BrowserRouter>
   )
 })
