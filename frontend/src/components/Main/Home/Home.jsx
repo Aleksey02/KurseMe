@@ -17,7 +17,7 @@ function Home(){
             <Advantages />
             <div ref={ref}>
                 {isVisible && (
-                <Suspense fallback={<div>Загружается...</div>}>
+                <Suspense>
                     <HowToLook />
                     <Universities />
                     <Reviews />
