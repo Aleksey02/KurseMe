@@ -1,4 +1,3 @@
-import {NavLink} from 'react-router-dom'
 import classes from './Partnership.module.scss'
 import PartnerLine from '../../components/PartnerLine/PartnerLine'
 import img1 from '../../assets/images/Partnership/partnership_image_1.jpg'
