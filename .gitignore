@@ -62,5 +62,3 @@ backend/.vscode/
 # Optional: OS-specific files
 *.bak
 Thumbs.db
-
-frontend/src/main.jsx
