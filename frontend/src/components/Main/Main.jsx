@@ -8,6 +8,7 @@ import SetCookie from '../../pages/SetCookie/SetCookie'
 import RedirectAI from '../../pages/RedirectAI/RedirectAI'
 import Player from '../../pages/Player/Player'
 import SlivKursov from '../../pages/SlivKursov/SlivKursov'
+import PageNotFound from '../../pages/PageNotFound/PageNotFound'
 import { lazy, Suspense } from 'react'
 
 function Main({isAuth, setIsAuth}) {
@@ -21,7 +22,6 @@ function Main({isAuth, setIsAuth}) {
         <main className={classes.main}>
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/:id' element={<Home />} />
                 <Route path='/admin' element={
                     <Suspense fallback={<div>Загружается...</div>}>
                         <Admin isAuth={isAuth} setIsAuth={setIsAuth} /> 
@@ -65,11 +65,11 @@ function Main({isAuth, setIsAuth}) {
                 <Route path='/auth' element={<Auth setIsAuth={setIsAuth}/>} />
                 <Route path='/account' element={<Account isAuth={isAuth} setIsAuth={setIsAuth} />} />
                 <Route path='/partnership' element={<Partnership />} />
-                <Route path='/:id/partnership' element={<Partnership />} />
                 <Route path='/set-cookie' element={<SetCookie setIsAuth={setIsAuth}/>} />
                 <Route path='/ai' element={<RedirectAI />} />
                 <Route path='/player/:title' element={<Player isAuth={isAuth} setIsAuth={setIsAuth}/>} />
                 <Route path='/slivy-kursov-ege' element={<SlivKursov/>} />
+                <Route path='*' element={<PageNotFound/>} />
             </Routes>
         </main>
     )
