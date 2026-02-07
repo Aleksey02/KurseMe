@@ -6,7 +6,7 @@ function PageNotFound() {
 	return (
 		<div className={classes.pageNotFound}>
 			<div className={classes.pageNotFound__wrapper}>
-				<span className={classes.pageNotFound__title}>404</span>
+				<h1 className={classes.pageNotFound__title}>404</h1>
 				<div className={classes.pageNotFound__content}>
 					<span className={classes.pageNotFound__subtitle}>Страница не найдена</span>
 					<img src={logo} alt="Логотип" />
